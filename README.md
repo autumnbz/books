@@ -5,6 +5,18 @@
 * [数据库-知乎-鸣嵩-阿里云](https://www.zhihu.com/people/wei_cao)
 * [数据库-知乎-温正湖-网易](https://www.zhihu.com/people/wen-zheng-hu)
 * [数据库-知乎-郭宽-字节](https://www.zhihu.com/people/royguo)
+* [数据库-知乎-姜承尧-腾讯](https://www.zhihu.com/people/jiangchengyao)
+* [数据库-知乎-Ed Huang-tidb]https://www.zhihu.com/people/huang-dong-xu
+* [中间件-知乎-丁威-中通](https://www.zhihu.com/people/zhong-jian-jian-xing-qu-quan-13)
+* [mongodb-知乎-oppo-杨亚洲](https://www.zhihu.com/people/yang-ya-zhou-42)
+* []
+
+
+* [公众号-知乎-滴滴](https://www.zhihu.com/org/di-di-yun-38)
+* [公众号-知乎-PingCap](https://www.zhihu.com/org/pingcap-25)
+* [公众号-知乎-Ali](https://www.zhihu.com/org/a-li-ji-zhu)
+* [公众号-知乎-Tencent](https://www.zhihu.com/org/teng-xun-ji-zhu-gong-cheng)
+
 
 # 面试题
 * [校招面试分享](https://leetcode-cn.com/circle/discuss/t7l1s2/)
