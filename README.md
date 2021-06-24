@@ -1,4 +1,5 @@
 # 最优秀的书籍、博客列表
+
 # 关注的人、博客、git、知乎等等
 * [数据库-知乎-陈宗志-360](https://www.zhihu.com/people/chenzongzhi)
 * [数据库-git-陈宗志-360](http://baotiao.github.io/)
@@ -9,8 +10,6 @@
 * [数据库-知乎-Ed Huang-tidb]https://www.zhihu.com/people/huang-dong-xu
 * [中间件-知乎-丁威-中通](https://www.zhihu.com/people/zhong-jian-jian-xing-qu-quan-13)
 * [mongodb-知乎-oppo-杨亚洲](https://www.zhihu.com/people/yang-ya-zhou-42)
-* []
-
 
 * [公众号-知乎-滴滴](https://www.zhihu.com/org/di-di-yun-38)
 * [公众号-知乎-PingCap](https://www.zhihu.com/org/pingcap-25)
