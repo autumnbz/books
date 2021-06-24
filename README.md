@@ -1,6 +1,10 @@
 # 最优秀的书籍、博客列表
-# 关注的博客和git
-* [innodb](http://baotiao.github.io/)
+# 关注的人、博客、git、知乎等等
+* [数据库-知乎-陈宗志-360](https://www.zhihu.com/people/chenzongzhi)
+* [数据库-git-陈宗志-360](http://baotiao.github.io/)
+* [数据库-知乎-鸣嵩-阿里云](https://www.zhihu.com/people/wei_cao)
+* [数据库-知乎-温正湖-网易](https://www.zhihu.com/people/wen-zheng-hu)
+* [数据库-知乎-郭宽-字节](https://www.zhihu.com/people/royguo)
 
 # 面试题
 * [校招面试分享](https://leetcode-cn.com/circle/discuss/t7l1s2/)
