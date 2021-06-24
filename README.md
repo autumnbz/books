@@ -15,6 +15,7 @@
 * [公众号-知乎-PingCap](https://www.zhihu.com/org/pingcap-25)
 * [公众号-知乎-Ali](https://www.zhihu.com/org/a-li-ji-zhu)
 * [公众号-知乎-Tencent](https://www.zhihu.com/org/teng-xun-ji-zhu-gong-cheng)
+* [公众号-知乎-携程](https://www.zhihu.com/column/ctriptech)
 
 
 # 面试题
