@@ -7,7 +7,7 @@
 * [数据库-知乎-温正湖-网易](https://www.zhihu.com/people/wen-zheng-hu)
 * [数据库-知乎-郭宽-字节](https://www.zhihu.com/people/royguo)
 * [数据库-知乎-姜承尧-腾讯](https://www.zhihu.com/people/jiangchengyao)
-* [数据库-知乎-Ed Huang-tidb]https://www.zhihu.com/people/huang-dong-xu
+* [数据库-知乎-Ed Huang-tidb](https://www.zhihu.com/people/huang-dong-xu)
 * [中间件-知乎-丁威-中通](https://www.zhihu.com/people/zhong-jian-jian-xing-qu-quan-13)
 * [mongodb-知乎-oppo-杨亚洲](https://www.zhihu.com/people/yang-ya-zhou-42)
 
