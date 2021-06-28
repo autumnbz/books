@@ -33,6 +33,7 @@
 # 数据库
 * [数据库内核包括](http://mysql.taobao.org/monthly/)
 * [分布式数据库在抖音春晚活动中的应用](https://xie.infoq.cn/article/419094886f8d19d8ce28270ff)
+* [打工四年总结的数据库知识点](https://aobing.blog.csdn.net/article/details/109063250)
 
 # Blog
 
