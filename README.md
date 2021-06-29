@@ -50,6 +50,11 @@
 
 # RPC
 * [17 个必问 Dubbo 面试题](https://mp.weixin.qq.com/s/gJ4L2o8fAXnTTxBdyxMJWA)
+* [Dubbo 的 8000 字图文详解，建议收藏](https://blog.csdn.net/qq_42046105/article/details/103359946)
+
+# MQ
+* [Kafka 会不会丢消息？怎么处理的?](https://zhuanlan.zhihu.com/p/354772550)
+* [Kafka 基本原理（8000 字小结）](https://zhuanlan.zhihu.com/p/87987916)
 
 # jvm
 * [从实际案例聊聊Java应用的GC优化](https://mp.weixin.qq.com/s?__biz=MjM5NjQ5MTI5OA==&mid=2651747273&idx=1&sn=7f947064a41eeecb6816a5d0838581ae&chksm=bd12aa848a65239289d5c39264e89bd175f377f6554bfe93b37ad6498cf13deff356333c5398&scene=21#wechat_redirect)
