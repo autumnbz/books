@@ -83,5 +83,8 @@
 * [Lindorm数据优化](https://blog.51cto.com/u_15060465/2675088)
 * [离线数据查询加速的挑战与Lindorm应对之策](https://developer.aliyun.com/article/782253)
 
+# 数据结构
+* [LSM Tree：一种支持高效读写的存储引擎](https://hzhu212.github.io/posts/2d7c5edb/)
+
 # 资料汇总
 * [学习资料汇总](https://www.zhihu.com/question/418745421/answer/1943327356)
