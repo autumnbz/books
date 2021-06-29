@@ -71,6 +71,7 @@
 
 # 操作系统
 * [操作系统常见问题-leetcode](https://leetcode-cn.com/circle/discuss/zIxrWn/)
+* [零拷贝](https://mp.weixin.qq.com/s/FgBCop2zFfcX5ZszE0NoCQ)
 
 # 领域设计
 * [深入理解领域驱动设计中的聚合](https://zhuanlan.zhihu.com/p/381228978)
@@ -78,12 +79,12 @@
 # 分布式
 * [分布式事务一致性与raft或paxos协议](https://www.zhihu.com/question/275845393)
 
-
-# Hystrix
+# 限流
 * [为什么需要 Hystrix?](https://mp.weixin.qq.com/s/Lkj0T1xpBj7DImYcGlz0Bg)
+* [阿里巴巴开源限流系统 Sentinel 全解析](https://mp.weixin.qq.com/s/NgS9tL4IVwGZrssz7fURpA)
 
 # 缓存
-* [多级缓存设计方案](https://xie.infoq.cn/article/8b2e00206eab6adae2de51a29)
+* [多级缓存设计方案](https://xie.infoq.cn/article/8b2e00206eab6adae2de51a29) 
 
 # 大数据
 * [Lindorm数据优化](https://blog.51cto.com/u_15060465/2675088)
