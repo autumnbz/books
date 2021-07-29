@@ -52,6 +52,9 @@
 * [17 个必问 Dubbo 面试题](https://mp.weixin.qq.com/s/gJ4L2o8fAXnTTxBdyxMJWA)
 * [Dubbo 的 8000 字图文详解，建议收藏](https://blog.csdn.net/qq_42046105/article/details/103359946)
 
+# ELasticsearch
+* [滴滴 Elasticsearch 集群跨版本升级与平台重构之路](https://www.infoq.cn/article/J6BFzWfJA0cbmgzN7R1w?utm_source=related_read_bottom&utm_medium=article)
+
 # MQ
 * [Kafka 会不会丢消息？怎么处理的?](https://zhuanlan.zhihu.com/p/354772550)
 * [Kafka 基本原理（8000 字小结）](https://zhuanlan.zhihu.com/p/87987916)
