@@ -101,4 +101,7 @@
 
 # 资料汇总
 * [学习资料汇总](https://www.zhihu.com/question/418745421/answer/1943327356)
+* [java基础知识16问](https://mp.weixin.qq.com/s/-xFSHf7Gz3FUcafTJUIGWQ)
 
+# 架构设计
+* [企业微信的IM架构设计揭秘：消息模型、万人群、已读回执、消息撤回](https://m.sohu.com/a/478384099_100038287/)
