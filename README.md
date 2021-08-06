@@ -54,6 +54,7 @@
 * [MSCode微服务平台,设计、实现、源码](https://www.mscodecloud.com/)
 * [MSCode微服务平台,设计、实现、源码](https://www.mscodecloud.com/)
 * [sentinel 基本概念](https://www.cnblogs.com/crazymakercircle/p/14285001.html)
+* [Nacos配置中心交互模型是 push 还是 pull ？（原理+源码分析）](https://mp.weixin.qq.com/s/i_skVFvqXhVFN52gbhLUGA)
 
 # ELasticsearch
 * [滴滴 Elasticsearch 集群跨版本升级与平台重构之路](https://www.infoq.cn/article/J6BFzWfJA0cbmgzN7R1w?utm_source=related_read_bottom&utm_medium=article)
