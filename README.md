@@ -62,6 +62,8 @@
 # MQ
 * [Kafka 会不会丢消息？怎么处理的?](https://zhuanlan.zhihu.com/p/354772550)
 * [Kafka 基本原理（8000 字小结）](https://zhuanlan.zhihu.com/p/87987916)
+* [RocketMQ NameServer深入剖析](https://mp.weixin.qq.com/s?__biz=MzA5MDA5Njk0NQ%3D%3D&chksm=878973feb0fefae8ef9c37e083085a028bd6e45242d2f986f32655393e525ffcb12acdf5bda9&idx=1&mid=2456618912&scene=21&sn=d9a14b56f04371d70c53bc6631bda170#wechat_redirect)
+* [深入理解RocketMQ Rebalance机制](https://blog.csdn.net/tianshouzhi/article/details/103607572?spm=1001.2014.3001.5501)
 
 # jvm
 * [从实际案例聊聊Java应用的GC优化](https://mp.weixin.qq.com/s?__biz=MjM5NjQ5MTI5OA==&mid=2651747273&idx=1&sn=7f947064a41eeecb6816a5d0838581ae&chksm=bd12aa848a65239289d5c39264e89bd175f377f6554bfe93b37ad6498cf13deff356333c5398&scene=21#wechat_redirect)
