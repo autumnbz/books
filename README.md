@@ -71,6 +71,7 @@
 * [新一代垃圾回收器ZGC的探索与实践](https://zhuanlan.zhihu.com/p/170572432)
 * [《大厂面试》之JVM篇连环21问](https://zhuanlan.zhihu.com/p/360914855)
 * [面试还是得问问你 G1 原理](https://xie.infoq.cn/article/a67ca0dae583d5ba0bd30bc53)
+* [你了解JVM中的ZGC垃圾收集器吗？]https://mp.weixin.qq.com/s?__biz=MzIyNDU2ODA4OQ==&mid=2247488781&idx=1&sn=0b64ca452c3c321d1d10bbd0b86c119d&chksm=e80da37bdf7a2a6d32f7f98011751dd00cba69af7ec8df87b0d70723640e746819d1a36a91d3&scene=21#wechat_redirect
 
 # 计算机网络
 * [面试题详解 - 网址访问过程详解](https://leetcode-cn.com/circle/discuss/UrcaDQ/)
