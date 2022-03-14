@@ -112,3 +112,6 @@
 
 # 敏捷设计
 * [职能竖井：组织敏捷的头号大敌](https://mp.weixin.qq.com/s/4sJ9dsb9WOQ4NrX2dHdecg)
+
+# 技术架构
+* [到店结算平台实践](https://mp.weixin.qq.com/s/pb5yO-sDoR56lp049kR26A)
