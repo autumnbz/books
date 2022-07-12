@@ -35,6 +35,8 @@
 * [分布式数据库在抖音春晚活动中的应用](https://xie.infoq.cn/article/419094886f8d19d8ce28270ff)
 * [打工四年总结的数据库知识点](https://aobing.blog.csdn.net/article/details/109063250)
 
+
+
 # Blog
 
 # Linux
@@ -64,6 +66,7 @@
 * [Kafka 基本原理（8000 字小结）](https://zhuanlan.zhihu.com/p/87987916)
 * [RocketMQ NameServer深入剖析](https://mp.weixin.qq.com/s?__biz=MzA5MDA5Njk0NQ%3D%3D&chksm=878973feb0fefae8ef9c37e083085a028bd6e45242d2f986f32655393e525ffcb12acdf5bda9&idx=1&mid=2456618912&scene=21&sn=d9a14b56f04371d70c53bc6631bda170#wechat_redirect)
 * [深入理解RocketMQ Rebalance机制](https://blog.csdn.net/tianshouzhi/article/details/103607572?spm=1001.2014.3001.5501)
+* [腾讯超大 Apache Pulsar 集群的客户端性能调优实践](https://www.infoq.cn/article/4P6SN4xzYtLtPgIRmzkU)
 
 # jvm
 * [从实际案例聊聊Java应用的GC优化](https://mp.weixin.qq.com/s?__biz=MjM5NjQ5MTI5OA==&mid=2651747273&idx=1&sn=7f947064a41eeecb6816a5d0838581ae&chksm=bd12aa848a65239289d5c39264e89bd175f377f6554bfe93b37ad6498cf13deff356333c5398&scene=21#wechat_redirect)
@@ -82,6 +85,7 @@
 # 操作系统
 * [操作系统常见问题-leetcode](https://leetcode-cn.com/circle/discuss/zIxrWn/)
 * [零拷贝](https://mp.weixin.qq.com/s/FgBCop2zFfcX5ZszE0NoCQ)
+* *[初识计算机组成原理-存储与IO系统篇（一](https://www.jianshu.com/p/802e0ff22c0a)
 
 # 领域设计
 * [深入理解领域驱动设计中的聚合](https://zhuanlan.zhihu.com/p/381228978)
