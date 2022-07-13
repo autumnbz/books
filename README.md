@@ -120,3 +120,6 @@
 
 # 技术架构
 * [到店结算平台实践](https://mp.weixin.qq.com/s/pb5yO-sDoR56lp049kR26A)
+
+# 生产问题
+* [Bibilibi我们是这样崩的](https://mp.weixin.qq.com/s/nGtC5lBX_Iaj57HIdXq3Qg)
