@@ -115,6 +115,7 @@
 # 架构设计
 * [企业微信的IM架构设计揭秘：消息模型、万人群、已读回执、消息撤回](https://m.sohu.com/a/478384099_100038287/)
 * [超大型金融机构国产数据库全面迁移成功实践](https://www.infoq.cn/article/FzTvGmiIb9oFPA9jY36m)
+* [业务数据治理体系化思考与实践](https://tech.meituan.com/2022/05/12/business-data-governance.html)
 
 # 敏捷设计
 * [职能竖井：组织敏捷的头号大敌](https://mp.weixin.qq.com/s/4sJ9dsb9WOQ4NrX2dHdecg)
