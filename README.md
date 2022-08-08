@@ -116,6 +116,7 @@
 * [企业微信的IM架构设计揭秘：消息模型、万人群、已读回执、消息撤回](https://m.sohu.com/a/478384099_100038287/)
 * [超大型金融机构国产数据库全面迁移成功实践](https://www.infoq.cn/article/FzTvGmiIb9oFPA9jY36m)
 * [业务数据治理体系化思考与实践](https://tech.meituan.com/2022/05/12/business-data-governance.html)
+* [软件工程能力漫谈：比编码更重要的，是项目管理能力](https://www.infoq.cn/article/vTVQwb0aKYFIdxAtfHfu?utm_source=related_read_bottom&utm_medium=article)
 
 # 敏捷设计
 * [职能竖井：组织敏捷的头号大敌](https://mp.weixin.qq.com/s/4sJ9dsb9WOQ4NrX2dHdecg)
