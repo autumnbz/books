@@ -117,6 +117,7 @@
 * [超大型金融机构国产数据库全面迁移成功实践](https://www.infoq.cn/article/FzTvGmiIb9oFPA9jY36m)
 * [业务数据治理体系化思考与实践](https://tech.meituan.com/2022/05/12/business-data-governance.html)
 * [软件工程能力漫谈：比编码更重要的，是项目管理能力](https://www.infoq.cn/article/vTVQwb0aKYFIdxAtfHfu?utm_source=related_read_bottom&utm_medium=article)
+* [某国有银行的超融合技术选型和应用实践](https://zhuanlan.zhihu.com/p/319380716?utm_medium=social&utm_oi=731599168514043904&utm_psn=1543393479069454337&utm_source=wechat_session)
 
 # 敏捷设计
 * [职能竖井：组织敏捷的头号大敌](https://mp.weixin.qq.com/s/4sJ9dsb9WOQ4NrX2dHdecg)
