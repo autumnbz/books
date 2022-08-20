@@ -1,0 +1,17 @@
+/* Base */
+@import url(http://static.typepad.com/.shared:v20130222.01-0-ga9a84f6:typepad:he/themes/walt/styleless/theme.css);
+
+/* Tip Jar */
+@import url(http://static.typepad.com/.shared:v20130222.01-0-ga9a84f6:typepad:he/themes/common/tipjar.css);
+
+/* Portal */
+
+/* Theme */
+@import url(http://static.typepad.com/.shared:v20130222.01-0-ga9a84f6:typepad:he/themes/typepad/theme-chunky/chunky.css);
+
+/* Custom CSS */
+.entry-featured { background-color: #f2f9fb; }
+
+
+
+/* ph=1 */
