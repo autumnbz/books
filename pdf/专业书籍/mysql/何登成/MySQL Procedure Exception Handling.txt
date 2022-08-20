@@ -1,0 +1,193 @@
+-------------------------------------------------------------------------------
+------ MySQL Procedure异常处理功能测试————如何写一个正确的Procedure？ ---------
+-------------------------------------------------------------------------------
+
+-------------------------- 参考资料 -----------------------------
+http://dev.mysql.com/doc/refman/5.5/en/stored-programs-views.html	-- Stored Programs and Views
+http://dev.mysql.com/doc/refman/5.1/en/declare-handler.html			-- DECLARE ... HANDLER Syntax
+http://wwty.iteye.com/blog/698239									-- MySQL存储过程之异常处理篇
+http://dev.mysql.com/doc/refman/5.5/en/metadata-locking.html		-- Metadata Locking
+
+------------------- 存储过程，异常处理测试 ---------------------
+MySQL支持存储过程(Procedure)，写法可参考 【Stored Programs and Views】。
+存储过程，支持异常处理逻辑，可参考【DECLARE ... HANDLER Syntax】，有两种
+异常处理的模式：CONTINUE 与 EXIT。
+问题：
+1. CONTINUE 与 EXIT 模式有何区别？
+2. 存储过程默认使用哪种异常处理模式？
+3. 若一个存储过程，在事务中出现异常，那么事务是否会自动提交/回滚？
+4. 如何撰写一个正确的，包含异常处理的MySQL存储过程？
+
+-------------------- 测试准备 ---------------------
+CREATE TABLE test.t (s1 INT, PRIMARY KEY (s1));
+
+--------------- 测试 CONTINUE 模式 ----------------
+delete from test.t;
+drop procedure handlerdemo;
+
+delimiter //
+CREATE PROCEDURE handlerdemo ()
+BEGIN
+DECLARE CONTINUE HANDLER FOR SQLSTATE '23000' SET @x2 = 1;
+SET @x = 1;
+INSERT INTO test.t VALUES (1);
+SET @x = 2;
+INSERT INTO test.t VALUES (1);
+SET @x = 3;
+END;
+//
+delimiter ;
+
+mysql> CALL handlerdemo();
+
+mysql> SELECT @x;
+    +------+
+    | @x   |
+    +------+
+    | 3    |
+    +------+
+    1 row in set (0.00 sec)
+
+结论一：
+	此时返回的结果：x = 3。出现异常后，继续执行存储过程，出错语句下面的 SET @x = 3；这条语句。
+	
+-------------- 测试EXIT模式 -------------------
+delete from test.t;
+drop procedure handlerdemo;
+
+delimiter //
+CREATE PROCEDURE handlerdemo ()
+BEGIN
+DECLARE EXIT HANDLER FOR SQLSTATE '23000' SET @x2 = 1;
+SET @x = 1;
+INSERT INTO test.t VALUES (1);
+SET @x = 2;
+INSERT INTO test.t VALUES (1);
+SET @x = 3;
+END;
+//
+delimiter ;
+
+mysql> CALL handlerdemo();
+
+mysql> SELECT @x;
+    +------+
+    | @x   |
+    +------+
+    | 2    |
+    +------+
+    1 row in set (0.00 sec)
+
+结论二：
+	此时返回的结果：x = 2。出现异常后，停止执行出错语句下面的 SET @x = 3；，直接退出。	
+	
+---------- 测试默认模式 -------------
+delete from test.t;
+drop procedure handlerdemo;
+
+delimiter //
+CREATE PROCEDURE handlerdemo ()
+BEGIN
+SET @x = 1;
+INSERT INTO test.t VALUES (1);
+SET @x = 2;
+INSERT INTO test.t VALUES (1);
+SET @x = 3;
+END;
+//
+delimiter ;
+
+mysql> CALL handlerdemo();
+
+mysql> SELECT @x;
+    +------+
+    | @x   |
+    +------+
+    | 2    |
+    +------+
+    1 row in set (0.00 sec)
+
+结论三：
+	此时返回的结果：x = 2。默认异常处理为EXIT模式。
+	
+----- 测试默认异常处理下是否会自动提交/回滚事务 -----
+delete from test.t;
+drop procedure handlerdemo;
+
+delimiter //
+CREATE PROCEDURE handlerdemo ()
+BEGIN
+/* 新增事务处理逻辑 */
+start transaction;
+SET @x = 1;
+INSERT INTO test.t VALUES (1);
+SET @x = 2;
+INSERT INTO test.t VALUES (1);
+SET @x = 3;
+/* 提交事务 */
+commit;
+END;
+//
+delimiter ;
+
+-------- session 1 ----------							---------- session 2 ------------
+
+mysql> CALL handlerdemo();								
+														// 证明session 1的事务已经回滚，或者是仍旧活跃
+														mysql> select * from t;
+														Empty set (0.00 sec)
+mysql> commit;
+														// 证明session 1的事务仍旧活跃，提交后，修改生效
+														mysql> select * from t;
+														+----+
+														| s1 |
+														+----+
+														|  1 |
+														+----+
+														1 row in set (0.00 sec)
+
+结论四：														
+	Procedure执行失败后，并不会主动提交/回滚事务，需要外部手动处理。
+	注：若此时session 1执行rollback，则session 2的select返回Empty set。
+														
+--------- 测试EXIT模式下，碰到异常回滚事务 ------------
+delete from test.t;
+drop procedure handlerdemo;
+
+delimiter //
+CREATE PROCEDURE handlerdemo ()
+BEGIN
+DECLARE EXIT HANDLER FOR SQLSTATE '23000'
+BEGIN
+	/* 捕获异常，回滚事务 */
+	rollback;
+END;
+/* 开始事务 */
+start transaction;
+SET @x = 1;
+INSERT INTO test.t VALUES (1);
+SET @x = 2;
+INSERT INTO test.t VALUES (1);
+SET @x = 3;
+/* 提交事务 */
+commit;
+END;
+//
+delimiter ;
+														
+----------- session 1 -----------						----------- session 2 -------------
+
+mysql> CALL handlerdemo();								
+														// 证明session 1的事务已经回滚，或者是仍旧活跃
+														mysql> select * from t;
+														Empty set (0.00 sec)
+mysql> commit;
+														// 证明Procedure handlerdemo在执行过程中，碰到异常，
+														// 调用了异常处理的rollback()方法，回滚事务
+														// session 1此时执行commit，没有产生任何作用，事务已结束
+														mysql> select * from t;
+														Empty set (0.00 sec)
+														
+结论五：												
+	Procedure执行失败后，调用了异常处理的rollback()方法，回滚事务。
+	至此，一个包含事务与异常处理的正确存储过程获得。
