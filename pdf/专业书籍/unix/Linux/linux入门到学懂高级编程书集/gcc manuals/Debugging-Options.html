@@ -1,0 +1,533 @@
+<html lang="en">
+<head>
+<title>Using the GNU Compiler Collection (GCC)</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Using the GNU Compiler Collection (GCC)">
+<meta name="generator" content="makeinfo 4.6">
+<!--
+Copyright &copy; 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+   <p>Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "GNU General Public License" and "Funding
+Free Software", the Front-Cover texts being (a) (see below), and with
+the Back-Cover Texts being (b) (see below).  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+   <p>(a) The FSF's Front-Cover Text is:
+
+   <p>A GNU Manual
+
+   <p>(b) The FSF's Back-Cover Text is:
+
+   <p>You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+Node:&nbsp;<a name="Debugging%20Options">Debugging Options</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Warning-Options.html#Warning%20Options">Warning Options</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Invoking-GCC.html#Invoking%20GCC">Invoking GCC</a>
+<hr><br>
+</div>
+
+<h3 class="section">Options for Debugging Your Program or GCC</h3>
+
+<p>GCC has various special options that are used for debugging
+either your program or GCC:
+
+     <dl>
+<dt><code>-g</code>
+     <dd>Produce debugging information in the operating system's native format
+(stabs, COFF, XCOFF, or DWARF).  GDB can work with this debugging
+information.
+
+     <p>On most systems that use stabs format, <code>-g</code> enables use of extra
+debugging information that only GDB can use; this extra information
+makes debugging work better in GDB but will probably make other debuggers
+crash or
+refuse to read the program.  If you want to control for certain whether
+to generate the extra information, use <code>-gstabs+</code>, <code>-gstabs</code>,
+<code>-gxcoff+</code>, <code>-gxcoff</code>, or <code>-gvms</code> (see below).
+
+     <p>Unlike most other C compilers, GCC allows you to use <code>-g</code> with
+<code>-O</code>.  The shortcuts taken by optimized code may occasionally
+produce surprising results: some variables you declared may not exist
+at all; flow of control may briefly move where you did not expect it;
+some statements may not be executed because they compute constant
+results or their values were already at hand; some statements may
+execute in different places because they were moved out of loops.
+
+     <p>Nevertheless it proves possible to debug optimized output.  This makes
+it reasonable to use the optimizer for programs that might have bugs.
+
+     <p>The following options are useful when GCC is generated with the
+capability for more than one debugging format.
+
+     <br><dt><code>-ggdb</code>
+     <dd>Produce debugging information for use by GDB.  This means to use the
+most expressive format available (DWARF 2, stabs, or the native format
+if neither of those are supported), including GDB extensions if at all
+possible.
+
+     <br><dt><code>-gstabs</code>
+     <dd>Produce debugging information in stabs format (if that is supported),
+without GDB extensions.  This is the format used by DBX on most BSD
+systems.  On MIPS, Alpha and System V Release 4 systems this option
+produces stabs debugging output which is not understood by DBX or SDB. 
+On System V Release 4 systems this option requires the GNU assembler.
+
+     <br><dt><code>-feliminate-unused-debug-symbols</code>
+     <dd>Produce debugging information in stabs format (if that is supported),
+for only symbols that are actually used.
+
+     <br><dt><code>-gstabs+</code>
+     <dd>Produce debugging information in stabs format (if that is supported),
+using GNU extensions understood only by the GNU debugger (GDB).  The
+use of these extensions is likely to make other debuggers crash or
+refuse to read the program.
+
+     <br><dt><code>-gcoff</code>
+     <dd>Produce debugging information in COFF format (if that is supported). 
+This is the format used by SDB on most System V systems prior to
+System V Release 4.
+
+     <br><dt><code>-gxcoff</code>
+     <dd>Produce debugging information in XCOFF format (if that is supported). 
+This is the format used by the DBX debugger on IBM RS/6000 systems.
+
+     <br><dt><code>-gxcoff+</code>
+     <dd>Produce debugging information in XCOFF format (if that is supported),
+using GNU extensions understood only by the GNU debugger (GDB).  The
+use of these extensions is likely to make other debuggers crash or
+refuse to read the program, and may cause assemblers other than the GNU
+assembler (GAS) to fail with an error.
+
+     <br><dt><code>-gdwarf-2</code>
+     <dd>Produce debugging information in DWARF version 2 format (if that is
+supported).  This is the format used by DBX on IRIX 6.
+
+     <br><dt><code>-gvms</code>
+     <dd>Produce debugging information in VMS debug format (if that is
+supported).  This is the format used by DEBUG on VMS systems.
+
+     <br><dt><code>-g</code><var>level</var><code></code>
+     <dd><dt><code>-ggdb</code><var>level</var><code></code>
+     <dd><dt><code>-gstabs</code><var>level</var><code></code>
+     <dd><dt><code>-gcoff</code><var>level</var><code></code>
+     <dd><dt><code>-gxcoff</code><var>level</var><code></code>
+     <dd><dt><code>-gvms</code><var>level</var><code></code>
+     <dd>Request debugging information and also use <var>level</var> to specify how
+much information.  The default level is 2.
+
+     <p>Level 1 produces minimal information, enough for making backtraces in
+parts of the program that you don't plan to debug.  This includes
+descriptions of functions and external variables, but no information
+about local variables and no line numbers.
+
+     <p>Level 3 includes extra information, such as all the macro definitions
+present in the program.  Some debuggers support macro expansion when
+you use <code>-g3</code>.
+
+     <p>Note that in order to avoid confusion between DWARF1 debug level 2,
+and DWARF2 <code>-gdwarf-2</code> does not accept a concatenated debug
+level.  Instead use an additional <code>-g</code><var>level</var><code></code> option to
+change the debug level for DWARF2.
+
+     <br><dt><code>-feliminate-dwarf2-dups</code>
+     <dd>Compress DWARF2 debugging information by eliminating duplicated
+information about each symbol.  This option only makes sense when
+generating DWARF2 debugging information with <code>-gdwarf-2</code>.
+
+     <br><dt><code>-p</code>
+     <dd>Generate extra code to write profile information suitable for the
+analysis program <code>prof</code>.  You must use this option when compiling
+the source files you want data about, and you must also use it when
+linking.
+
+     <br><dt><code>-pg</code>
+     <dd>Generate extra code to write profile information suitable for the
+analysis program <code>gprof</code>.  You must use this option when compiling
+the source files you want data about, and you must also use it when
+linking.
+
+     <br><dt><code>-Q</code>
+     <dd>Makes the compiler print out each function name as it is compiled, and
+print some statistics about each pass when it finishes.
+
+     <br><dt><code>-ftime-report</code>
+     <dd>Makes the compiler print some statistics about the time consumed by each
+pass when it finishes.
+
+     <br><dt><code>-fmem-report</code>
+     <dd>Makes the compiler print some statistics about permanent memory
+allocation when it finishes.
+
+     <br><dt><code>-fprofile-arcs</code>
+     <dd>Add code so that program flow <dfn>arcs</dfn> are instrumented.  During
+execution the program records how many times each branch and call is
+executed and how many times it is taken or returns.  When the compiled
+program exits it saves this data to a file called
+<code></code><var>auxname</var><code>.gcda</code> for each source file. The data may be used for
+profile-directed optimizations (<code>-fbranch-probabilities</code>), or for
+test coverage analysis (<code>-ftest-coverage</code>). Each object file's
+<var>auxname</var> is generated from the name of the output file, if
+explicitly specified and it is not the final executable, otherwise it is
+the basename of the source file. In both cases any suffix is removed
+(e.g.  <code>foo.gcda</code> for input file <code>dir/foo.c</code>, or
+<code>dir/foo.gcda</code> for output file specified as <code>-o dir/foo.o</code>).
+
+          <ul>
+
+          <li>Compile the source files with <code>-fprofile-arcs</code> plus optimization
+and code generation options. For test coverage analysis, use the
+additional <code>-ftest-coverage</code> option. You do not need to profile
+every source file in a program.
+
+          <li>Link your object files with <code>-lgcov</code> or <code>-fprofile-arcs</code>
+(the latter implies the former).
+
+          <li>Run the program on a representative workload to generate the arc profile
+information. This may be repeated any number of times. You can run
+concurrent instances of your program, and provided that the file system
+supports locking, the data files will be correctly updated. Also
+<code>fork</code> calls are detected and correctly handled (double counting
+will not happen).
+
+          <li>For profile-directed optimizations, compile the source files again with
+the same optimization and code generation options plus
+<code>-fbranch-probabilities</code> (see <a href="Optimize-Options.html#Optimize%20Options">Options that Control Optimization</a>).
+
+          <li>For test coverage analysis, use <code>gcov</code> to produce human readable
+information from the <code>.gcno</code> and <code>.gcda</code> files. Refer to the
+<code>gcov</code> documentation for further information.
+
+     </ul>
+
+     <p>With <code>-fprofile-arcs</code>, for each function of your program GCC
+creates a program flow graph, then finds a spanning tree for the graph. 
+Only arcs that are not on the spanning tree have to be instrumented: the
+compiler adds code to count the number of times that these arcs are
+executed.  When an arc is the only exit or only entrance to a block, the
+instrumentation code can be added to the block; otherwise, a new basic
+block must be created to hold the instrumentation code.
+
+     <br><dt><code>-ftest-coverage</code>
+     <dd>Produce a notes file that the <code>gcov</code> code-coverage utility
+(see <a href="Gcov.html#Gcov"><code>gcov</code>--a Test Coverage Program</a>) can use to
+show program coverage. Each source file's note file is called
+<code></code><var>auxname</var><code>.gcno</code>. Refer to the <code>-fprofile-arcs</code> option
+above for a description of <var>auxname</var> and instructions on how to
+generate test coverage data. Coverage data will match the source files
+more closely, if you do not optimize.
+
+     <br><dt><code>-d</code><var>letters</var><code></code>
+     <dd>Says to make debugging dumps during compilation at times specified by
+<var>letters</var>.  This is used for debugging the compiler.  The file names
+for most of the dumps are made by appending a pass number and a word to
+the <var>dumpname</var>. <var>dumpname</var> is generated from the name of the
+output file, if explicitly specified and it is not an executable,
+otherwise it is the basename of the source file. In both cases any
+suffix is removed (e.g.  <code>foo.01.rtl</code> or <code>foo.02.sibling</code>). 
+Here are the possible letters for use in <var>letters</var>, and their
+meanings:
+
+          <dl>
+<dt><code>A</code>
+          <dd>Annotate the assembler output with miscellaneous debugging information. 
+<br><dt><code>b</code>
+          <dd>Dump after computing branch probabilities, to <code></code><var>file</var><code>.12.bp</code>. 
+<br><dt><code>B</code>
+          <dd>Dump after block reordering, to <code></code><var>file</var><code>.31.bbro</code>. 
+<br><dt><code>c</code>
+          <dd>Dump after instruction combination, to the file <code></code><var>file</var><code>.20.combine</code>. 
+<br><dt><code>C</code>
+          <dd>Dump after the first if conversion, to the file <code></code><var>file</var><code>.14.ce1</code>. 
+Also dump after the second if conversion, to the file <code></code><var>file</var><code>.21.ce2</code>. 
+<br><dt><code>d</code>
+          <dd>Dump after branch target load optimization, to to <code></code><var>file</var><code>.32.btl</code>. 
+Also dump after delayed branch scheduling, to <code></code><var>file</var><code>.36.dbr</code>. 
+<br><dt><code>D</code>
+          <dd>Dump all macro definitions, at the end of preprocessing, in addition to
+normal output. 
+<br><dt><code>E</code>
+          <dd>Dump after the third if conversion, to <code></code><var>file</var><code>.30.ce3</code>. 
+<br><dt><code>f</code>
+          <dd>Dump after control and data flow analysis, to <code></code><var>file</var><code>.11.cfg</code>. 
+Also dump after life analysis, to <code></code><var>file</var><code>.19.life</code>. 
+<br><dt><code>F</code>
+          <dd>Dump after purging <code>ADDRESSOF</code> codes, to <code></code><var>file</var><code>.07.addressof</code>. 
+<br><dt><code>g</code>
+          <dd>Dump after global register allocation, to <code></code><var>file</var><code>.25.greg</code>. 
+<br><dt><code>G</code>
+          <dd>Dump after GCSE, to <code></code><var>file</var><code>.08.gcse</code>. 
+Also dump after jump bypassing and control flow optimizations, to
+<code></code><var>file</var><code>.10.bypass</code>. 
+<br><dt><code>h</code>
+          <dd>Dump after finalization of EH handling code, to <code></code><var>file</var><code>.03.eh</code>. 
+<br><dt><code>i</code>
+          <dd>Dump after sibling call optimizations, to <code></code><var>file</var><code>.02.sibling</code>. 
+<br><dt><code>j</code>
+          <dd>Dump after the first jump optimization, to <code></code><var>file</var><code>.04.jump</code>. 
+<br><dt><code>k</code>
+          <dd>Dump after conversion from registers to stack, to <code></code><var>file</var><code>.34.stack</code>. 
+<br><dt><code>l</code>
+          <dd>Dump after local register allocation, to <code></code><var>file</var><code>.24.lreg</code>. 
+<br><dt><code>L</code>
+          <dd>Dump after loop optimization passes, to <code></code><var>file</var><code>.09.loop</code> and
+<code></code><var>file</var><code>.16.loop2</code>. 
+<br><dt><code>M</code>
+          <dd>Dump after performing the machine dependent reorganization pass, to
+<code></code><var>file</var><code>.35.mach</code>. 
+<br><dt><code>n</code>
+          <dd>Dump after register renumbering, to <code></code><var>file</var><code>.29.rnreg</code>. 
+<br><dt><code>N</code>
+          <dd>Dump after the register move pass, to <code></code><var>file</var><code>.22.regmove</code>. 
+<br><dt><code>o</code>
+          <dd>Dump after post-reload optimizations, to <code></code><var>file</var><code>.26.postreload</code>. 
+<br><dt><code>r</code>
+          <dd>Dump after RTL generation, to <code></code><var>file</var><code>.01.rtl</code>. 
+<br><dt><code>R</code>
+          <dd>Dump after the second scheduling pass, to <code></code><var>file</var><code>.33.sched2</code>. 
+<br><dt><code>s</code>
+          <dd>Dump after CSE (including the jump optimization that sometimes follows
+CSE), to <code></code><var>file</var><code>.06.cse</code>. 
+<br><dt><code>S</code>
+          <dd>Dump after the first scheduling pass, to <code></code><var>file</var><code>.23.sched</code>. 
+<br><dt><code>t</code>
+          <dd>Dump after the second CSE pass (including the jump optimization that
+sometimes follows CSE), to <code></code><var>file</var><code>.18.cse2</code>. 
+<br><dt><code>T</code>
+          <dd>Dump after running tracer, to <code></code><var>file</var><code>.15.tracer</code>. 
+<br><dt><code>u</code>
+          <dd>Dump after null pointer elimination pass to <code></code><var>file</var><code>.05.null</code>. 
+<br><dt><code>U</code>
+          <dd>Dump callgraph and unit-at-a-time optimization <code></code><var>file</var><code>.00.unit</code>. 
+<br><dt><code>V</code>
+          <dd>Dump after the value profile transformations, to <code></code><var>file</var><code>.13.vpt</code>. 
+Also dump after variable tracking, to <code></code><var>file</var><code>.35.vartrack</code>. 
+<br><dt><code>w</code>
+          <dd>Dump after the second flow pass, to <code></code><var>file</var><code>.27.flow2</code>. 
+<br><dt><code>z</code>
+          <dd>Dump after the peephole pass, to <code></code><var>file</var><code>.28.peephole2</code>. 
+<br><dt><code>Z</code>
+          <dd>Dump after constructing the web, to <code></code><var>file</var><code>.17.web</code>. 
+<br><dt><code>a</code>
+          <dd>Produce all the dumps listed above. 
+<br><dt><code>H</code>
+          <dd>Produce a core dump whenever an error occurs. 
+<br><dt><code>m</code>
+          <dd>Print statistics on memory usage, at the end of the run, to
+standard error. 
+<br><dt><code>p</code>
+          <dd>Annotate the assembler output with a comment indicating which
+pattern and alternative was used.  The length of each instruction is
+also printed. 
+<br><dt><code>P</code>
+          <dd>Dump the RTL in the assembler output as a comment before each instruction. 
+Also turns on <code>-dp</code> annotation. 
+<br><dt><code>v</code>
+          <dd>For each of the other indicated dump files (except for
+<code></code><var>file</var><code>.01.rtl</code>), dump a representation of the control flow graph
+suitable for viewing with VCG to <code></code><var>file</var><code>.</code><var>pass</var><code>.vcg</code>. 
+<br><dt><code>x</code>
+          <dd>Just generate RTL for a function instead of compiling it.  Usually used
+with <code>r</code>. 
+<br><dt><code>y</code>
+          <dd>Dump debugging information during parsing, to standard error. 
+</dl>
+
+     <br><dt><code>-fdump-unnumbered</code>
+     <dd>When doing debugging dumps (see <code>-d</code> option above), suppress instruction
+numbers and line number note output.  This makes it more feasible to
+use diff on debugging dumps for compiler invocations with different
+options, in particular with and without <code>-g</code>.
+
+     <br><dt><code>-fdump-translation-unit </code>(C and C++ only)<code></code>
+     <dd><dt><code>-fdump-translation-unit-</code><var>options</var><code> </code>(C and C++ only)<code></code>
+     <dd>Dump a representation of the tree structure for the entire translation
+unit to a file.  The file name is made by appending <code>.tu</code> to the
+source file name.  If the <code>-</code><var>options</var><code></code> form is used, <var>options</var>
+controls the details of the dump as described for the
+<code>-fdump-tree</code> options.
+
+     <br><dt><code>-fdump-class-hierarchy </code>(C++ only)<code></code>
+     <dd><dt><code>-fdump-class-hierarchy-</code><var>options</var><code> </code>(C++ only)<code></code>
+     <dd>Dump a representation of each class's hierarchy and virtual function
+table layout to a file.  The file name is made by appending <code>.class</code>
+to the source file name.  If the <code>-</code><var>options</var><code></code> form is used,
+<var>options</var> controls the details of the dump as described for the
+<code>-fdump-tree</code> options.
+
+     <br><dt><code>-fdump-tree-</code><var>switch</var><code> </code>(C++ only)<code></code>
+     <dd><dt><code>-fdump-tree-</code><var>switch</var><code>-</code><var>options</var><code> </code>(C++ only)<code></code>
+     <dd>Control the dumping at various stages of processing the intermediate
+language tree to a file.  The file name is generated by appending a switch
+specific suffix to the source file name.  If the <code>-</code><var>options</var><code></code>
+form is used, <var>options</var> is a list of <code>-</code> separated options that
+control the details of the dump. Not all options are applicable to all
+dumps, those which are not meaningful will be ignored. The following
+options are available
+
+          <dl>
+<dt><code>address</code>
+          <dd>Print the address of each node.  Usually this is not meaningful as it
+changes according to the environment and source file. Its primary use
+is for tying up a dump file with a debug environment. 
+<br><dt><code>slim</code>
+          <dd>Inhibit dumping of members of a scope or body of a function merely
+because that scope has been reached. Only dump such items when they
+are directly reachable by some other path. 
+<br><dt><code>all</code>
+          <dd>Turn on all options. 
+</dl>
+
+     <p>The following tree dumps are possible:
+          <dl>
+<dt><code>original</code>
+          <dd>Dump before any tree based optimization, to <code></code><var>file</var><code>.original</code>. 
+<br><dt><code>optimized</code>
+          <dd>Dump after all tree based optimization, to <code></code><var>file</var><code>.optimized</code>. 
+<br><dt><code>inlined</code>
+          <dd>Dump after function inlining, to <code></code><var>file</var><code>.inlined</code>. 
+</dl>
+
+     <br><dt><code>-frandom-seed=</code><var>string</var><code></code>
+     <dd>This option provides a seed that GCC uses when it would otherwise use
+random numbers.  It is used to generate certain symbol names
+that have to be different in every compiled file. It is also used to
+place unique stamps in coverage data files and the object files that
+produce them. You can use the <code>-frandom-seed</code> option to produce
+reproducibly identical object files.
+
+     <p>The <var>string</var> should be different for every file you compile.
+
+     <br><dt><code>-fsched-verbose=</code><var>n</var><code></code>
+     <dd>On targets that use instruction scheduling, this option controls the
+amount of debugging output the scheduler prints.  This information is
+written to standard error, unless <code>-dS</code> or <code>-dR</code> is
+specified, in which case it is output to the usual dump
+listing file, <code>.sched</code> or <code>.sched2</code> respectively.  However
+for <var>n</var> greater than nine, the output is always printed to standard
+error.
+
+     <p>For <var>n</var> greater than zero, <code>-fsched-verbose</code> outputs the
+same information as <code>-dRS</code>.  For <var>n</var> greater than one, it
+also output basic block probabilities, detailed ready list information
+and unit/insn info.  For <var>n</var> greater than two, it includes RTL
+at abort point, control-flow and regions info.  And for <var>n</var> over
+four, <code>-fsched-verbose</code> also includes dependence info.
+
+     <br><dt><code>-save-temps</code>
+     <dd>Store the usual "temporary" intermediate files permanently; place them
+in the current directory and name them based on the source file.  Thus,
+compiling <code>foo.c</code> with <code>-c -save-temps</code> would produce files
+<code>foo.i</code> and <code>foo.s</code>, as well as <code>foo.o</code>.  This creates a
+preprocessed <code>foo.i</code> output file even though the compiler now
+normally uses an integrated preprocessor.
+
+     <br><dt><code>-time</code>
+     <dd>Report the CPU time taken by each subprocess in the compilation
+sequence.  For C source files, this is the compiler proper and assembler
+(plus the linker if linking is done).  The output looks like this:
+
+     <pre class="smallexample">          # cc1 0.12 0.01
+          # as 0.00 0.01
+          </pre>
+
+     <p>The first number on each line is the "user time," that is time spent
+executing the program itself.  The second number is "system time,"
+time spent executing operating system routines on behalf of the program. 
+Both numbers are in seconds.
+
+     <br><dt><code>-fvar-tracking</code>
+     <dd>Run variable tracking pass. It computes where variables are stored at each
+position in code. Better debugging information is then generated
+(if the debugging information format supports this information).
+
+     <p>It is enabled by default when compiling with optimization (<code>-Os</code>,
+<code>-O</code>, <code>-O2</code>, ...), debugging information (<code>-g</code>) and
+the debug info format supports it.
+
+     <br><dt><code>-print-file-name=</code><var>library</var><code></code>
+     <dd>Print the full absolute name of the library file <var>library</var> that
+would be used when linking--and don't do anything else.  With this
+option, GCC does not compile or link anything; it just prints the
+file name.
+
+     <br><dt><code>-print-multi-directory</code>
+     <dd>Print the directory name corresponding to the multilib selected by any
+other switches present in the command line.  This directory is supposed
+to exist in <code>GCC_EXEC_PREFIX</code>.
+
+     <br><dt><code>-print-multi-lib</code>
+     <dd>Print the mapping from multilib directory names to compiler switches
+that enable them.  The directory name is separated from the switches by
+<code>;</code>, and each switch starts with an <code>@</code> instead of the
+<code>-</code>, without spaces between multiple switches.  This is supposed to
+ease shell-processing.
+
+     <br><dt><code>-print-prog-name=</code><var>program</var><code></code>
+     <dd>Like <code>-print-file-name</code>, but searches for a program such as <code>cpp</code>.
+
+     <br><dt><code>-print-libgcc-file-name</code>
+     <dd>Same as <code>-print-file-name=libgcc.a</code>.
+
+     <p>This is useful when you use <code>-nostdlib</code> or <code>-nodefaultlibs</code>
+but you do want to link with <code>libgcc.a</code>.  You can do
+
+     <pre class="smallexample">          gcc -nostdlib <var>files</var>... `gcc -print-libgcc-file-name`
+          </pre>
+
+     <br><dt><code>-print-search-dirs</code>
+     <dd>Print the name of the configured installation directory and a list of
+program and library directories <code>gcc</code> will search--and don't do anything else.
+
+     <p>This is useful when <code>gcc</code> prints the error message
+<code>installation problem, cannot exec cpp0: No such file or directory</code>. 
+To resolve this you either need to put <code>cpp0</code> and the other compiler
+components where <code>gcc</code> expects to find them, or you can set the environment
+variable <code>GCC_EXEC_PREFIX</code> to the directory where you installed them. 
+Don't forget the trailing '/'. 
+See <a href="Environment-Variables.html#Environment%20Variables">Environment Variables</a>.
+
+     <br><dt><code>-dumpmachine</code>
+     <dd>Print the compiler's target machine (for example,
+<code>i686-pc-linux-gnu</code>)--and don't do anything else.
+
+     <br><dt><code>-dumpversion</code>
+     <dd>Print the compiler version (for example, <code>3.0</code>)--and don't do
+anything else.
+
+     <br><dt><code>-dumpspecs</code>
+     <dd>Print the compiler's built-in specs--and don't do anything else.  (This
+is used when GCC itself is being built.)  See <a href="Spec-Files.html#Spec%20Files">Spec Files</a>.
+
+     <br><dt><code>-feliminate-unused-debug-types</code>
+     <dd>Normally, when producing DWARF2 output, GCC will emit debugging
+information for all types declared in a compilation
+unit, regardless of whether or not they are actually used
+in that compilation unit.  Sometimes this is useful, such as
+if, in the debugger, you want to cast a value to a type that is
+not actually used in your program (but is declared).  More often,
+however, this results in a significant amount of wasted space. 
+With this option, GCC will avoid producing debug symbol output
+for types that are nowhere used in the source file being compiled. 
+</dl>
+
+   </body></html>
+

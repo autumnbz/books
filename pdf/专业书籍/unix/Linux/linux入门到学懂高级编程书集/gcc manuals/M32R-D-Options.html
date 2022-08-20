@@ -1,0 +1,150 @@
+<html lang="en">
+<head>
+<title>Using the GNU Compiler Collection (GCC)</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Using the GNU Compiler Collection (GCC)">
+<meta name="generator" content="makeinfo 4.6">
+<!--
+Copyright &copy; 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+   <p>Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "GNU General Public License" and "Funding
+Free Software", the Front-Cover texts being (a) (see below), and with
+the Back-Cover Texts being (b) (see below).  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+   <p>(a) The FSF's Front-Cover Text is:
+
+   <p>A GNU Manual
+
+   <p>(b) The FSF's Back-Cover Text is:
+
+   <p>You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+Node:&nbsp;<a name="M32R%2fD%20Options">M32R/D Options</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="MN10300-Options.html#MN10300%20Options">MN10300 Options</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Submodel-Options.html#Submodel%20Options">Submodel Options</a>
+<hr><br>
+</div>
+
+<h3 class="subsection">M32R/D Options</h4>
+
+<p>These <code>-m</code> options are defined for Renesas M32R/D architectures:
+
+     <dl>
+<dt><code>-m32r2</code>
+     <dd>Generate code for the M32R/2.
+
+     <br><dt><code>-m32rx</code>
+     <dd>Generate code for the M32R/X.
+
+     <br><dt><code>-m32r</code>
+     <dd>Generate code for the M32R.  This is the default.
+
+     <br><dt><code>-mmodel=small</code>
+     <dd>Assume all objects live in the lower 16MB of memory (so that their addresses
+can be loaded with the <code>ld24</code> instruction), and assume all subroutines
+are reachable with the <code>bl</code> instruction. 
+This is the default.
+
+     <p>The addressability of a particular object can be set with the
+<code>model</code> attribute.
+
+     <br><dt><code>-mmodel=medium</code>
+     <dd>Assume objects may be anywhere in the 32-bit address space (the compiler
+will generate <code>seth/add3</code> instructions to load their addresses), and
+assume all subroutines are reachable with the <code>bl</code> instruction.
+
+     <br><dt><code>-mmodel=large</code>
+     <dd>Assume objects may be anywhere in the 32-bit address space (the compiler
+will generate <code>seth/add3</code> instructions to load their addresses), and
+assume subroutines may not be reachable with the <code>bl</code> instruction
+(the compiler will generate the much slower <code>seth/add3/jl</code>
+instruction sequence).
+
+     <br><dt><code>-msdata=none</code>
+     <dd>Disable use of the small data area.  Variables will be put into
+one of <code>.data</code>, <code>bss</code>, or <code>.rodata</code> (unless the
+<code>section</code> attribute has been specified). 
+This is the default.
+
+     <p>The small data area consists of sections <code>.sdata</code> and <code>.sbss</code>. 
+Objects may be explicitly put in the small data area with the
+<code>section</code> attribute using one of these sections.
+
+     <br><dt><code>-msdata=sdata</code>
+     <dd>Put small global and static data in the small data area, but do not
+generate special code to reference them.
+
+     <br><dt><code>-msdata=use</code>
+     <dd>Put small global and static data in the small data area, and generate
+special instructions to reference them.
+
+     <br><dt><code>-G </code><var>num</var><code></code>
+     <dd>Put global and static objects less than or equal to <var>num</var> bytes
+into the small data or bss sections instead of the normal data or bss
+sections.  The default value of <var>num</var> is 8. 
+The <code>-msdata</code> option must be set to one of <code>sdata</code> or <code>use</code>
+for this option to have any effect.
+
+     <p>All modules should be compiled with the same <code>-G </code><var>num</var><code></code> value. 
+Compiling with different values of <var>num</var> may or may not work; if it
+doesn't the linker will give an error message--incorrect code will not be
+generated.
+
+     <br><dt><code>-mdebug</code>
+     <dd>Makes the M32R specific code in the compiler display some statistics
+that might help in debugging programs.
+
+     <br><dt><code>-malign-loops</code>
+     <dd>Align all loops to a 32-byte boundary.
+
+     <br><dt><code>-mno-align-loops</code>
+     <dd>Do not enforce a 32-byte alignment for loops.  This is the default.
+
+     <br><dt><code>-missue-rate=</code><var>number</var><code></code>
+     <dd>Issue <var>number</var> instructions per cycle.  <var>number</var> can only be 1
+or 2.
+
+     <br><dt><code>-mbranch-cost=</code><var>number</var><code></code>
+     <dd><var>number</var> can only be 1 or 2.  If it is 1 then branches will be
+preferred over conditional code, if it is 2, then the opposite will
+apply.
+
+     <br><dt><code>-mflush-trap=</code><var>number</var><code></code>
+     <dd>Specifies the trap number to use to flush the cache.  The default is
+12.  Valid numbers are between 0 and 15 inclusive.
+
+     <br><dt><code>-mno-flush-trap</code>
+     <dd>Specifies that the cache cannot be flushed by using a trap.
+
+     <br><dt><code>-mflush-func=</code><var>name</var><code></code>
+     <dd>Specifies the name of the operating system function to call to flush
+the cache.  The default is <em>_flush_cache</em>, but a function call
+will only be used if a trap is not available.
+
+     <br><dt><code>-mno-flush-func</code>
+     <dd>Indicates that there is no OS function for flushing the cache.
+
+   </dl>
+
+   </body></html>
+

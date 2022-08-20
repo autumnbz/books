@@ -1,0 +1,64 @@
+<html lang="en">
+<head>
+<title>Using the GNU Compiler Collection (GCC)</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Using the GNU Compiler Collection (GCC)">
+<meta name="generator" content="makeinfo 4.6">
+<!--
+Copyright &copy; 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+   <p>Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "GNU General Public License" and "Funding
+Free Software", the Front-Cover texts being (a) (see below), and with
+the Back-Cover Texts being (b) (see below).  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+   <p>(a) The FSF's Front-Cover Text is:
+
+   <p>A GNU Manual
+
+   <p>(b) The FSF's Back-Cover Text is:
+
+   <p>You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+Node:&nbsp;<a name="Mixed%20Declarations">Mixed Declarations</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="Function-Attributes.html#Function%20Attributes">Function Attributes</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Case-Ranges.html#Case%20Ranges">Case Ranges</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="C-Extensions.html#C%20Extensions">C Extensions</a>
+<hr><br>
+</div>
+
+<h3 class="section">Mixed Declarations and Code</h3>
+
+<p>ISO C99 and ISO C++ allow declarations and code to be freely mixed
+within compound statements.  As an extension, GCC also allows this in
+C89 mode.  For example, you could do:
+
+<pre class="smallexample">     int i;
+     /* <small class="dots">...</small> */
+     i++;
+     int j = i + 2;
+     </pre>
+
+   <p>Each identifier is visible from where it is declared until the end of
+the enclosing block.
+
+   </body></html>
+

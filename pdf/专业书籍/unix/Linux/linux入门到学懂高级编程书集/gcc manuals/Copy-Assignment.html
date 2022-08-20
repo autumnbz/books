@@ -1,0 +1,101 @@
+<html lang="en">
+<head>
+<title>Using the GNU Compiler Collection (GCC)</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Using the GNU Compiler Collection (GCC)">
+<meta name="generator" content="makeinfo 4.6">
+<!--
+Copyright &copy; 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+   <p>Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "GNU General Public License" and "Funding
+Free Software", the Front-Cover texts being (a) (see below), and with
+the Back-Cover Texts being (b) (see below).  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+   <p>(a) The FSF's Front-Cover Text is:
+
+   <p>A GNU Manual
+
+   <p>(b) The FSF's Back-Cover Text is:
+
+   <p>You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+Node:&nbsp;<a name="Copy%20Assignment">Copy Assignment</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Temporaries.html#Temporaries">Temporaries</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="C---Misunderstandings.html#C++%20Misunderstandings">C++ Misunderstandings</a>
+<hr><br>
+</div>
+
+<h3 class="subsection">Implicit Copy-Assignment for Virtual Bases</h4>
+
+<p>When a base class is virtual, only one subobject of the base class
+belongs to each full object.  Also, the constructors and destructors are
+invoked only once, and called from the most-derived class.  However, such
+objects behave unspecified when being assigned.  For example:
+
+<pre class="smallexample">     struct Base{
+       char *name;
+       Base(char *n) : name(strdup(n)){}
+       Base&amp; operator= (const Base&amp; other){
+        free (name);
+        name = strdup (other.name);
+       }
+     };
+     
+     struct A:virtual Base{
+       int val;
+       A():Base("A"){}
+     };
+     
+     struct B:virtual Base{
+       int bval;
+       B():Base("B"){}
+     };
+     
+     struct Derived:public A, public B{
+       Derived():Base("Derived"){}
+     };
+     
+     void func(Derived &amp;d1, Derived &amp;d2)
+     {
+       d1 = d2;
+     }
+     </pre>
+
+   <p>The C++ standard specifies that <code>Base::Base</code> is only called once
+when constructing or copy-constructing a Derived object.  It is
+unspecified whether <code>Base::operator=</code> is called more than once when
+the implicit copy-assignment for Derived objects is invoked (as it is
+inside <code>func</code> in the example).
+
+   <p>G++ implements the "intuitive" algorithm for copy-assignment: assign all
+direct bases, then assign all members.  In that algorithm, the virtual
+base subobject can be encountered more than once.  In the example, copying
+proceeds in the following order: <code>val</code>, <code>name</code> (via
+<code>strdup</code>), <code>bval</code>, and <code>name</code> again.
+
+   <p>If application code relies on copy-assignment, a user-defined
+copy-assignment operator removes any uncertainties.  With such an
+operator, the application can define whether and how the virtual base
+subobject is assigned.
+
+   </body></html>
+

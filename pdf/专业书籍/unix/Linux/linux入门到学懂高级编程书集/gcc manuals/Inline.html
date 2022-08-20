@@ -1,0 +1,144 @@
+<html lang="en">
+<head>
+<title>Using the GNU Compiler Collection (GCC)</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Using the GNU Compiler Collection (GCC)">
+<meta name="generator" content="makeinfo 4.6">
+<!--
+Copyright &copy; 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+   <p>Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "GNU General Public License" and "Funding
+Free Software", the Front-Cover texts being (a) (see below), and with
+the Back-Cover Texts being (b) (see below).  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+   <p>(a) The FSF's Front-Cover Text is:
+
+   <p>A GNU Manual
+
+   <p>(b) The FSF's Back-Cover Text is:
+
+   <p>You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+Node:&nbsp;<a name="Inline">Inline</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="Extended-Asm.html#Extended%20Asm">Extended Asm</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Alignment.html#Alignment">Alignment</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="C-Extensions.html#C%20Extensions">C Extensions</a>
+<hr><br>
+</div>
+
+<h3 class="section">An Inline Function is As Fast As a Macro</h3>
+
+<p>By declaring a function <code>inline</code>, you can direct GCC to
+integrate that function's code into the code for its callers.  This
+makes execution faster by eliminating the function-call overhead; in
+addition, if any of the actual argument values are constant, their known
+values may permit simplifications at compile time so that not all of the
+inline function's code needs to be included.  The effect on code size is
+less predictable; object code may be larger or smaller with function
+inlining, depending on the particular case.  Inlining of functions is an
+optimization and it really "works" only in optimizing compilation.  If
+you don't use <code>-O</code>, no function is really inline.
+
+   <p>Inline functions are included in the ISO C99 standard, but there are
+currently substantial differences between what GCC implements and what
+the ISO C99 standard requires.
+
+   <p>To declare a function inline, use the <code>inline</code> keyword in its
+declaration, like this:
+
+<pre class="smallexample">     inline int
+     inc (int *a)
+     {
+       (*a)++;
+     }
+     </pre>
+
+   <p>(If you are writing a header file to be included in ISO C programs, write
+<code>__inline__</code> instead of <code>inline</code>.  See <a href="Alternate-Keywords.html#Alternate%20Keywords">Alternate Keywords</a>.) 
+You can also make all "simple enough" functions inline with the option
+<code>-finline-functions</code>.
+
+   <p>Note that certain usages in a function definition can make it unsuitable
+for inline substitution.  Among these usages are: use of varargs, use of
+alloca, use of variable sized data types (see <a href="Variable-Length.html#Variable%20Length">Variable Length</a>),
+use of computed goto (see <a href="Labels-as-Values.html#Labels%20as%20Values">Labels as Values</a>), use of nonlocal goto,
+and nested functions (see <a href="Nested-Functions.html#Nested%20Functions">Nested Functions</a>).  Using <code>-Winline</code>
+will warn when a function marked <code>inline</code> could not be substituted,
+and will give the reason for the failure.
+
+   <p>Note that in C and Objective-C, unlike C++, the <code>inline</code> keyword
+does not affect the linkage of the function.
+
+   <p>GCC automatically inlines member functions defined within the class
+body of C++ programs even if they are not explicitly declared
+<code>inline</code>.  (You can override this with <code>-fno-default-inline</code>;
+see <a href="C---Dialect-Options.html#C++%20Dialect%20Options">Options Controlling C++ Dialect</a>.)
+
+   <p>When a function is both inline and <code>static</code>, if all calls to the
+function are integrated into the caller, and the function's address is
+never used, then the function's own assembler code is never referenced. 
+In this case, GCC does not actually output assembler code for the
+function, unless you specify the option <code>-fkeep-inline-functions</code>. 
+Some calls cannot be integrated for various reasons (in particular,
+calls that precede the function's definition cannot be integrated, and
+neither can recursive calls within the definition).  If there is a
+nonintegrated call, then the function is compiled to assembler code as
+usual.  The function must also be compiled as usual if the program
+refers to its address, because that can't be inlined.
+
+   <p>When an inline function is not <code>static</code>, then the compiler must assume
+that there may be calls from other source files; since a global symbol can
+be defined only once in any program, the function must not be defined in
+the other source files, so the calls therein cannot be integrated. 
+Therefore, a non-<code>static</code> inline function is always compiled on its
+own in the usual fashion.
+
+   <p>If you specify both <code>inline</code> and <code>extern</code> in the function
+definition, then the definition is used only for inlining.  In no case
+is the function compiled on its own, not even if you refer to its
+address explicitly.  Such an address becomes an external reference, as
+if you had only declared the function, and had not defined it.
+
+   <p>This combination of <code>inline</code> and <code>extern</code> has almost the
+effect of a macro.  The way to use it is to put a function definition in
+a header file with these keywords, and put another copy of the
+definition (lacking <code>inline</code> and <code>extern</code>) in a library file. 
+The definition in the header file will cause most calls to the function
+to be inlined.  If any uses of the function remain, they will refer to
+the single copy in the library.
+
+   <p>Since GCC eventually will implement ISO C99 semantics for
+inline functions, it is best to use <code>static inline</code> only
+to guarantee compatibility.  (The
+existing semantics will remain available when <code>-std=gnu89</code> is
+specified, but eventually the default will be <code>-std=gnu99</code> and
+that will implement the C99 semantics, though it does not do so yet.)
+
+   <p>GCC does not inline any functions when not optimizing unless you specify
+the <code>always_inline</code> attribute for the function, like this:
+
+<pre class="smallexample">     /* Prototype.  */
+     inline void foo (const char) __attribute__((always_inline));
+     </pre>
+
+   </body></html>
+

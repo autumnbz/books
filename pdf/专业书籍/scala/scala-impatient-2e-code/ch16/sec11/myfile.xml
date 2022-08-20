@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<item>
+  <description>Blackwell Toaster</description>
+  <price currency="USD">29.95</price><!-- A fantastic deal! -->
+  <img src="toaster.jpg"/>
+</item>

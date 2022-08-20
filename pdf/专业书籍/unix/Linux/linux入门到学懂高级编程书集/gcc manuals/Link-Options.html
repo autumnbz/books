@@ -1,0 +1,235 @@
+<html lang="en">
+<head>
+<title>Using the GNU Compiler Collection (GCC)</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Using the GNU Compiler Collection (GCC)">
+<meta name="generator" content="makeinfo 4.6">
+<!--
+Copyright &copy; 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+   <p>Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "GNU General Public License" and "Funding
+Free Software", the Front-Cover texts being (a) (see below), and with
+the Back-Cover Texts being (b) (see below).  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+   <p>(a) The FSF's Front-Cover Text is:
+
+   <p>A GNU Manual
+
+   <p>(b) The FSF's Back-Cover Text is:
+
+   <p>You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+Node:&nbsp;<a name="Link%20Options">Link Options</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="Directory-Options.html#Directory%20Options">Directory Options</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Assembler-Options.html#Assembler%20Options">Assembler Options</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Invoking-GCC.html#Invoking%20GCC">Invoking GCC</a>
+<hr><br>
+</div>
+
+<h3 class="section">Options for Linking</h3>
+
+<p>These options come into play when the compiler links object files into
+an executable output file.  They are meaningless if the compiler is
+not doing a link step.
+
+     <dl>
+<dt><code></code><var>object-file-name</var><code></code>
+     <dd>A file name that does not end in a special recognized suffix is
+considered to name an object file or library.  (Object files are
+distinguished from libraries by the linker according to the file
+contents.)  If linking is done, these object files are used as input
+to the linker.
+
+     <br><dt><code>-c</code>
+     <dd><dt><code>-S</code>
+     <dd><dt><code>-E</code>
+     <dd>If any of these options is used, then the linker is not run, and
+object file names should not be used as arguments.  See <a href="Overall-Options.html#Overall%20Options">Overall Options</a>.
+
+     <br><dt><code>-l</code><var>library</var><code></code>
+     <dd><dt><code>-l </code><var>library</var><code></code>
+     <dd>Search the library named <var>library</var> when linking.  (The second
+alternative with the library as a separate argument is only for
+POSIX compliance and is not recommended.)
+
+     <p>It makes a difference where in the command you write this option; the
+linker searches and processes libraries and object files in the order they
+are specified.  Thus, <code>foo.o -lz bar.o</code> searches library <code>z</code>
+after file <code>foo.o</code> but before <code>bar.o</code>.  If <code>bar.o</code> refers
+to functions in <code>z</code>, those functions may not be loaded.
+
+     <p>The linker searches a standard list of directories for the library,
+which is actually a file named <code>lib</code><var>library</var><code>.a</code>.  The linker
+then uses this file as if it had been specified precisely by name.
+
+     <p>The directories searched include several standard system directories
+plus any that you specify with <code>-L</code>.
+
+     <p>Normally the files found this way are library files--archive files
+whose members are object files.  The linker handles an archive file by
+scanning through it for members which define symbols that have so far
+been referenced but not defined.  But if the file that is found is an
+ordinary object file, it is linked in the usual fashion.  The only
+difference between using an <code>-l</code> option and specifying a file name
+is that <code>-l</code> surrounds <var>library</var> with <code>lib</code> and <code>.a</code>
+and searches several directories.
+
+     <br><dt><code>-lobjc</code>
+     <dd>You need this special case of the <code>-l</code> option in order to
+link an Objective-C program.
+
+     <br><dt><code>-nostartfiles</code>
+     <dd>Do not use the standard system startup files when linking. 
+The standard system libraries are used normally, unless <code>-nostdlib</code>
+or <code>-nodefaultlibs</code> is used.
+
+     <br><dt><code>-nodefaultlibs</code>
+     <dd>Do not use the standard system libraries when linking. 
+Only the libraries you specify will be passed to the linker. 
+The standard startup files are used normally, unless <code>-nostartfiles</code>
+is used.  The compiler may generate calls to memcmp, memset, and memcpy
+for System V (and ISO C) environments or to bcopy and bzero for
+BSD environments.  These entries are usually resolved by entries in
+libc.  These entry points should be supplied through some other
+mechanism when this option is specified.
+
+     <br><dt><code>-nostdlib</code>
+     <dd>Do not use the standard system startup files or libraries when linking. 
+No startup files and only the libraries you specify will be passed to
+the linker.  The compiler may generate calls to memcmp, memset, and memcpy
+for System V (and ISO C) environments or to bcopy and bzero for
+BSD environments.  These entries are usually resolved by entries in
+libc.  These entry points should be supplied through some other
+mechanism when this option is specified.
+
+     <p>One of the standard libraries bypassed by <code>-nostdlib</code> and
+<code>-nodefaultlibs</code> is <code>libgcc.a</code>, a library of internal subroutines
+that GCC uses to overcome shortcomings of particular machines, or special
+needs for some languages. 
+(See <a href="../gccint/Interface.html#Interface">Interfacing to GCC Output</a>,
+for more discussion of <code>libgcc.a</code>.) 
+In most cases, you need <code>libgcc.a</code> even when you want to avoid
+other standard libraries.  In other words, when you specify <code>-nostdlib</code>
+or <code>-nodefaultlibs</code> you should usually specify <code>-lgcc</code> as well. 
+This ensures that you have no unresolved references to internal GCC
+library subroutines.  (For example, <code>__main</code>, used to ensure C++
+constructors will be called; see <a href="../gccint/Collect2.html#Collect2"><code>collect2</code></a>.)
+
+     <br><dt><code>-pie</code>
+     <dd>Produce a position independent executable on targets which support it. 
+For predictable results, you must also specify the same set of options
+that were used to generate code (<code>-fpie</code>, <code>-fPIE</code>,
+or model suboptions) when you specify this option.
+
+     <br><dt><code>-s</code>
+     <dd>Remove all symbol table and relocation information from the executable.
+
+     <br><dt><code>-static</code>
+     <dd>On systems that support dynamic linking, this prevents linking with the shared
+libraries.  On other systems, this option has no effect.
+
+     <br><dt><code>-shared</code>
+     <dd>Produce a shared object which can then be linked with other objects to
+form an executable.  Not all systems support this option.  For predictable
+results, you must also specify the same set of options that were used to
+generate code (<code>-fpic</code>, <code>-fPIC</code>, or model suboptions)
+when you specify this option.<a rel="footnote" href="#fn-1"><sup>1</sup></a>
+
+     <br><dt><code>-shared-libgcc</code>
+     <dd><dt><code>-static-libgcc</code>
+     <dd>On systems that provide <code>libgcc</code> as a shared library, these options
+force the use of either the shared or static version respectively. 
+If no shared version of <code>libgcc</code> was built when the compiler was
+configured, these options have no effect.
+
+     <p>There are several situations in which an application should use the
+shared <code>libgcc</code> instead of the static version.  The most common
+of these is when the application wishes to throw and catch exceptions
+across different shared libraries.  In that case, each of the libraries
+as well as the application itself should use the shared <code>libgcc</code>.
+
+     <p>Therefore, the G++ and GCJ drivers automatically add
+<code>-shared-libgcc</code> whenever you build a shared library or a main
+executable, because C++ and Java programs typically use exceptions, so
+this is the right thing to do.
+
+     <p>If, instead, you use the GCC driver to create shared libraries, you may
+find that they will not always be linked with the shared <code>libgcc</code>. 
+If GCC finds, at its configuration time, that you have a GNU linker that
+does not support option <code>--eh-frame-hdr</code>, it will link the shared
+version of <code>libgcc</code> into shared libraries by default.  Otherwise,
+it will take advantage of the linker and optimize away the linking with
+the shared version of <code>libgcc</code>, linking with the static version of
+libgcc by default.  This allows exceptions to propagate through such
+shared libraries, without incurring relocation costs at library load
+time.
+
+     <p>However, if a library or main executable is supposed to throw or catch
+exceptions, you must link it using the G++ or GCJ driver, as appropriate
+for the languages used in the program, or using the option
+<code>-shared-libgcc</code>, such that it is linked with the shared
+<code>libgcc</code>.
+
+     <br><dt><code>-symbolic</code>
+     <dd>Bind references to global symbols when building a shared object.  Warn
+about any unresolved references (unless overridden by the link editor
+option <code>-Xlinker -z -Xlinker defs</code>).  Only a few systems support
+this option.
+
+     <br><dt><code>-Xlinker </code><var>option</var><code></code>
+     <dd>Pass <var>option</var> as an option to the linker.  You can use this to
+supply system-specific linker options which GCC does not know how to
+recognize.
+
+     <p>If you want to pass an option that takes an argument, you must use
+<code>-Xlinker</code> twice, once for the option and once for the argument. 
+For example, to pass <code>-assert definitions</code>, you must write
+<code>-Xlinker -assert -Xlinker definitions</code>.  It does not work to write
+<code>-Xlinker "-assert definitions"</code>, because this passes the entire
+string as a single argument, which is not what the linker expects.
+
+     <br><dt><code>-Wl,</code><var>option</var><code></code>
+     <dd>Pass <var>option</var> as an option to the linker.  If <var>option</var> contains
+commas, it is split into multiple options at the commas.
+
+     <br><dt><code>-u </code><var>symbol</var><code></code>
+     <dd>Pretend the symbol <var>symbol</var> is undefined, to force linking of
+library modules to define it.  You can use <code>-u</code> multiple times with
+different symbols to force loading of additional library modules. 
+</dl>
+
+   <div class="footnote">
+<hr>
+<h4>Footnotes</h4>
+<ol type="1">
+<li><a name="fn-1"></a>
+<p>On some systems, <code>gcc -shared</code>
+needs to build supplementary stub code for constructors to work.  On
+multi-libbed systems, <code>gcc -shared</code> must select the correct support
+libraries to link against.  Failing to supply the correct flags may lead
+to subtle defects.  Supplying them in cases where they are not necessary
+is innocuous.</p>
+
+   </ol><hr></div>
+
+   </body></html>
+

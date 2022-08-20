@@ -1,0 +1,96 @@
+<html lang="en">
+<head>
+<title>Using the GNU Compiler Collection (GCC)</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Using the GNU Compiler Collection (GCC)">
+<meta name="generator" content="makeinfo 4.6">
+<!--
+Copyright &copy; 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+   <p>Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "GNU General Public License" and "Funding
+Free Software", the Front-Cover texts being (a) (see below), and with
+the Back-Cover Texts being (b) (see below).  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+   <p>(a) The FSF's Front-Cover Text is:
+
+   <p>A GNU Manual
+
+   <p>(b) The FSF's Back-Cover Text is:
+
+   <p>You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+Node:&nbsp;<a name="M68hc1x%20Options">M68hc1x Options</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="VAX-Options.html#VAX%20Options">VAX Options</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="M680x0-Options.html#M680x0%20Options">M680x0 Options</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Submodel-Options.html#Submodel%20Options">Submodel Options</a>
+<hr><br>
+</div>
+
+<h3 class="subsection">M68hc1x Options</h4>
+
+<p>These are the <code>-m</code> options defined for the 68hc11 and 68hc12
+microcontrollers.  The default values for these options depends on
+which style of microcontroller was selected when the compiler was configured;
+the defaults for the most common choices are given below.
+
+     <dl>
+<dt><code>-m6811</code>
+     <dd><dt><code>-m68hc11</code>
+     <dd>Generate output for a 68HC11.  This is the default
+when the compiler is configured for 68HC11-based systems.
+
+     <br><dt><code>-m6812</code>
+     <dd><dt><code>-m68hc12</code>
+     <dd>Generate output for a 68HC12.  This is the default
+when the compiler is configured for 68HC12-based systems.
+
+     <br><dt><code>-m68S12</code>
+     <dd><dt><code>-m68hcs12</code>
+     <dd>Generate output for a 68HCS12.
+
+     <br><dt><code>-mauto-incdec</code>
+     <dd>Enable the use of 68HC12 pre and post auto-increment and auto-decrement
+addressing modes.
+
+     <br><dt><code>-minmax</code>
+     <dd><dt><code>-nominmax</code>
+     <dd>Enable the use of 68HC12 min and max instructions.
+
+     <br><dt><code>-mlong-calls</code>
+     <dd><dt><code>-mno-long-calls</code>
+     <dd>Treat all calls as being far away (near).  If calls are assumed to be
+far away, the compiler will use the <code>call</code> instruction to
+call a function and the <code>rtc</code> instruction for returning.
+
+     <br><dt><code>-mshort</code>
+     <dd>Consider type <code>int</code> to be 16 bits wide, like <code>short int</code>.
+
+     <br><dt><code>-msoft-reg-count=</code><var>count</var><code></code>
+     <dd>Specify the number of pseudo-soft registers which are used for the
+code generation.  The maximum number is 32.  Using more pseudo-soft
+register may or may not result in better code depending on the program. 
+The default is 4 for 68HC11 and 2 for 68HC12.
+
+   </dl>
+
+   </body></html>
+

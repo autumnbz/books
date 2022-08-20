@@ -1,0 +1,94 @@
+<html lang="en">
+<head>
+<title>Using the GNU Compiler Collection (GCC)</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Using the GNU Compiler Collection (GCC)">
+<meta name="generator" content="makeinfo 4.6">
+<!--
+Copyright &copy; 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+   <p>Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "GNU General Public License" and "Funding
+Free Software", the Front-Cover texts being (a) (see below), and with
+the Back-Cover Texts being (b) (see below).  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+   <p>(a) The FSF's Front-Cover Text is:
+
+   <p>A GNU Manual
+
+   <p>(b) The FSF's Back-Cover Text is:
+
+   <p>You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+Node:&nbsp;<a name="MCore%20Options">MCore Options</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="IA-64-Options.html#IA-64%20Options">IA-64 Options</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="AVR-Options.html#AVR%20Options">AVR Options</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Submodel-Options.html#Submodel%20Options">Submodel Options</a>
+<hr><br>
+</div>
+
+<h3 class="subsection">MCore Options</h4>
+
+<p>These are the <code>-m</code> options defined for the Motorola M*Core
+processors.
+
+     <dl>
+
+     <br><dt><code>-mhardlit</code>
+     <dd><dt><code>-mno-hardlit</code>
+     <dd>Inline constants into the code stream if it can be done in two
+instructions or less.
+
+     <br><dt><code>-mdiv</code>
+     <dd><dt><code>-mno-div</code>
+     <dd>Use the divide instruction.  (Enabled by default).
+
+     <br><dt><code>-mrelax-immediate</code>
+     <dd><dt><code>-mno-relax-immediate</code>
+     <dd>Allow arbitrary sized immediates in bit operations.
+
+     <br><dt><code>-mwide-bitfields</code>
+     <dd><dt><code>-mno-wide-bitfields</code>
+     <dd>Always treat bit-fields as int-sized.
+
+     <br><dt><code>-m4byte-functions</code>
+     <dd><dt><code>-mno-4byte-functions</code>
+     <dd>Force all functions to be aligned to a four byte boundary.
+
+     <br><dt><code>-mcallgraph-data</code>
+     <dd><dt><code>-mno-callgraph-data</code>
+     <dd>Emit callgraph information.
+
+     <br><dt><code>-mslow-bytes</code>
+     <dd><dt><code>-mno-slow-bytes</code>
+     <dd>Prefer word access when reading byte quantities.
+
+     <br><dt><code>-mlittle-endian</code>
+     <dd><dt><code>-mbig-endian</code>
+     <dd>Generate code for a little endian target.
+
+     <br><dt><code>-m210</code>
+     <dd><dt><code>-m340</code>
+     <dd>Generate code for the 210 processor. 
+</dl>
+
+   </body></html>
+

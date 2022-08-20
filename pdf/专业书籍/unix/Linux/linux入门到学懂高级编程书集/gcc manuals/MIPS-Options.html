@@ -1,0 +1,390 @@
+<html lang="en">
+<head>
+<title>Using the GNU Compiler Collection (GCC)</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Using the GNU Compiler Collection (GCC)">
+<meta name="generator" content="makeinfo 4.6">
+<!--
+Copyright &copy; 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+   <p>Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "GNU General Public License" and "Funding
+Free Software", the Front-Cover texts being (a) (see below), and with
+the Back-Cover Texts being (b) (see below).  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+   <p>(a) The FSF's Front-Cover Text is:
+
+   <p>A GNU Manual
+
+   <p>(b) The FSF's Back-Cover Text is:
+
+   <p>You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+Node:&nbsp;<a name="MIPS%20Options">MIPS Options</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="i386-and-x86-64-Options.html#i386%20and%20x86-64%20Options">i386 and x86-64 Options</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Submodel-Options.html#Submodel%20Options">Submodel Options</a>
+<hr><br>
+</div>
+
+<h3 class="subsection">MIPS Options</h4>
+
+     <dl>
+
+     <br><dt><code>-EB</code>
+     <dd>Generate big-endian code.
+
+     <br><dt><code>-EL</code>
+     <dd>Generate little-endian code.  This is the default for <code>mips*el-*-*</code>
+configurations.
+
+     <br><dt><code>-march=</code><var>arch</var><code></code>
+     <dd>Generate code that will run on <var>arch</var>, which can be the name of a
+generic MIPS ISA, or the name of a particular processor. 
+The ISA names are:
+<code>mips1</code>, <code>mips2</code>, <code>mips3</code>, <code>mips4</code>,
+<code>mips32</code>, <code>mips32r2</code>, and <code>mips64</code>. 
+The processor names are:
+<code>4kc</code>, <code>4kp</code>, <code>5kc</code>, <code>20kc</code>,
+<code>m4k</code>,
+<code>r2000</code>, <code>r3000</code>, <code>r3900</code>, <code>r4000</code>, <code>r4400</code>,
+<code>r4600</code>, <code>r4650</code>, <code>r6000</code>, <code>r8000</code>, <code>rm7000</code>,
+<code>rm9000</code>,
+<code>orion</code>,
+<code>sb1</code>,
+<code>vr4100</code>, <code>vr4111</code>, <code>vr4120</code>, <code>vr4130</code>, <code>vr4300</code>,
+<code>vr5000</code>, <code>vr5400</code> and <code>vr5500</code>. 
+The special value <code>from-abi</code> selects the
+most compatible architecture for the selected ABI (that is,
+<code>mips1</code> for 32-bit ABIs and <code>mips3</code> for 64-bit ABIs).
+
+     <p>In processor names, a final <code>000</code> can be abbreviated as <code>k</code>
+(for example, <code>-march=r2k</code>).  Prefixes are optional, and
+<code>vr</code> may be written <code>r</code>.
+
+     <p>GCC defines two macros based on the value of this option.  The first
+is <code>_MIPS_ARCH</code>, which gives the name of target architecture, as
+a string.  The second has the form <code>_MIPS_ARCH_</code><var>foo</var><code></code>,
+where <var>foo</var> is the capitalized value of <code>_MIPS_ARCH</code>. 
+For example, <code>-march=r2000</code> will set <code>_MIPS_ARCH</code>
+to <code>"r2000"</code> and define the macro <code>_MIPS_ARCH_R2000</code>.
+
+     <p>Note that the <code>_MIPS_ARCH</code> macro uses the processor names given
+above.  In other words, it will have the full prefix and will not
+abbreviate <code>000</code> as <code>k</code>.  In the case of <code>from-abi</code>,
+the macro names the resolved architecture (either <code>"mips1"</code> or
+<code>"mips3"</code>).  It names the default architecture when no
+<code>-march</code> option is given.
+
+     <br><dt><code>-mtune=</code><var>arch</var><code></code>
+     <dd>Optimize for <var>arch</var>.  Among other things, this option controls
+the way instructions are scheduled, and the perceived cost of arithmetic
+operations.  The list of <var>arch</var> values is the same as for
+<code>-march</code>.
+
+     <p>When this option is not used, GCC will optimize for the processor
+specified by <code>-march</code>.  By using <code>-march</code> and
+<code>-mtune</code> together, it is possible to generate code that will
+run on a family of processors, but optimize the code for one
+particular member of that family.
+
+     <p><code>-mtune</code> defines the macros <code>_MIPS_TUNE</code> and
+<code>_MIPS_TUNE_</code><var>foo</var><code></code>, which work in the same way as the
+<code>-march</code> ones described above.
+
+     <br><dt><code>-mips1</code>
+     <dd>Equivalent to <code>-march=mips1</code>.
+
+     <br><dt><code>-mips2</code>
+     <dd>Equivalent to <code>-march=mips2</code>.
+
+     <br><dt><code>-mips3</code>
+     <dd>Equivalent to <code>-march=mips3</code>.
+
+     <br><dt><code>-mips4</code>
+     <dd>Equivalent to <code>-march=mips4</code>.
+
+     <br><dt><code>-mips32</code>
+     <dd>Equivalent to <code>-march=mips32</code>.
+
+     <br><dt><code>-mips32r2</code>
+     <dd>Equivalent to <code>-march=mips32r2</code>.
+
+     <br><dt><code>-mips64</code>
+     <dd>Equivalent to <code>-march=mips64</code>.
+
+     <br><dt><code>-mips16</code>
+     <dd><dt><code>-mno-mips16</code>
+     <dd>Use (do not use) the MIPS16 ISA.
+
+     <br><dt><code>-mabi=32</code>
+     <dd><dt><code>-mabi=o64</code>
+     <dd><dt><code>-mabi=n32</code>
+     <dd><dt><code>-mabi=64</code>
+     <dd><dt><code>-mabi=eabi</code>
+     <dd>Generate code for the given ABI.
+
+     <p>Note that the EABI has a 32-bit and a 64-bit variant.  GCC normally
+generates 64-bit code when you select a 64-bit architecture, but you
+can use <code>-mgp32</code> to get 32-bit code instead.
+
+     <p>For information about the O64 ABI, see
+<a href="http://gcc.gnu.org/projects/mipso64-abi.html">http://gcc.gnu.org/projects/mipso64-abi.html</a>.
+
+     <br><dt><code>-mabicalls</code>
+     <dd><dt><code>-mno-abicalls</code>
+     <dd>Generate (do not generate) SVR4-style position-independent code. 
+<code>-mabicalls</code> is the default for SVR4-based systems.
+
+     <br><dt><code>-mxgot</code>
+     <dd><dt><code>-mno-xgot</code>
+     <dd>Lift (do not lift) the usual restrictions on the size of the global
+offset table.
+
+     <p>GCC normally uses a single instruction to load values from the GOT. 
+While this is relatively efficient, it will only work if the GOT
+is smaller than about 64k.  Anything larger will cause the linker
+to report an error such as:
+
+     <pre class="smallexample">          relocation truncated to fit: R_MIPS_GOT16 foobar
+          </pre>
+
+     <p>If this happens, you should recompile your code with <code>-mxgot</code>. 
+It should then work with very large GOTs, although it will also be
+less efficient, since it will take three instructions to fetch the
+value of a global symbol.
+
+     <p>Note that some linkers can create multiple GOTs.  If you have such a
+linker, you should only need to use <code>-mxgot</code> when a single object
+file accesses more than 64k's worth of GOT entries.  Very few do.
+
+     <p>These options have no effect unless GCC is generating position
+independent code.
+
+     <br><dt><code>-mgp32</code>
+     <dd>Assume that general-purpose registers are 32 bits wide.
+
+     <br><dt><code>-mgp64</code>
+     <dd>Assume that general-purpose registers are 64 bits wide.
+
+     <br><dt><code>-mfp32</code>
+     <dd>Assume that floating-point registers are 32 bits wide.
+
+     <br><dt><code>-mfp64</code>
+     <dd>Assume that floating-point registers are 64 bits wide.
+
+     <br><dt><code>-mhard-float</code>
+     <dd>Use floating-point coprocessor instructions.
+
+     <br><dt><code>-msoft-float</code>
+     <dd>Do not use floating-point coprocessor instructions.  Implement
+floating-point calculations using library calls instead.
+
+     <br><dt><code>-msingle-float</code>
+     <dd>Assume that the floating-point coprocessor only supports single-precision
+operations.
+
+     <dt><code>-mdouble-float</code>
+     <dd>Assume that the floating-point coprocessor supports double-precision
+operations.  This is the default.
+
+     <br><dt><code>-mint64</code>
+     <dd>Force <code>int</code> and <code>long</code> types to be 64 bits wide.  See
+<code>-mlong32</code> for an explanation of the default and the way
+that the pointer size is determined.
+
+     <br><dt><code>-mlong64</code>
+     <dd>Force <code>long</code> types to be 64 bits wide.  See <code>-mlong32</code> for
+an explanation of the default and the way that the pointer size is
+determined.
+
+     <br><dt><code>-mlong32</code>
+     <dd>Force <code>long</code>, <code>int</code>, and pointer types to be 32 bits wide.
+
+     <p>The default size of <code>int</code>s, <code>long</code>s and pointers depends on
+the ABI.  All the supported ABIs use 32-bit <code>int</code>s.  The n64 ABI
+uses 64-bit <code>long</code>s, as does the 64-bit EABI; the others use
+32-bit <code>long</code>s.  Pointers are the same size as <code>long</code>s,
+or the same size as integer registers, whichever is smaller.
+
+     <br><dt><code>-G </code><var>num</var><code></code>
+     <dd>Put global and static items less than or equal to <var>num</var> bytes into
+the small data or bss section instead of the normal data or bss section. 
+This allows the data to be accessed using a single instruction.
+
+     <p>All modules should be compiled with the same <code>-G </code><var>num</var><code></code>
+value.
+
+     <br><dt><code>-membedded-data</code>
+     <dd><dt><code>-mno-embedded-data</code>
+     <dd>Allocate variables to the read-only data section first if possible, then
+next in the small data section if possible, otherwise in data.  This gives
+slightly slower code than the default, but reduces the amount of RAM required
+when executing, and thus may be preferred for some embedded systems.
+
+     <br><dt><code>-muninit-const-in-rodata</code>
+     <dd><dt><code>-mno-uninit-const-in-rodata</code>
+     <dd>Put uninitialized <code>const</code> variables in the read-only data section. 
+This option is only meaningful in conjunction with <code>-membedded-data</code>.
+
+     <br><dt><code>-msplit-addresses</code>
+     <dd><dt><code>-mno-split-addresses</code>
+     <dd>Enable (disable) use of the <code>%hi()</code> and <code>%lo()</code> assembler
+relocation operators.  This option has been superceded by
+<code>-mexplicit-relocs</code> but is retained for backwards compatibility.
+
+     <br><dt><code>-mexplicit-relocs</code>
+     <dd><dt><code>-mno-explicit-relocs</code>
+     <dd>Use (do not use) assembler relocation operators when dealing with symbolic
+addresses.  The alternative, selected by <code>-mno-explicit-relocs</code>,
+is to use assembler macros instead.
+
+     <p><code>-mexplicit-relocs</code> is usually the default if GCC was configured
+to use an assembler that supports relocation operators.  However, the
+combination of <code>-mabicalls</code> and <code>-fno-unit-at-a-time</code>
+implies <code>-mno-explicit-relocs</code> unless explicitly overridden. 
+This is because, when generating abicalls, the choice of relocation
+depends on whether a symbol is local or global.  In some rare cases,
+GCC will not be able to decide this until the whole compilation unit
+has been read.
+
+     <br><dt><code>-mrnames</code>
+     <dd><dt><code>-mno-rnames</code>
+     <dd>Generate (do not generate) code that refers to registers using their
+software names.  The default is <code>-mno-rnames</code>, which tells GCC
+to use hardware names like <code>$4</code> instead of software names like
+<code>a0</code>.  The only assembler known to support <code>-rnames</code> is
+the Algorithmics assembler.
+
+     <br><dt><code>-mcheck-zero-division</code>
+     <dd><dt><code>-mno-check-zero-division</code>
+     <dd>Trap (do not trap) on integer division by zero.  The default is
+<code>-mcheck-zero-division</code>.
+
+     <br><dt><code>-mmemcpy</code>
+     <dd><dt><code>-mno-memcpy</code>
+     <dd>Force (do not force) the use of <code>memcpy()</code> for non-trivial block
+moves.  The default is <code>-mno-memcpy</code>, which allows GCC to inline
+most constant-sized copies.
+
+     <br><dt><code>-mlong-calls</code>
+     <dd><dt><code>-mno-long-calls</code>
+     <dd>Disable (do not disable) use of the <code>jal</code> instruction.  Calling
+functions using <code>jal</code> is more efficient but requires the caller
+and callee to be in the same 256 megabyte segment.
+
+     <p>This option has no effect on abicalls code.  The default is
+<code>-mno-long-calls</code>.
+
+     <br><dt><code>-mmad</code>
+     <dd><dt><code>-mno-mad</code>
+     <dd>Enable (disable) use of the <code>mad</code>, <code>madu</code> and <code>mul</code>
+instructions, as provided by the R4650 ISA.
+
+     <br><dt><code>-mfused-madd</code>
+     <dd><dt><code>-mno-fused-madd</code>
+     <dd>Enable (disable) use of the floating point multiply-accumulate
+instructions, when they are available.  The default is
+<code>-mfused-madd</code>.
+
+     <p>When multiply-accumulate instructions are used, the intermediate
+product is calculated to infinite precision and is not subject to
+the FCSR Flush to Zero bit.  This may be undesirable in some
+circumstances.
+
+     <br><dt><code>-nocpp</code>
+     <dd>Tell the MIPS assembler to not run its preprocessor over user
+assembler files (with a <code>.s</code> suffix) when assembling them.
+
+     <br><dt><code>-mfix-r4000</code>
+     <dd><dt><code>-mno-fix-r4000</code>
+     <dd>Work around certain R4000 CPU errata:
+          <ul>
+<li>A double-word or a variable shift may give an incorrect result if executed
+immediately after starting an integer division. 
+<li>A double-word or a variable shift may give an incorrect result if executed
+while an integer multiplication is in progress. 
+<li>An integer division may give an incorrect result if started in a delay slot
+of a taken branch or a jump. 
+</ul>
+
+     <br><dt><code>-mfix-r4400</code>
+     <dd><dt><code>-mno-fix-r4400</code>
+     <dd>Work around certain R4400 CPU errata:
+          <ul>
+<li>A double-word or a variable shift may give an incorrect result if executed
+immediately after starting an integer division. 
+</ul>
+
+     <br><dt><code>-mfix-vr4120</code>
+     <dd><dt><code>-mno-fix-vr4120</code>
+     <dd>Work around certain VR4120 errata:
+          <ul>
+<li><code>dmultu</code> does not always produce the correct result. 
+<li><code>div</code> and <code>ddiv</code> do not always produce the correct result if one
+of the operands is negative. 
+</ul>
+     The workarounds for the division errata rely on special functions in
+<code>libgcc.a</code>.  At present, these functions are only provided by
+the <code>mips64vr*-elf</code> configurations.
+
+     <p>Other VR4120 errata require a nop to be inserted between certain pairs of
+instructions.  These errata are handled by the assembler, not by GCC itself.
+
+     <br><dt><code>-mfix-sb1</code>
+     <dd><dt><code>-mno-fix-sb1</code>
+     <dd>Work around certain SB-1 CPU core errata. 
+(This flag currently works around the SB-1 revision 2
+"F1" and "F2" floating point errata.)
+
+     <br><dt><code>-mflush-func=</code><var>func</var><code></code>
+     <dd><dt><code>-mno-flush-func</code>
+     <dd>Specifies the function to call to flush the I and D caches, or to not
+call any such function.  If called, the function must take the same
+arguments as the common <code>_flush_func()</code>, that is, the address of the
+memory range for which the cache is being flushed, the size of the
+memory range, and the number 3 (to flush both caches).  The default
+depends on the target GCC was configured for, but commonly is either
+<code>_flush_func</code> or <code>__cpu_flush</code>.
+
+     <br><dt><code>-mbranch-likely</code>
+     <dd><dt><code>-mno-branch-likely</code>
+     <dd>Enable or disable use of Branch Likely instructions, regardless of the
+default for the selected architecture.  By default, Branch Likely
+instructions may be generated if they are supported by the selected
+architecture.  An exception is for the MIPS32 and MIPS64 architectures
+and processors which implement those architectures; for those, Branch
+Likely instructions will not be generated by default because the MIPS32
+and MIPS64 architectures specifically deprecate their use.
+
+     <br><dt><code>-mfp-exceptions</code>
+     <dd><dt><code>-mno-fp-exceptions</code>
+     <dd>Specifies whether FP exceptions are enabled.  This affects how we schedule
+FP instructions for some processors.  The default is that FP exceptions are
+enabled.
+
+     <p>For instance, on the SB-1, if FP exceptions are disabled, and we are emitting
+64-bit code, then we can use both FP pipes.  Otherwise, we can only use one
+FP pipe. 
+</dl>
+
+   </body></html>
+

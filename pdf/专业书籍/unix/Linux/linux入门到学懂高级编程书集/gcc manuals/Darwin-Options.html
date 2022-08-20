@@ -1,0 +1,138 @@
+<html lang="en">
+<head>
+<title>Using the GNU Compiler Collection (GCC)</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Using the GNU Compiler Collection (GCC)">
+<meta name="generator" content="makeinfo 4.6">
+<!--
+Copyright &copy; 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+   <p>Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "GNU General Public License" and "Funding
+Free Software", the Front-Cover texts being (a) (see below), and with
+the Back-Cover Texts being (b) (see below).  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+   <p>(a) The FSF's Front-Cover Text is:
+
+   <p>A GNU Manual
+
+   <p>(b) The FSF's Back-Cover Text is:
+
+   <p>You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+Node:&nbsp;<a name="Darwin%20Options">Darwin Options</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Submodel-Options.html#Submodel%20Options">Submodel Options</a>
+<hr><br>
+</div>
+
+<h3 class="subsection">Darwin Options</h4>
+
+<p>These options are defined for all architectures running the Darwin operating
+system.  They are useful for compatibility with other Mac OS compilers.
+
+     <dl>
+<dt><code>-all_load</code>
+     <dd>Loads all members of static archive libraries. 
+See man ld(1) for more information.
+
+     <br><dt><code>-arch_errors_fatal</code>
+     <dd>Cause the errors having to do with files that have the wrong architecture
+to be fatal.
+
+     <br><dt><code>-bind_at_load</code>
+     <dd>Causes the output file to be marked such that the dynamic linker will
+bind all undefined references when the file is loaded or launched.
+
+     <br><dt><code>-bundle</code>
+     <dd>Produce a Mach-o bundle format file. 
+See man ld(1) for more information.
+
+     <br><dt><code>-bundle_loader </code><var>executable</var><code></code>
+     <dd>This specifies the <var>executable</var> that will be loading the build
+output file being linked. See man ld(1) for more information.
+
+     <br><dt><code>-allowable_client  </code><var>client_name</var><code></code>
+     <dd><dt><code>-arch_only</code>
+     <dd>
+<dt><code>-client_name</code>
+     <dd><dt><code>-compatibility_version</code>
+     <dd><dt><code>-current_version</code>
+     <dd><dt><code>-dependency-file</code>
+     <dd><dt><code>-dylib_file</code>
+     <dd><dt><code>-dylinker_install_name</code>
+     <dd><dt><code>-dynamic</code>
+     <dd><dt><code>-dynamiclib</code>
+     <dd><dt><code>-exported_symbols_list</code>
+     <dd><dt><code>-filelist</code>
+     <dd><dt><code>-flat_namespace</code>
+     <dd><dt><code>-force_cpusubtype_ALL</code>
+     <dd><dt><code>-force_flat_namespace</code>
+     <dd><dt><code>-headerpad_max_install_names</code>
+     <dd><dt><code>-image_base</code>
+     <dd><dt><code>-init</code>
+     <dd><dt><code>-install_name</code>
+     <dd><dt><code>-keep_private_externs</code>
+     <dd><dt><code>-multi_module</code>
+     <dd><dt><code>-multiply_defined</code>
+     <dd><dt><code>-multiply_defined_unused</code>
+     <dd><dt><code>-noall_load</code>
+     <dd><dt><code>-nofixprebinding</code>
+     <dd><dt><code>-nomultidefs</code>
+     <dd><dt><code>-noprebind</code>
+     <dd><dt><code>-noseglinkedit</code>
+     <dd><dt><code>-pagezero_size</code>
+     <dd><dt><code>-prebind</code>
+     <dd><dt><code>-prebind_all_twolevel_modules</code>
+     <dd><dt><code>-private_bundle</code>
+     <dd><dt><code>-read_only_relocs</code>
+     <dd><dt><code>-sectalign</code>
+     <dd><dt><code>-sectobjectsymbols</code>
+     <dd><dt><code>-whyload</code>
+     <dd><dt><code>-seg1addr</code>
+     <dd><dt><code>-sectcreate</code>
+     <dd><dt><code>-sectobjectsymbols</code>
+     <dd><dt><code>-sectorder</code>
+     <dd><dt><code>-seg_addr_table</code>
+     <dd><dt><code>-seg_addr_table_filename</code>
+     <dd><dt><code>-seglinkedit</code>
+     <dd><dt><code>-segprot</code>
+     <dd><dt><code>-segs_read_only_addr</code>
+     <dd><dt><code>-segs_read_write_addr</code>
+     <dd><dt><code>-single_module</code>
+     <dd><dt><code>-static</code>
+     <dd><dt><code>-sub_library</code>
+     <dd><dt><code>-sub_umbrella</code>
+     <dd><dt><code>-twolevel_namespace</code>
+     <dd><dt><code>-umbrella</code>
+     <dd><dt><code>-undefined</code>
+     <dd><dt><code>-unexported_symbols_list</code>
+     <dd><dt><code>-weak_reference_mismatches</code>
+     <dd><dt><code>-whatsloaded</code>
+     <dd>
+
+     <p>These options are available for Darwin linker. Darwin linker man page
+describes them in detail. 
+</dl>
+
+   </body></html>
+

@@ -1,0 +1,53 @@
+浅析Linux系统中添加硬盘，分区，格式化
+
+
+　　在我们添加硬盘前，首先要了解linux系统下对硬盘和分区的命名方法。
+
+　　在Linux下对IDE的设备是以hd命名的，第一个ide设备是hda，第二个是hdb。
+
+　　我们一般主板上有两个IDE接口，一共可以安装四个IDE设备。主IDE上的两个设备分别对应hda和hdb，第二个IDE口上的两个设备对应hdc和hdd。
+
+　　一般我们的硬盘安装在主IDE的主接口上，所以是hda
+
+　　光驱一般安装在第二个IDE的主接口上，所以是hdc(应为hdb是用来命名主IDE上的从接口)
+
+　　SCSI接口设备是用sd命名的，第一个设备是sda，第二个是sdb。
+
+　　分区是用设备名称加数字命名的。例如hda1代表hda这个硬盘设备上的第一个分区。
+
+　　每个硬盘可以最多有四个主分区，作用是1-4命名硬盘的主分区。逻辑分区是从5开始的，每多一个分区，数字加以就可以。
+
+　　比如我们一般的系统都有一个主分区用来引导系统，这个分区对应我们常说的C区，在linux下命名是hda1。后面我们分三个逻辑分区对应常说的D、E、F，在linux下命名是hda5、hda6、hda7
+
+　　给硬盘分区
+
+　　在slackware下有两个分区软件fdisk和cfdisk
+
+　　例如我们已经有一个硬盘了，现在添加另一个硬盘到系统
+
+　　那么我们根据命名规则知道这个新添加的硬盘应该是hdb。我们用下面命令给硬盘分区
+
+　　fdisk /dev/hdb
+
+　　你也可以用cfdisk来分区，命令如下
+
+　　cfdisk /dev/hdb
+
+　　格式化硬盘
+
+　　格式化成ext3格式
+
+　　mkfs.ext3 /dev/hdb1
+
+　　格式化成reiserfs的格式
+
+　　mkfs.reiserfs /dev/hdb1
+
+　　让硬盘启动自动挂载
+
+　　例如挂载/dev/hdb1分区到/mnt/hd目录下
+
+　　用vi编辑/etc/fstab文件，加入如下内容
+
+　　/dev/dhb1 /mnt/hd reiserfs defaults 1 1a
+

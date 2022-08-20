@@ -1,0 +1,66 @@
+<html lang="en">
+<head>
+<title>Using the GNU Compiler Collection (GCC)</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Using the GNU Compiler Collection (GCC)">
+<meta name="generator" content="makeinfo 4.6">
+<!--
+Copyright &copy; 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+   <p>Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "GNU General Public License" and "Funding
+Free Software", the Front-Cover texts being (a) (see below), and with
+the Back-Cover Texts being (b) (see below).  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+   <p>(a) The FSF's Front-Cover Text is:
+
+   <p>A GNU Manual
+
+   <p>(b) The FSF's Back-Cover Text is:
+
+   <p>You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+Node:&nbsp;<a name="Offsetof">Offsetof</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="Java-Exceptions.html#Java%20Exceptions">Java Exceptions</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Strong-Using.html#Strong%20Using">Strong Using</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="C---Extensions.html#C++%20Extensions">C++ Extensions</a>
+<hr><br>
+</div>
+
+<h3 class="section">Offsetof</h3>
+
+<p>G++ uses a syntactic extension to implement the <code>offsetof</code> macro.
+
+   <p>In particular:
+
+<pre class="smallexample">       __offsetof__ (expression)
+     </pre>
+
+   <p>is equivalent to the parenthesized expression, except that the
+expression is considered an integral constant expression even if it
+contains certain operators that are not normally permitted in an
+integral constant expression.  Users should never use
+<code>__offsetof__</code> directly; the only valid use of
+<code>__offsetof__</code> is to implement the <code>offsetof</code> macro in
+<code>&lt;stddef.h&gt;</code>.
+
+   </body></html>
+

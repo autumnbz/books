@@ -1,0 +1,273 @@
+<html lang="en">
+<head>
+<title>Using the GNU Compiler Collection (GCC)</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Using the GNU Compiler Collection (GCC)">
+<meta name="generator" content="makeinfo 4.6">
+<!--
+Copyright &copy; 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+   <p>Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "GNU General Public License" and "Funding
+Free Software", the Front-Cover texts being (a) (see below), and with
+the Back-Cover Texts being (b) (see below).  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+   <p>(a) The FSF's Front-Cover Text is:
+
+   <p>A GNU Manual
+
+   <p>(b) The FSF's Back-Cover Text is:
+
+   <p>You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+Node:&nbsp;<a name="FRV%20Options">FRV Options</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Xtensa-Options.html#Xtensa%20Options">Xtensa Options</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Submodel-Options.html#Submodel%20Options">Submodel Options</a>
+<hr><br>
+</div>
+
+<h3 class="subsection">FRV Options</h4>
+
+     <dl>
+<dt><code>-mgpr-32</code>
+     <dd>
+
+     <p>Only use the first 32 general purpose registers.
+
+     <br><dt><code>-mgpr-64</code>
+     <dd>
+
+     <p>Use all 64 general purpose registers.
+
+     <br><dt><code>-mfpr-32</code>
+     <dd>
+
+     <p>Use only the first 32 floating point registers.
+
+     <br><dt><code>-mfpr-64</code>
+     <dd>
+
+     <p>Use all 64 floating point registers
+
+     <br><dt><code>-mhard-float</code>
+     <dd>
+
+     <p>Use hardware instructions for floating point operations.
+
+     <br><dt><code>-msoft-float</code>
+     <dd>
+
+     <p>Use library routines for floating point operations.
+
+     <br><dt><code>-malloc-cc</code>
+     <dd>
+
+     <p>Dynamically allocate condition code registers.
+
+     <br><dt><code>-mfixed-cc</code>
+     <dd>
+
+     <p>Do not try to dynamically allocate condition code registers, only
+use <code>icc0</code> and <code>fcc0</code>.
+
+     <br><dt><code>-mdword</code>
+     <dd>
+
+     <p>Change ABI to use double word insns.
+
+     <br><dt><code>-mno-dword</code>
+     <dd>
+
+     <p>Do not use double word instructions.
+
+     <br><dt><code>-mdouble</code>
+     <dd>
+
+     <p>Use floating point double instructions.
+
+     <br><dt><code>-mno-double</code>
+     <dd>
+
+     <p>Do not use floating point double instructions.
+
+     <br><dt><code>-mmedia</code>
+     <dd>
+
+     <p>Use media instructions.
+
+     <br><dt><code>-mno-media</code>
+     <dd>
+
+     <p>Do not use media instructions.
+
+     <br><dt><code>-mmuladd</code>
+     <dd>
+
+     <p>Use multiply and add/subtract instructions.
+
+     <br><dt><code>-mno-muladd</code>
+     <dd>
+
+     <p>Do not use multiply and add/subtract instructions.
+
+     <br><dt><code>-mlibrary-pic</code>
+     <dd>
+
+     <p>Generate position-independent EABI code.
+
+     <br><dt><code>-macc-4</code>
+     <dd>
+
+     <p>Use only the first four media accumulator registers.
+
+     <br><dt><code>-macc-8</code>
+     <dd>
+
+     <p>Use all eight media accumulator registers.
+
+     <br><dt><code>-mpack</code>
+     <dd>
+
+     <p>Pack VLIW instructions.
+
+     <br><dt><code>-mno-pack</code>
+     <dd>
+
+     <p>Do not pack VLIW instructions.
+
+     <br><dt><code>-mno-eflags</code>
+     <dd>
+
+     <p>Do not mark ABI switches in e_flags.
+
+     <br><dt><code>-mcond-move</code>
+     <dd>
+
+     <p>Enable the use of conditional-move instructions (default).
+
+     <p>This switch is mainly for debugging the compiler and will likely be removed
+in a future version.
+
+     <br><dt><code>-mno-cond-move</code>
+     <dd>
+
+     <p>Disable the use of conditional-move instructions.
+
+     <p>This switch is mainly for debugging the compiler and will likely be removed
+in a future version.
+
+     <br><dt><code>-mscc</code>
+     <dd>
+
+     <p>Enable the use of conditional set instructions (default).
+
+     <p>This switch is mainly for debugging the compiler and will likely be removed
+in a future version.
+
+     <br><dt><code>-mno-scc</code>
+     <dd>
+
+     <p>Disable the use of conditional set instructions.
+
+     <p>This switch is mainly for debugging the compiler and will likely be removed
+in a future version.
+
+     <br><dt><code>-mcond-exec</code>
+     <dd>
+
+     <p>Enable the use of conditional execution (default).
+
+     <p>This switch is mainly for debugging the compiler and will likely be removed
+in a future version.
+
+     <br><dt><code>-mno-cond-exec</code>
+     <dd>
+
+     <p>Disable the use of conditional execution.
+
+     <p>This switch is mainly for debugging the compiler and will likely be removed
+in a future version.
+
+     <br><dt><code>-mvliw-branch</code>
+     <dd>
+
+     <p>Run a pass to pack branches into VLIW instructions (default).
+
+     <p>This switch is mainly for debugging the compiler and will likely be removed
+in a future version.
+
+     <br><dt><code>-mno-vliw-branch</code>
+     <dd>
+
+     <p>Do not run a pass to pack branches into VLIW instructions.
+
+     <p>This switch is mainly for debugging the compiler and will likely be removed
+in a future version.
+
+     <br><dt><code>-mmulti-cond-exec</code>
+     <dd>
+
+     <p>Enable optimization of <code>&amp;&amp;</code> and <code>||</code> in conditional execution
+(default).
+
+     <p>This switch is mainly for debugging the compiler and will likely be removed
+in a future version.
+
+     <br><dt><code>-mno-multi-cond-exec</code>
+     <dd>
+
+     <p>Disable optimization of <code>&amp;&amp;</code> and <code>||</code> in conditional execution.
+
+     <p>This switch is mainly for debugging the compiler and will likely be removed
+in a future version.
+
+     <br><dt><code>-mnested-cond-exec</code>
+     <dd>
+
+     <p>Enable nested conditional execution optimizations (default).
+
+     <p>This switch is mainly for debugging the compiler and will likely be removed
+in a future version.
+
+     <br><dt><code>-mno-nested-cond-exec</code>
+     <dd>
+
+     <p>Disable nested conditional execution optimizations.
+
+     <p>This switch is mainly for debugging the compiler and will likely be removed
+in a future version.
+
+     <br><dt><code>-mtomcat-stats</code>
+     <dd>
+
+     <p>Cause gas to print out tomcat statistics.
+
+     <br><dt><code>-mcpu=</code><var>cpu</var><code></code>
+     <dd>
+
+     <p>Select the processor type for which to generate code.  Possible values are
+<code>simple</code>, <code>tomcat</code>, <code>fr500</code>, <code>fr400</code>, <code>fr300</code>,
+<code>frv</code>.
+
+</dl>
+
+   </body></html>
+

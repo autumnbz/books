@@ -1,0 +1,81 @@
+<html lang="en">
+<head>
+<title>Using the GNU Compiler Collection (GCC)</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Using the GNU Compiler Collection (GCC)">
+<meta name="generator" content="makeinfo 4.6">
+<!--
+Copyright &copy; 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+   <p>Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "GNU General Public License" and "Funding
+Free Software", the Front-Cover texts being (a) (see below), and with
+the Back-Cover Texts being (b) (see below).  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+   <p>(a) The FSF's Front-Cover Text is:
+
+   <p>A GNU Manual
+
+   <p>(b) The FSF's Back-Cover Text is:
+
+   <p>You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+Node:&nbsp;<a name="Alternate%20Keywords">Alternate Keywords</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="Incomplete-Enums.html#Incomplete%20Enums">Incomplete Enums</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Explicit-Reg-Vars.html#Explicit%20Reg%20Vars">Explicit Reg Vars</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="C-Extensions.html#C%20Extensions">C Extensions</a>
+<hr><br>
+</div>
+
+<h3 class="section">Alternate Keywords</h3>
+
+<p><code>-ansi</code> and the various <code>-std</code> options disable certain
+keywords.  This causes trouble when you want to use GNU C extensions, or
+a general-purpose header file that should be usable by all programs,
+including ISO C programs.  The keywords <code>asm</code>, <code>typeof</code> and
+<code>inline</code> are not available in programs compiled with
+<code>-ansi</code> or <code>-std</code> (although <code>inline</code> can be used in a
+program compiled with <code>-std=c99</code>).  The ISO C99 keyword
+<code>restrict</code> is only available when <code>-std=gnu99</code> (which will
+eventually be the default) or <code>-std=c99</code> (or the equivalent
+<code>-std=iso9899:1999</code>) is used.
+
+   <p>The way to solve these problems is to put <code>__</code> at the beginning and
+end of each problematical keyword.  For example, use <code>__asm__</code>
+instead of <code>asm</code>, and <code>__inline__</code> instead of <code>inline</code>.
+
+   <p>Other C compilers won't accept these alternative keywords; if you want to
+compile with another compiler, you can define the alternate keywords as
+macros to replace them with the customary keywords.  It looks like this:
+
+<pre class="smallexample">     #ifndef __GNUC__
+     #define __asm__ asm
+     #endif
+     </pre>
+
+   <p><code>-pedantic</code> and other options cause warnings for many GNU C extensions. 
+You can
+prevent such warnings within one expression by writing
+<code>__extension__</code> before the expression.  <code>__extension__</code> has no
+effect aside from this.
+
+   </body></html>
+

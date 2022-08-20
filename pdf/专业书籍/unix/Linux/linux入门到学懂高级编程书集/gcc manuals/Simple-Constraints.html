@@ -1,0 +1,203 @@
+<html lang="en">
+<head>
+<title>Using the GNU Compiler Collection (GCC)</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Using the GNU Compiler Collection (GCC)">
+<meta name="generator" content="makeinfo 4.6">
+<!--
+Copyright &copy; 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+   <p>Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "GNU General Public License" and "Funding
+Free Software", the Front-Cover texts being (a) (see below), and with
+the Back-Cover Texts being (b) (see below).  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+   <p>(a) The FSF's Front-Cover Text is:
+
+   <p>A GNU Manual
+
+   <p>(b) The FSF's Back-Cover Text is:
+
+   <p>You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+Node:&nbsp;<a name="Simple%20Constraints">Simple Constraints</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="Multi-Alternative.html#Multi-Alternative">Multi-Alternative</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Constraints.html#Constraints">Constraints</a>
+<hr><br>
+</div>
+
+<h3 class="subsection">Simple Constraints</h4>
+
+<p>The simplest kind of constraint is a string full of letters, each of
+which describes one kind of operand that is permitted.  Here are
+the letters that are allowed:
+
+     <dl>
+<dt>whitespace
+     <dd>Whitespace characters are ignored and can be inserted at any position
+except the first.  This enables each alternative for different operands to
+be visually aligned in the machine description even if they have different
+number of constraints and modifiers.
+
+     <br><dt><code>m</code>
+     <dd>A memory operand is allowed, with any kind of address that the machine
+supports in general.
+
+     <br><dt><code>o</code>
+     <dd>A memory operand is allowed, but only if the address is
+<dfn>offsettable</dfn>.  This means that adding a small integer (actually,
+the width in bytes of the operand, as determined by its machine mode)
+may be added to the address and the result is also a valid memory
+address.
+
+     <p>For example, an address which is constant is offsettable; so is an
+address that is the sum of a register and a constant (as long as a
+slightly larger constant is also within the range of address-offsets
+supported by the machine); but an autoincrement or autodecrement
+address is not offsettable.  More complicated indirect/indexed
+addresses may or may not be offsettable depending on the other
+addressing modes that the machine supports.
+
+     <p>Note that in an output operand which can be matched by another
+operand, the constraint letter <code>o</code> is valid only when accompanied
+by both <code>&lt;</code> (if the target machine has predecrement addressing)
+and <code>&gt;</code> (if the target machine has preincrement addressing).
+
+     <br><dt><code>V</code>
+     <dd>A memory operand that is not offsettable.  In other words, anything that
+would fit the <code>m</code> constraint but not the <code>o</code> constraint.
+
+     <br><dt><code>&lt;</code>
+     <dd>A memory operand with autodecrement addressing (either predecrement or
+postdecrement) is allowed.
+
+     <br><dt><code>&gt;</code>
+     <dd>A memory operand with autoincrement addressing (either preincrement or
+postincrement) is allowed.
+
+     <br><dt><code>r</code>
+     <dd>A register operand is allowed provided that it is in a general
+register.
+
+     <br><dt><code>i</code>
+     <dd>An immediate integer operand (one with constant value) is allowed. 
+This includes symbolic constants whose values will be known only at
+assembly time or later.
+
+     <br><dt><code>n</code>
+     <dd>An immediate integer operand with a known numeric value is allowed. 
+Many systems cannot support assembly-time constants for operands less
+than a word wide.  Constraints for these operands should use <code>n</code>
+rather than <code>i</code>.
+
+     <br><dt><code>I</code>, <code>J</code>, <code>K</code>, <small class="dots">...</small> <code>P</code>
+     <dd>Other letters in the range <code>I</code> through <code>P</code> may be defined in
+a machine-dependent fashion to permit immediate integer operands with
+explicit integer values in specified ranges.  For example, on the
+68000, <code>I</code> is defined to stand for the range of values 1 to 8. 
+This is the range permitted as a shift count in the shift
+instructions.
+
+     <br><dt><code>E</code>
+     <dd>An immediate floating operand (expression code <code>const_double</code>) is
+allowed, but only if the target floating point format is the same as
+that of the host machine (on which the compiler is running).
+
+     <br><dt><code>F</code>
+     <dd>An immediate floating operand (expression code <code>const_double</code> or
+<code>const_vector</code>) is allowed.
+
+     <br><dt><code>G</code>, <code>H</code>
+     <dd><code>G</code> and <code>H</code> may be defined in a machine-dependent fashion to
+permit immediate floating operands in particular ranges of values.
+
+     <br><dt><code>s</code>
+     <dd>An immediate integer operand whose value is not an explicit integer is
+allowed.
+
+     <p>This might appear strange; if an insn allows a constant operand with a
+value not known at compile time, it certainly must allow any known
+value.  So why use <code>s</code> instead of <code>i</code>?  Sometimes it allows
+better code to be generated.
+
+     <p>For example, on the 68000 in a fullword instruction it is possible to
+use an immediate operand; but if the immediate value is between -128
+and 127, better code results from loading the value into a register and
+using the register.  This is because the load into the register can be
+done with a <code>moveq</code> instruction.  We arrange for this to happen
+by defining the letter <code>K</code> to mean "any integer outside the
+range -128 to 127", and then specifying <code>Ks</code> in the operand
+constraints.
+
+     <br><dt><code>g</code>
+     <dd>Any register, memory or immediate integer operand is allowed, except for
+registers that are not general registers.
+
+     <br><dt><code>X</code>
+     <dd>Any operand whatsoever is allowed.
+
+     <br><dt><code>0</code>, <code>1</code>, <code>2</code>, <small class="dots">...</small> <code>9</code>
+     <dd>An operand that matches the specified operand number is allowed.  If a
+digit is used together with letters within the same alternative, the
+digit should come last.
+
+     <p>This number is allowed to be more than a single digit.  If multiple
+digits are encountered consecutively, they are interpreted as a single
+decimal integer.  There is scant chance for ambiguity, since to-date
+it has never been desirable that <code>10</code> be interpreted as matching
+either operand 1 <em>or</em> operand 0.  Should this be desired, one
+can use multiple alternatives instead.
+
+     <p>This is called a <dfn>matching constraint</dfn> and what it really means is
+that the assembler has only a single operand that fills two roles
+which <code>asm</code> distinguishes.  For example, an add instruction uses
+two input operands and an output operand, but on most CISC
+machines an add instruction really has only two operands, one of them an
+input-output operand:
+
+     <pre class="smallexample">          addl #35,r12
+          </pre>
+
+     <p>Matching constraints are used in these circumstances. 
+More precisely, the two operands that match must include one input-only
+operand and one output-only operand.  Moreover, the digit must be a
+smaller number than the number of the operand that uses it in the
+constraint.
+
+     <br><dt><code>p</code>
+     <dd>An operand that is a valid memory address is allowed.  This is
+for "load address" and "push address" instructions.
+
+     <p><code>p</code> in the constraint must be accompanied by <code>address_operand</code>
+as the predicate in the <code>match_operand</code>.  This predicate interprets
+the mode specified in the <code>match_operand</code> as the mode of the memory
+reference for which the address would be valid.
+
+     <br><dt><var>other-letters</var>
+     <dd>Other letters can be defined in machine-dependent fashion to stand for
+particular classes of registers or other arbitrary operand types. 
+<code>d</code>, <code>a</code> and <code>f</code> are defined on the 68000/68020 to stand
+for data, address and floating point registers.
+
+   </dl>
+
+   </body></html>
+

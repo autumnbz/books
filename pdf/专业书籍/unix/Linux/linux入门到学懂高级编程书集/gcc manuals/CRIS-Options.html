@@ -1,0 +1,160 @@
+<html lang="en">
+<head>
+<title>Using the GNU Compiler Collection (GCC)</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Using the GNU Compiler Collection (GCC)">
+<meta name="generator" content="makeinfo 4.6">
+<!--
+Copyright &copy; 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+   <p>Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "GNU General Public License" and "Funding
+Free Software", the Front-Cover texts being (a) (see below), and with
+the Back-Cover Texts being (b) (see below).  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+   <p>(a) The FSF's Front-Cover Text is:
+
+   <p>A GNU Manual
+
+   <p>(b) The FSF's Back-Cover Text is:
+
+   <p>You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+Node:&nbsp;<a name="CRIS%20Options">CRIS Options</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="MMIX-Options.html#MMIX%20Options">MMIX Options</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="S-390-and-zSeries-Options.html#S%2f390%20and%20zSeries%20Options">S/390 and zSeries Options</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Submodel-Options.html#Submodel%20Options">Submodel Options</a>
+<hr><br>
+</div>
+
+<h3 class="subsection">CRIS Options</h4>
+
+<p>These options are defined specifically for the CRIS ports.
+
+     <dl>
+<dt><code>-march=</code><var>architecture-type</var><code></code>
+     <dd><dt><code>-mcpu=</code><var>architecture-type</var><code></code>
+     <dd>Generate code for the specified architecture.  The choices for
+<var>architecture-type</var> are <code>v3</code>, <code>v8</code> and <code>v10</code> for
+respectively ETRAX&nbsp;4, ETRAX&nbsp;100, and ETRAX&nbsp;100&nbsp;LX. 
+Default is <code>v0</code> except for cris-axis-linux-gnu, where the default is
+<code>v10</code>.
+
+     <br><dt><code>-mtune=</code><var>architecture-type</var><code></code>
+     <dd>Tune to <var>architecture-type</var> everything applicable about the generated
+code, except for the ABI and the set of available instructions.  The
+choices for <var>architecture-type</var> are the same as for
+<code>-march=</code><var>architecture-type</var><code></code>.
+
+     <br><dt><code>-mmax-stack-frame=</code><var>n</var><code></code>
+     <dd>Warn when the stack frame of a function exceeds <var>n</var> bytes.
+
+     <br><dt><code>-melinux-stacksize=</code><var>n</var><code></code>
+     <dd>Only available with the <code>cris-axis-aout</code> target.  Arranges for
+indications in the program to the kernel loader that the stack of the
+program should be set to <var>n</var> bytes.
+
+     <br><dt><code>-metrax4</code>
+     <dd><dt><code>-metrax100</code>
+     <dd>The options <code>-metrax4</code> and <code>-metrax100</code> are synonyms for
+<code>-march=v3</code> and <code>-march=v8</code> respectively.
+
+     <br><dt><code>-mmul-bug-workaround</code>
+     <dd><dt><code>-mno-mul-bug-workaround</code>
+     <dd>Work around a bug in the <code>muls</code> and <code>mulu</code> instructions for CPU
+models where it applies.  This option is active by default.
+
+     <br><dt><code>-mpdebug</code>
+     <dd>Enable CRIS-specific verbose debug-related information in the assembly
+code.  This option also has the effect to turn off the <code>#NO_APP</code>
+formatted-code indicator to the assembler at the beginning of the
+assembly file.
+
+     <br><dt><code>-mcc-init</code>
+     <dd>Do not use condition-code results from previous instruction; always emit
+compare and test instructions before use of condition codes.
+
+     <br><dt><code>-mno-side-effects</code>
+     <dd>Do not emit instructions with side-effects in addressing modes other than
+post-increment.
+
+     <br><dt><code>-mstack-align</code>
+     <dd><dt><code>-mno-stack-align</code>
+     <dd><dt><code>-mdata-align</code>
+     <dd><dt><code>-mno-data-align</code>
+     <dd><dt><code>-mconst-align</code>
+     <dd><dt><code>-mno-const-align</code>
+     <dd>These options (no-options) arranges (eliminate arrangements) for the
+stack-frame, individual data and constants to be aligned for the maximum
+single data access size for the chosen CPU model.  The default is to
+arrange for 32-bit alignment.  ABI details such as structure layout are
+not affected by these options.
+
+     <br><dt><code>-m32-bit</code>
+     <dd><dt><code>-m16-bit</code>
+     <dd><dt><code>-m8-bit</code>
+     <dd>Similar to the stack- data- and const-align options above, these options
+arrange for stack-frame, writable data and constants to all be 32-bit,
+16-bit or 8-bit aligned.  The default is 32-bit alignment.
+
+     <br><dt><code>-mno-prologue-epilogue</code>
+     <dd><dt><code>-mprologue-epilogue</code>
+     <dd>With <code>-mno-prologue-epilogue</code>, the normal function prologue and
+epilogue that sets up the stack-frame are omitted and no return
+instructions or return sequences are generated in the code.  Use this
+option only together with visual inspection of the compiled code: no
+warnings or errors are generated when call-saved registers must be saved,
+or storage for local variable needs to be allocated.
+
+     <br><dt><code>-mno-gotplt</code>
+     <dd><dt><code>-mgotplt</code>
+     <dd>With <code>-fpic</code> and <code>-fPIC</code>, don't generate (do generate)
+instruction sequences that load addresses for functions from the PLT part
+of the GOT rather than (traditional on other architectures) calls to the
+PLT.  The default is <code>-mgotplt</code>.
+
+     <br><dt><code>-maout</code>
+     <dd>Legacy no-op option only recognized with the cris-axis-aout target.
+
+     <br><dt><code>-melf</code>
+     <dd>Legacy no-op option only recognized with the cris-axis-elf and
+cris-axis-linux-gnu targets.
+
+     <br><dt><code>-melinux</code>
+     <dd>Only recognized with the cris-axis-aout target, where it selects a
+GNU/linux-like multilib, include files and instruction set for
+<code>-march=v8</code>.
+
+     <br><dt><code>-mlinux</code>
+     <dd>Legacy no-op option only recognized with the cris-axis-linux-gnu target.
+
+     <br><dt><code>-sim</code>
+     <dd>This option, recognized for the cris-axis-aout and cris-axis-elf arranges
+to link with input-output functions from a simulator library.  Code,
+initialized data and zero-initialized data are allocated consecutively.
+
+     <br><dt><code>-sim2</code>
+     <dd>Like <code>-sim</code>, but pass linker options to locate initialized data at
+0x40000000 and zero-initialized data at 0x80000000. 
+</dl>
+
+   </body></html>
+

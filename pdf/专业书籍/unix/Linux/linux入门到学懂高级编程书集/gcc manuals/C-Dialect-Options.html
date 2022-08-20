@@ -1,0 +1,283 @@
+<html lang="en">
+<head>
+<title>Using the GNU Compiler Collection (GCC)</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Using the GNU Compiler Collection (GCC)">
+<meta name="generator" content="makeinfo 4.6">
+<!--
+Copyright &copy; 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+   <p>Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "GNU General Public License" and "Funding
+Free Software", the Front-Cover texts being (a) (see below), and with
+the Back-Cover Texts being (b) (see below).  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+   <p>(a) The FSF's Front-Cover Text is:
+
+   <p>A GNU Manual
+
+   <p>(b) The FSF's Back-Cover Text is:
+
+   <p>You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+Node:&nbsp;<a name="C%20Dialect%20Options">C Dialect Options</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="C---Dialect-Options.html#C++%20Dialect%20Options">C++ Dialect Options</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Invoking-G--.html#Invoking%20G++">Invoking G++</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Invoking-GCC.html#Invoking%20GCC">Invoking GCC</a>
+<hr><br>
+</div>
+
+<h3 class="section">Options Controlling C Dialect</h3>
+
+<p>The following options control the dialect of C (or languages derived
+from C, such as C++ and Objective-C) that the compiler accepts:
+
+     <dl>
+<dt><code>-ansi</code>
+     <dd>In C mode, support all ISO C90 programs.  In C++ mode,
+remove GNU extensions that conflict with ISO C++.
+
+     <p>This turns off certain features of GCC that are incompatible with ISO
+C90 (when compiling C code), or of standard C++ (when compiling C++ code),
+such as the <code>asm</code> and <code>typeof</code> keywords, and
+predefined macros such as <code>unix</code> and <code>vax</code> that identify the
+type of system you are using.  It also enables the undesirable and
+rarely used ISO trigraph feature.  For the C compiler,
+it disables recognition of C++ style <code>//</code> comments as well as
+the <code>inline</code> keyword.
+
+     <p>The alternate keywords <code>__asm__</code>, <code>__extension__</code>,
+<code>__inline__</code> and <code>__typeof__</code> continue to work despite
+<code>-ansi</code>.  You would not want to use them in an ISO C program, of
+course, but it is useful to put them in header files that might be included
+in compilations done with <code>-ansi</code>.  Alternate predefined macros
+such as <code>__unix__</code> and <code>__vax__</code> are also available, with or
+without <code>-ansi</code>.
+
+     <p>The <code>-ansi</code> option does not cause non-ISO programs to be
+rejected gratuitously.  For that, <code>-pedantic</code> is required in
+addition to <code>-ansi</code>.  See <a href="Warning-Options.html#Warning%20Options">Warning Options</a>.
+
+     <p>The macro <code>__STRICT_ANSI__</code> is predefined when the <code>-ansi</code>
+option is used.  Some header files may notice this macro and refrain
+from declaring certain functions or defining certain macros that the
+ISO standard doesn't call for; this is to avoid interfering with any
+programs that might use these names for other things.
+
+     <p>Functions which would normally be built in but do not have semantics
+defined by ISO C (such as <code>alloca</code> and <code>ffs</code>) are not built-in
+functions with <code>-ansi</code> is used.  See <a href="Other-Builtins.html#Other%20Builtins">Other built-in functions provided by GCC</a>, for details of the functions
+affected.
+
+     <br><dt><code>-std=</code>
+     <dd>Determine the language standard.  This option is currently only
+supported when compiling C or C++.  A value for this option must be
+provided; possible values are
+
+          <dl>
+<dt><code>c89</code>
+          <dd><dt><code>iso9899:1990</code>
+          <dd>ISO C90 (same as <code>-ansi</code>).
+
+          <br><dt><code>iso9899:199409</code>
+          <dd>ISO C90 as modified in amendment 1.
+
+          <br><dt><code>c99</code>
+          <dd><dt><code>c9x</code>
+          <dd><dt><code>iso9899:1999</code>
+          <dd><dt><code>iso9899:199x</code>
+          <dd>ISO C99.  Note that this standard is not yet fully supported; see
+<a href="http://gcc.gnu.org/c99status.html">http://gcc.gnu.org/c99status.html</a> for more information.  The
+names <code>c9x</code> and <code>iso9899:199x</code> are deprecated.
+
+          <br><dt><code>gnu89</code>
+          <dd>Default, ISO C90 plus GNU extensions (including some C99 features).
+
+          <br><dt><code>gnu99</code>
+          <dd><dt><code>gnu9x</code>
+          <dd>ISO C99 plus GNU extensions.  When ISO C99 is fully implemented in GCC,
+this will become the default.  The name <code>gnu9x</code> is deprecated.
+
+          <br><dt><code>c++98</code>
+          <dd>The 1998 ISO C++ standard plus amendments.
+
+          <br><dt><code>gnu++98</code>
+          <dd>The same as <code>-std=c++98</code> plus GNU extensions.  This is the
+default for C++ code. 
+</dl>
+
+     <p>Even when this option is not specified, you can still use some of the
+features of newer standards in so far as they do not conflict with
+previous C standards.  For example, you may use <code>__restrict__</code> even
+when <code>-std=c99</code> is not specified.
+
+     <p>The <code>-std</code> options specifying some version of ISO C have the same
+effects as <code>-ansi</code>, except that features that were not in ISO C90
+but are in the specified version (for example, <code>//</code> comments and
+the <code>inline</code> keyword in ISO C99) are not disabled.
+
+     <p>See <a href="Standards.html#Standards">Language Standards Supported by GCC</a>, for details of
+these standard versions.
+
+     <br><dt><code>-aux-info </code><var>filename</var><code></code>
+     <dd>Output to the given filename prototyped declarations for all functions
+declared and/or defined in a translation unit, including those in header
+files.  This option is silently ignored in any language other than C.
+
+     <p>Besides declarations, the file indicates, in comments, the origin of
+each declaration (source file and line), whether the declaration was
+implicit, prototyped or unprototyped (<code>I</code>, <code>N</code> for new or
+<code>O</code> for old, respectively, in the first character after the line
+number and the colon), and whether it came from a declaration or a
+definition (<code>C</code> or <code>F</code>, respectively, in the following
+character).  In the case of function definitions, a K&amp;R-style list of
+arguments followed by their declarations is also provided, inside
+comments, after the declaration.
+
+     <br><dt><code>-fno-asm</code>
+     <dd>Do not recognize <code>asm</code>, <code>inline</code> or <code>typeof</code> as a
+keyword, so that code can use these words as identifiers.  You can use
+the keywords <code>__asm__</code>, <code>__inline__</code> and <code>__typeof__</code>
+instead.  <code>-ansi</code> implies <code>-fno-asm</code>.
+
+     <p>In C++, this switch only affects the <code>typeof</code> keyword, since
+<code>asm</code> and <code>inline</code> are standard keywords.  You may want to
+use the <code>-fno-gnu-keywords</code> flag instead, which has the same
+effect.  In C99 mode (<code>-std=c99</code> or <code>-std=gnu99</code>), this
+switch only affects the <code>asm</code> and <code>typeof</code> keywords, since
+<code>inline</code> is a standard keyword in ISO C99.
+
+     <br><dt><code>-fno-builtin</code>
+     <dd><dt><code>-fno-builtin-</code><var>function</var><code></code>
+     <dd>Don't recognize built-in functions that do not begin with
+<code>__builtin_</code> as prefix.  See <a href="Other-Builtins.html#Other%20Builtins">Other built-in functions provided by GCC</a>, for details of the functions affected,
+including those which are not built-in functions when <code>-ansi</code> or
+<code>-std</code> options for strict ISO C conformance are used because they
+do not have an ISO standard meaning.
+
+     <p>GCC normally generates special code to handle certain built-in functions
+more efficiently; for instance, calls to <code>alloca</code> may become single
+instructions that adjust the stack directly, and calls to <code>memcpy</code>
+may become inline copy loops.  The resulting code is often both smaller
+and faster, but since the function calls no longer appear as such, you
+cannot set a breakpoint on those calls, nor can you change the behavior
+of the functions by linking with a different library.
+
+     <p>With the <code>-fno-builtin-</code><var>function</var><code></code> option
+only the built-in function <var>function</var> is
+disabled.  <var>function</var> must not begin with <code>__builtin_</code>.  If a
+function is named this is not built-in in this version of GCC, this
+option is ignored.  There is no corresponding
+<code>-fbuiltin-</code><var>function</var><code></code> option; if you wish to enable
+built-in functions selectively when using <code>-fno-builtin</code> or
+<code>-ffreestanding</code>, you may define macros such as:
+
+     <pre class="smallexample">          #define abs(n)          __builtin_abs ((n))
+          #define strcpy(d, s)    __builtin_strcpy ((d), (s))
+          </pre>
+
+     <br><dt><code>-fhosted</code>
+     <dd>
+
+     <p>Assert that compilation takes place in a hosted environment.  This implies
+<code>-fbuiltin</code>.  A hosted environment is one in which the
+entire standard library is available, and in which <code>main</code> has a return
+type of <code>int</code>.  Examples are nearly everything except a kernel. 
+This is equivalent to <code>-fno-freestanding</code>.
+
+     <br><dt><code>-ffreestanding</code>
+     <dd>
+
+     <p>Assert that compilation takes place in a freestanding environment.  This
+implies <code>-fno-builtin</code>.  A freestanding environment
+is one in which the standard library may not exist, and program startup may
+not necessarily be at <code>main</code>.  The most obvious example is an OS kernel. 
+This is equivalent to <code>-fno-hosted</code>.
+
+     <p>See <a href="Standards.html#Standards">Language Standards Supported by GCC</a>, for details of
+freestanding and hosted environments.
+
+     <br><dt><code>-fms-extensions</code>
+     <dd>Accept some non-standard constructs used in Microsoft header files.
+
+     <br><dt><code>-trigraphs</code>
+     <dd>Support ISO C trigraphs.  The <code>-ansi</code> option (and <code>-std</code>
+options for strict ISO C conformance) implies <code>-trigraphs</code>.
+
+     <br><dt><code>-no-integrated-cpp</code>
+     <dd>Performs a compilation in two passes: preprocessing and compiling.  This
+option allows a user supplied "cc1", "cc1plus", or "cc1obj" via the
+<code>-B</code> option. The user supplied compilation step can then add in
+an additional preprocessing step after normal preprocessing but before
+compiling. The default is to use the integrated cpp (internal cpp)
+
+     <p>The semantics of this option will change if "cc1", "cc1plus", and
+"cc1obj" are merged.
+
+     <br><dt><code>-traditional</code>
+     <dd><dt><code>-traditional-cpp</code>
+     <dd>Formerly, these options caused GCC to attempt to emulate a pre-standard
+C compiler.  They are now only supported with the <code>-E</code> switch. 
+The preprocessor continues to support a pre-standard mode.  See the GNU
+CPP manual for details.
+
+     <br><dt><code>-fcond-mismatch</code>
+     <dd>Allow conditional expressions with mismatched types in the second and
+third arguments.  The value of such an expression is void.  This option
+is not supported for C++.
+
+     <br><dt><code>-funsigned-char</code>
+     <dd>Let the type <code>char</code> be unsigned, like <code>unsigned char</code>.
+
+     <p>Each kind of machine has a default for what <code>char</code> should
+be.  It is either like <code>unsigned char</code> by default or like
+<code>signed char</code> by default.
+
+     <p>Ideally, a portable program should always use <code>signed char</code> or
+<code>unsigned char</code> when it depends on the signedness of an object. 
+But many programs have been written to use plain <code>char</code> and
+expect it to be signed, or expect it to be unsigned, depending on the
+machines they were written for.  This option, and its inverse, let you
+make such a program work with the opposite default.
+
+     <p>The type <code>char</code> is always a distinct type from each of
+<code>signed char</code> or <code>unsigned char</code>, even though its behavior
+is always just like one of those two.
+
+     <br><dt><code>-fsigned-char</code>
+     <dd>Let the type <code>char</code> be signed, like <code>signed char</code>.
+
+     <p>Note that this is equivalent to <code>-fno-unsigned-char</code>, which is
+the negative form of <code>-funsigned-char</code>.  Likewise, the option
+<code>-fno-signed-char</code> is equivalent to <code>-funsigned-char</code>.
+
+     <br><dt><code>-fsigned-bitfields</code>
+     <dd><dt><code>-funsigned-bitfields</code>
+     <dd><dt><code>-fno-signed-bitfields</code>
+     <dd><dt><code>-fno-unsigned-bitfields</code>
+     <dd>These options control whether a bit-field is signed or unsigned, when the
+declaration does not use either <code>signed</code> or <code>unsigned</code>.  By
+default, such a bit-field is signed, because this is consistent: the
+basic integer types such as <code>int</code> are signed types. 
+</dl>
+
+   </body></html>
+

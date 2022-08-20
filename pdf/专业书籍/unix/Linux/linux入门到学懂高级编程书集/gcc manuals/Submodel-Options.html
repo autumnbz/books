@@ -1,0 +1,104 @@
+<html lang="en">
+<head>
+<title>Using the GNU Compiler Collection (GCC)</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Using the GNU Compiler Collection (GCC)">
+<meta name="generator" content="makeinfo 4.6">
+<!--
+Copyright &copy; 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+   <p>Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "GNU General Public License" and "Funding
+Free Software", the Front-Cover texts being (a) (see below), and with
+the Back-Cover Texts being (b) (see below).  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+   <p>(a) The FSF's Front-Cover Text is:
+
+   <p>A GNU Manual
+
+   <p>(b) The FSF's Back-Cover Text is:
+
+   <p>You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+Node:&nbsp;<a name="Submodel%20Options">Submodel Options</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="Code-Gen-Options.html#Code%20Gen%20Options">Code Gen Options</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Target-Options.html#Target%20Options">Target Options</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Invoking-GCC.html#Invoking%20GCC">Invoking GCC</a>
+<hr><br>
+</div>
+
+<h3 class="section">Hardware Models and Configurations</h3>
+
+<p>Earlier we discussed the standard option <code>-b</code> which chooses among
+different installed compilers for completely different target
+machines, such as VAX vs. 68000 vs. 80386.
+
+   <p>In addition, each of these target machine types can have its own
+special options, starting with <code>-m</code>, to choose among various
+hardware models or configurations--for example, 68010 vs 68020,
+floating coprocessor or none.  A single installed version of the
+compiler can compile for any model or configuration, according to the
+options specified.
+
+   <p>Some configurations of the compiler also support additional special
+options, usually for compatibility with other compilers on the same
+platform.
+
+   <p>These options are defined by the macro <code>TARGET_SWITCHES</code> in the
+machine description.  The default for the options is also defined by
+that macro, which enables you to change the defaults.
+
+<ul class="menu">
+<li><a accesskey="1" href="M680x0-Options.html#M680x0%20Options">M680x0 Options</a>: 
+<li><a accesskey="2" href="M68hc1x-Options.html#M68hc1x%20Options">M68hc1x Options</a>: 
+<li><a accesskey="3" href="VAX-Options.html#VAX%20Options">VAX Options</a>: 
+<li><a accesskey="4" href="SPARC-Options.html#SPARC%20Options">SPARC Options</a>: 
+<li><a accesskey="5" href="ARM-Options.html#ARM%20Options">ARM Options</a>: 
+<li><a accesskey="6" href="MN10300-Options.html#MN10300%20Options">MN10300 Options</a>: 
+<li><a accesskey="7" href="M32R-D-Options.html#M32R%2fD%20Options">M32R/D Options</a>: 
+<li><a accesskey="8" href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>: 
+<li><a accesskey="9" href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>: 
+<li><a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>: 
+<li><a href="i386-and-x86-64-Options.html#i386%20and%20x86-64%20Options">i386 and x86-64 Options</a>: 
+<li><a href="HPPA-Options.html#HPPA%20Options">HPPA Options</a>: 
+<li><a href="DEC-Alpha-Options.html#DEC%20Alpha%20Options">DEC Alpha Options</a>: 
+<li><a href="DEC-Alpha-VMS-Options.html#DEC%20Alpha%2fVMS%20Options">DEC Alpha/VMS Options</a>: 
+<li><a href="H8-300-Options.html#H8%2f300%20Options">H8/300 Options</a>: 
+<li><a href="SH-Options.html#SH%20Options">SH Options</a>: 
+<li><a href="System-V-Options.html#System%20V%20Options">System V Options</a>: 
+<li><a href="TMS320C3x-C4x-Options.html#TMS320C3x%2fC4x%20Options">TMS320C3x/C4x Options</a>: 
+<li><a href="V850-Options.html#V850%20Options">V850 Options</a>: 
+<li><a href="ARC-Options.html#ARC%20Options">ARC Options</a>: 
+<li><a href="NS32K-Options.html#NS32K%20Options">NS32K Options</a>: 
+<li><a href="AVR-Options.html#AVR%20Options">AVR Options</a>: 
+<li><a href="MCore-Options.html#MCore%20Options">MCore Options</a>: 
+<li><a href="IA-64-Options.html#IA-64%20Options">IA-64 Options</a>: 
+<li><a href="S-390-and-zSeries-Options.html#S%2f390%20and%20zSeries%20Options">S/390 and zSeries Options</a>: 
+<li><a href="CRIS-Options.html#CRIS%20Options">CRIS Options</a>: 
+<li><a href="MMIX-Options.html#MMIX%20Options">MMIX Options</a>: 
+<li><a href="PDP-11-Options.html#PDP-11%20Options">PDP-11 Options</a>: 
+<li><a href="Xstormy16-Options.html#Xstormy16%20Options">Xstormy16 Options</a>: 
+<li><a href="Xtensa-Options.html#Xtensa%20Options">Xtensa Options</a>: 
+<li><a href="FRV-Options.html#FRV%20Options">FRV Options</a>: 
+</ul>
+
+   </body></html>
+

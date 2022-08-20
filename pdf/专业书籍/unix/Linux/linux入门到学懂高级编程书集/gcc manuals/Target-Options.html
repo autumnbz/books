@@ -1,0 +1,77 @@
+<html lang="en">
+<head>
+<title>Using the GNU Compiler Collection (GCC)</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Using the GNU Compiler Collection (GCC)">
+<meta name="generator" content="makeinfo 4.6">
+<!--
+Copyright &copy; 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+   <p>Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "GNU General Public License" and "Funding
+Free Software", the Front-Cover texts being (a) (see below), and with
+the Back-Cover Texts being (b) (see below).  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+   <p>(a) The FSF's Front-Cover Text is:
+
+   <p>A GNU Manual
+
+   <p>(b) The FSF's Back-Cover Text is:
+
+   <p>You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+Node:&nbsp;<a name="Target%20Options">Target Options</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="Submodel-Options.html#Submodel%20Options">Submodel Options</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Spec-Files.html#Spec%20Files">Spec Files</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Invoking-GCC.html#Invoking%20GCC">Invoking GCC</a>
+<hr><br>
+</div>
+
+<h3 class="section">Specifying Target Machine and Compiler Version</h3>
+
+<p>The usual way to run GCC is to run the executable called <code>gcc</code>, or
+<code>&lt;machine&gt;-gcc</code> when cross-compiling, or
+<code>&lt;machine&gt;-gcc-&lt;version&gt;</code> to run a version other than the one that
+was installed last.  Sometimes this is inconvenient, so GCC provides
+options that will switch to another cross-compiler or version.
+
+     <dl>
+<dt><code>-b </code><var>machine</var><code></code>
+     <dd>The argument <var>machine</var> specifies the target machine for compilation.
+
+     <p>The value to use for <var>machine</var> is the same as was specified as the
+machine type when configuring GCC as a cross-compiler.  For
+example, if a cross-compiler was configured with <code>configure
+i386v</code>, meaning to compile for an 80386 running System V, then you
+would specify <code>-b i386v</code> to run that cross compiler.
+
+     <br><dt><code>-V </code><var>version</var><code></code>
+     <dd>The argument <var>version</var> specifies which version of GCC to run. 
+This is useful when multiple versions are installed.  For example,
+<var>version</var> might be <code>2.0</code>, meaning to run GCC version 2.0. 
+</dl>
+
+   <p>The <code>-V</code> and <code>-b</code> options work by running the
+<code>&lt;machine&gt;-gcc-&lt;version&gt;</code> executable, so there's no real reason to
+use them if you can just run that directly.
+
+   </body></html>
+

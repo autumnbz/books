@@ -1,0 +1,132 @@
+<html lang="en">
+<head>
+<title>Using the GNU Compiler Collection (GCC)</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Using the GNU Compiler Collection (GCC)">
+<meta name="generator" content="makeinfo 4.6">
+<!--
+Copyright &copy; 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+   <p>Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "GNU General Public License" and "Funding
+Free Software", the Front-Cover texts being (a) (see below), and with
+the Back-Cover Texts being (b) (see below).  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+   <p>(a) The FSF's Front-Cover Text is:
+
+   <p>A GNU Manual
+
+   <p>(b) The FSF's Back-Cover Text is:
+
+   <p>You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+Node:&nbsp;<a name="Constructing%20Calls">Constructing Calls</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="Typeof.html#Typeof">Typeof</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Nested-Functions.html#Nested%20Functions">Nested Functions</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="C-Extensions.html#C%20Extensions">C Extensions</a>
+<hr><br>
+</div>
+
+<h3 class="section">Constructing Function Calls</h3>
+
+<p>Using the built-in functions described below, you can record
+the arguments a function received, and call another function
+with the same arguments, without knowing the number or types
+of the arguments.
+
+   <p>You can also record the return value of that function call,
+and later return that value, without knowing what data type
+the function tried to return (as long as your caller expects
+that data type).
+
+   <p>However, these built-in functions may interact badly with some
+sophisticated features or other extensions of the language.  It
+is, therefore, not recommended to use them outside very simple
+functions acting as mere forwarders for their arguments.
+
+<p>
+<table width="100%">
+<tr>
+<td align="left">void * <b>__builtin_apply_args</b><i> </i>(<i></i>)<i>
+     </i></td>
+<td align="right">Built-in Function</td>
+</tr>
+</table>
+<table width="95%" align="center">
+<tr><td>
+This built-in function returns a pointer to data
+describing how to perform a call with the same arguments as were passed
+to the current function.
+
+     <p>The function saves the arg pointer register, structure value address,
+and all registers that might be used to pass arguments to a function
+into a block of memory allocated on the stack.  Then it returns the
+address of that block. 
+</td></tr>
+</table>
+
+<p>
+<table width="100%">
+<tr>
+<td align="left">void * <b>__builtin_apply</b><i> </i>(<i>void </i>(<i>*</i><var>function</var><i></i>)<i></i>(<i></i>)<i>, void *</i><var>arguments</var><i>, size_t </i><var>size</var><i></i>)<i>
+     </i></td>
+<td align="right">Built-in Function</td>
+</tr>
+</table>
+<table width="95%" align="center">
+<tr><td>
+This built-in function invokes <var>function</var>
+with a copy of the parameters described by <var>arguments</var>
+and <var>size</var>.
+
+     <p>The value of <var>arguments</var> should be the value returned by
+<code>__builtin_apply_args</code>.  The argument <var>size</var> specifies the size
+of the stack argument data, in bytes.
+
+     <p>This function returns a pointer to data describing
+how to return whatever value was returned by <var>function</var>.  The data
+is saved in a block of memory allocated on the stack.
+
+     <p>It is not always simple to compute the proper value for <var>size</var>.  The
+value is used by <code>__builtin_apply</code> to compute the amount of data
+that should be pushed on the stack and copied from the incoming argument
+area. 
+</td></tr>
+</table>
+
+<p>
+<table width="100%">
+<tr>
+<td align="left">void <b>__builtin_return</b><i> </i>(<i>void *</i><var>result</var><i></i>)<i>
+     </i></td>
+<td align="right">Built-in Function</td>
+</tr>
+</table>
+<table width="95%" align="center">
+<tr><td>
+This built-in function returns the value described by <var>result</var> from
+the containing function.  You should specify, for <var>result</var>, a value
+returned by <code>__builtin_apply</code>. 
+</td></tr>
+</table>
+
+   </body></html>
+

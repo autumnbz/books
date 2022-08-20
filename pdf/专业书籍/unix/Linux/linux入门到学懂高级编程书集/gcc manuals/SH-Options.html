@@ -1,0 +1,136 @@
+<html lang="en">
+<head>
+<title>Using the GNU Compiler Collection (GCC)</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Using the GNU Compiler Collection (GCC)">
+<meta name="generator" content="makeinfo 4.6">
+<!--
+Copyright &copy; 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+   <p>Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "GNU General Public License" and "Funding
+Free Software", the Front-Cover texts being (a) (see below), and with
+the Back-Cover Texts being (b) (see below).  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+   <p>(a) The FSF's Front-Cover Text is:
+
+   <p>A GNU Manual
+
+   <p>(b) The FSF's Back-Cover Text is:
+
+   <p>You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+Node:&nbsp;<a name="SH%20Options">SH Options</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="System-V-Options.html#System%20V%20Options">System V Options</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="H8-300-Options.html#H8%2f300%20Options">H8/300 Options</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Submodel-Options.html#Submodel%20Options">Submodel Options</a>
+<hr><br>
+</div>
+
+<h3 class="subsection">SH Options</h4>
+
+<p>These <code>-m</code> options are defined for the SH implementations:
+
+     <dl>
+<dt><code>-m1</code>
+     <dd>Generate code for the SH1.
+
+     <br><dt><code>-m2</code>
+     <dd>Generate code for the SH2.
+
+     <br><dt><code>-m2e</code>
+     <dd>Generate code for the SH2e.
+
+     <br><dt><code>-m3</code>
+     <dd>Generate code for the SH3.
+
+     <br><dt><code>-m3e</code>
+     <dd>Generate code for the SH3e.
+
+     <br><dt><code>-m4-nofpu</code>
+     <dd>Generate code for the SH4 without a floating-point unit.
+
+     <br><dt><code>-m4-single-only</code>
+     <dd>Generate code for the SH4 with a floating-point unit that only
+supports single-precision arithmetic.
+
+     <br><dt><code>-m4-single</code>
+     <dd>Generate code for the SH4 assuming the floating-point unit is in
+single-precision mode by default.
+
+     <br><dt><code>-m4</code>
+     <dd>Generate code for the SH4.
+
+     <br><dt><code>-mb</code>
+     <dd>Compile code for the processor in big endian mode.
+
+     <br><dt><code>-ml</code>
+     <dd>Compile code for the processor in little endian mode.
+
+     <br><dt><code>-mdalign</code>
+     <dd>Align doubles at 64-bit boundaries.  Note that this changes the calling
+conventions, and thus some functions from the standard C library will
+not work unless you recompile it first with <code>-mdalign</code>.
+
+     <br><dt><code>-mrelax</code>
+     <dd>Shorten some address references at link time, when possible; uses the
+linker option <code>-relax</code>.
+
+     <br><dt><code>-mbigtable</code>
+     <dd>Use 32-bit offsets in <code>switch</code> tables.  The default is to use
+16-bit offsets.
+
+     <br><dt><code>-mfmovd</code>
+     <dd>Enable the use of the instruction <code>fmovd</code>.
+
+     <br><dt><code>-mhitachi</code>
+     <dd>Comply with the calling conventions defined by Renesas.
+
+     <br><dt><code>-mnomacsave</code>
+     <dd>Mark the <code>MAC</code> register as call-clobbered, even if
+<code>-mhitachi</code> is given.
+
+     <br><dt><code>-mieee</code>
+     <dd>Increase IEEE-compliance of floating-point code.
+
+     <br><dt><code>-misize</code>
+     <dd>Dump instruction size and location in the assembly code.
+
+     <br><dt><code>-mpadstruct</code>
+     <dd>This option is deprecated.  It pads structures to multiple of 4 bytes,
+which is incompatible with the SH ABI.
+
+     <br><dt><code>-mspace</code>
+     <dd>Optimize for space instead of speed.  Implied by <code>-Os</code>.
+
+     <br><dt><code>-mprefergot</code>
+     <dd>When generating position-independent code, emit function calls using
+the Global Offset Table instead of the Procedure Linkage Table.
+
+     <br><dt><code>-musermode</code>
+     <dd>Generate a library function call to invalidate instruction cache
+entries, after fixing up a trampoline.  This library function call
+doesn't assume it can write to the whole memory address space.  This
+is the default when the target is <code>sh-*-linux*</code>. 
+</dl>
+
+   </body></html>
+

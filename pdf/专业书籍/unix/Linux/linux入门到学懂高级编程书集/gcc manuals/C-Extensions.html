@@ -1,0 +1,117 @@
+<html lang="en">
+<head>
+<title>Using the GNU Compiler Collection (GCC)</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Using the GNU Compiler Collection (GCC)">
+<meta name="generator" content="makeinfo 4.6">
+<!--
+Copyright &copy; 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+   <p>Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "GNU General Public License" and "Funding
+Free Software", the Front-Cover texts being (a) (see below), and with
+the Back-Cover Texts being (b) (see below).  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+   <p>(a) The FSF's Front-Cover Text is:
+
+   <p>A GNU Manual
+
+   <p>(b) The FSF's Back-Cover Text is:
+
+   <p>You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+Node:&nbsp;<a name="C%20Extensions">C Extensions</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="C---Extensions.html#C++%20Extensions">C++ Extensions</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="C-Implementation.html#C%20Implementation">C Implementation</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
+<hr><br>
+</div>
+
+<h2 class="chapter">Extensions to the C Language Family</h2>
+
+<p>GNU C provides several language features not found in ISO standard C. 
+(The <code>-pedantic</code> option directs GCC to print a warning message if
+any of these features is used.)  To test for the availability of these
+features in conditional compilation, check for a predefined macro
+<code>__GNUC__</code>, which is always defined under GCC.
+
+   <p>These extensions are available in C and Objective-C.  Most of them are
+also available in C++.  See <a href="C---Extensions.html#C++%20Extensions">Extensions to the C++ Language</a>, for extensions that apply <em>only</em> to C++.
+
+   <p>Some features that are in ISO C99 but not C89 or C++ are also, as
+extensions, accepted by GCC in C89 mode and in C++.
+
+<ul class="menu">
+<li><a accesskey="1" href="Statement-Exprs.html#Statement%20Exprs">Statement Exprs</a>:      Putting statements and declarations inside expressions. 
+<li><a accesskey="2" href="Local-Labels.html#Local%20Labels">Local Labels</a>:         Labels local to a block. 
+<li><a accesskey="3" href="Labels-as-Values.html#Labels%20as%20Values">Labels as Values</a>:     Getting pointers to labels, and computed gotos. 
+<li><a accesskey="4" href="Nested-Functions.html#Nested%20Functions">Nested Functions</a>:     As in Algol and Pascal, lexical scoping of functions. 
+<li><a accesskey="5" href="Constructing-Calls.html#Constructing%20Calls">Constructing Calls</a>: 	Dispatching a call to another function. 
+<li><a accesskey="6" href="Typeof.html#Typeof">Typeof</a>:               <code>typeof</code>: referring to the type of an expression. 
+<li><a accesskey="7" href="Conditionals.html#Conditionals">Conditionals</a>:         Omitting the middle operand of a <code>?:</code> expression. 
+<li><a accesskey="8" href="Long-Long.html#Long%20Long">Long Long</a>: 		Double-word integers---<code>long long int</code>. 
+<li><a accesskey="9" href="Complex.html#Complex">Complex</a>:              Data types for complex numbers. 
+<li><a href="Hex-Floats.html#Hex%20Floats">Hex Floats</a>:           Hexadecimal floating-point constants. 
+<li><a href="Zero-Length.html#Zero%20Length">Zero Length</a>:          Zero-length arrays. 
+<li><a href="Variable-Length.html#Variable%20Length">Variable Length</a>:      Arrays whose length is computed at run time. 
+<li><a href="Empty-Structures.html#Empty%20Structures">Empty Structures</a>:     Structures with no members. 
+<li><a href="Variadic-Macros.html#Variadic%20Macros">Variadic Macros</a>: 	Macros with a variable number of arguments. 
+<li><a href="Escaped-Newlines.html#Escaped%20Newlines">Escaped Newlines</a>:     Slightly looser rules for escaped newlines. 
+<li><a href="Subscripting.html#Subscripting">Subscripting</a>:         Any array can be subscripted, even if not an lvalue. 
+<li><a href="Pointer-Arith.html#Pointer%20Arith">Pointer Arith</a>:        Arithmetic on <code>void</code>-pointers and function pointers. 
+<li><a href="Initializers.html#Initializers">Initializers</a>:         Non-constant initializers. 
+<li><a href="Compound-Literals.html#Compound%20Literals">Compound Literals</a>:    Compound literals give structures, unions
+                         or arrays as values. 
+<li><a href="Designated-Inits.html#Designated%20Inits">Designated Inits</a>: 	Labeling elements of initializers. 
+<li><a href="Cast-to-Union.html#Cast%20to%20Union">Cast to Union</a>:        Casting to union type from any member of the union. 
+<li><a href="Case-Ranges.html#Case%20Ranges">Case Ranges</a>: 		`case 1 ... 9' and such. 
+<li><a href="Mixed-Declarations.html#Mixed%20Declarations">Mixed Declarations</a>: 	Mixing declarations and code. 
+<li><a href="Function-Attributes.html#Function%20Attributes">Function Attributes</a>:  Declaring that functions have no side effects,
+                         or that they can never return. 
+<li><a href="Attribute-Syntax.html#Attribute%20Syntax">Attribute Syntax</a>:     Formal syntax for attributes. 
+<li><a href="Function-Prototypes.html#Function%20Prototypes">Function Prototypes</a>:  Prototype declarations and old-style definitions. 
+<li><a href="C---Comments.html#C++%20Comments">C++ Comments</a>:         C++ comments are recognized. 
+<li><a href="Dollar-Signs.html#Dollar%20Signs">Dollar Signs</a>:         Dollar sign is allowed in identifiers. 
+<li><a href="Character-Escapes.html#Character%20Escapes">Character Escapes</a>:    <code>\e</code> stands for the character &lt;ESC&gt;. 
+<li><a href="Variable-Attributes.html#Variable%20Attributes">Variable Attributes</a>: 	Specifying attributes of variables. 
+<li><a href="Type-Attributes.html#Type%20Attributes">Type Attributes</a>: 	Specifying attributes of types. 
+<li><a href="Alignment.html#Alignment">Alignment</a>:            Inquiring about the alignment of a type or variable. 
+<li><a href="Inline.html#Inline">Inline</a>:               Defining inline functions (as fast as macros). 
+<li><a href="Extended-Asm.html#Extended%20Asm">Extended Asm</a>:         Assembler instructions with C expressions as operands. 
+                         (With them you can define ``built-in'' functions.) 
+<li><a href="Constraints.html#Constraints">Constraints</a>:          Constraints for asm operands
+<li><a href="Asm-Labels.html#Asm%20Labels">Asm Labels</a>:           Specifying the assembler name to use for a C symbol. 
+<li><a href="Explicit-Reg-Vars.html#Explicit%20Reg%20Vars">Explicit Reg Vars</a>:    Defining variables residing in specified registers. 
+<li><a href="Alternate-Keywords.html#Alternate%20Keywords">Alternate Keywords</a>:   <code>__const__</code>, <code>__asm__</code>, etc., for header files. 
+<li><a href="Incomplete-Enums.html#Incomplete%20Enums">Incomplete Enums</a>:     <code>enum foo;</code>, with details to follow. 
+<li><a href="Function-Names.html#Function%20Names">Function Names</a>: 	Printable strings which are the name of the current
+			 function. 
+<li><a href="Return-Address.html#Return%20Address">Return Address</a>:       Getting the return or frame address of a function. 
+<li><a href="Vector-Extensions.html#Vector%20Extensions">Vector Extensions</a>:    Using vector instructions through built-in functions. 
+<li><a href="Other-Builtins.html#Other%20Builtins">Other Builtins</a>:       Other built-in functions. 
+<li><a href="Target-Builtins.html#Target%20Builtins">Target Builtins</a>:      Built-in functions specific to particular targets. 
+<li><a href="Pragmas.html#Pragmas">Pragmas</a>:              Pragmas accepted by GCC. 
+<li><a href="Unnamed-Fields.html#Unnamed%20Fields">Unnamed Fields</a>:       Unnamed struct/union fields within structs/unions. 
+<li><a href="Thread-Local.html#Thread-Local">Thread-Local</a>:         Per-thread variables. 
+</ul>
+
+   </body></html>
+

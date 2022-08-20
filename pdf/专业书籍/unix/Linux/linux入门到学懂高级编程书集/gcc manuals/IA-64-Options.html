@@ -1,0 +1,134 @@
+<html lang="en">
+<head>
+<title>Using the GNU Compiler Collection (GCC)</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Using the GNU Compiler Collection (GCC)">
+<meta name="generator" content="makeinfo 4.6">
+<!--
+Copyright &copy; 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+   <p>Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "GNU General Public License" and "Funding
+Free Software", the Front-Cover texts being (a) (see below), and with
+the Back-Cover Texts being (b) (see below).  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+   <p>(a) The FSF's Front-Cover Text is:
+
+   <p>A GNU Manual
+
+   <p>(b) The FSF's Back-Cover Text is:
+
+   <p>You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+Node:&nbsp;<a name="IA-64%20Options">IA-64 Options</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="S-390-and-zSeries-Options.html#S%2f390%20and%20zSeries%20Options">S/390 and zSeries Options</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="MCore-Options.html#MCore%20Options">MCore Options</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Submodel-Options.html#Submodel%20Options">Submodel Options</a>
+<hr><br>
+</div>
+
+<h3 class="subsection">IA-64 Options</h4>
+
+<p>These are the <code>-m</code> options defined for the Intel IA-64 architecture.
+
+     <dl>
+<dt><code>-mbig-endian</code>
+     <dd>Generate code for a big endian target.  This is the default for HP-UX.
+
+     <br><dt><code>-mlittle-endian</code>
+     <dd>Generate code for a little endian target.  This is the default for AIX5
+and GNU/Linux.
+
+     <br><dt><code>-mgnu-as</code>
+     <dd><dt><code>-mno-gnu-as</code>
+     <dd>Generate (or don't) code for the GNU assembler.  This is the default.
+
+     <br><dt><code>-mgnu-ld</code>
+     <dd><dt><code>-mno-gnu-ld</code>
+     <dd>Generate (or don't) code for the GNU linker.  This is the default.
+
+     <br><dt><code>-mno-pic</code>
+     <dd>Generate code that does not use a global pointer register.  The result
+is not position independent code, and violates the IA-64 ABI.
+
+     <br><dt><code>-mvolatile-asm-stop</code>
+     <dd><dt><code>-mno-volatile-asm-stop</code>
+     <dd>Generate (or don't) a stop bit immediately before and after volatile asm
+statements.
+
+     <br><dt><code>-mb-step</code>
+     <dd>Generate code that works around Itanium B step errata.
+
+     <br><dt><code>-mregister-names</code>
+     <dd><dt><code>-mno-register-names</code>
+     <dd>Generate (or don't) <code>in</code>, <code>loc</code>, and <code>out</code> register names for
+the stacked registers.  This may make assembler output more readable.
+
+     <br><dt><code>-mno-sdata</code>
+     <dd><dt><code>-msdata</code>
+     <dd>Disable (or enable) optimizations that use the small data section.  This may
+be useful for working around optimizer bugs.
+
+     <br><dt><code>-mconstant-gp</code>
+     <dd>Generate code that uses a single constant global pointer value.  This is
+useful when compiling kernel code.
+
+     <br><dt><code>-mauto-pic</code>
+     <dd>Generate code that is self-relocatable.  This implies <code>-mconstant-gp</code>. 
+This is useful when compiling firmware code.
+
+     <br><dt><code>-minline-float-divide-min-latency</code>
+     <dd>Generate code for inline divides of floating point values
+using the minimum latency algorithm.
+
+     <br><dt><code>-minline-float-divide-max-throughput</code>
+     <dd>Generate code for inline divides of floating point values
+using the maximum throughput algorithm.
+
+     <br><dt><code>-minline-int-divide-min-latency</code>
+     <dd>Generate code for inline divides of integer values
+using the minimum latency algorithm.
+
+     <br><dt><code>-minline-int-divide-max-throughput</code>
+     <dd>Generate code for inline divides of integer values
+using the maximum throughput algorithm.
+
+     <br><dt><code>-mno-dwarf2-asm</code>
+     <dd><dt><code>-mdwarf2-asm</code>
+     <dd>Don't (or do) generate assembler code for the DWARF2 line number debugging
+info.  This may be useful when not using the GNU assembler.
+
+     <br><dt><code>-mfixed-range=</code><var>register-range</var><code></code>
+     <dd>Generate code treating the given register range as fixed registers. 
+A fixed register is one that the register allocator can not use.  This is
+useful when compiling kernel code.  A register range is specified as
+two registers separated by a dash.  Multiple register ranges can be
+specified separated by a comma.
+
+     <br><dt><code>-mearly-stop-bits</code>
+     <dd><dt><code>-mno-early-stop-bits</code>
+     <dd>Allow stop bits to be placed earlier than immediately preceding the
+instruction that triggered the stop bit.  This can improve instruction
+scheduling, but does not always do so. 
+</dl>
+
+   </body></html>
+

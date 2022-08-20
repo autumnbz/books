@@ -1,0 +1,130 @@
+<html lang="en">
+<head>
+<title>Using the GNU Compiler Collection (GCC)</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Using the GNU Compiler Collection (GCC)">
+<meta name="generator" content="makeinfo 4.6">
+<!--
+Copyright &copy; 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+   <p>Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "GNU General Public License" and "Funding
+Free Software", the Front-Cover texts being (a) (see below), and with
+the Back-Cover Texts being (b) (see below).  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+   <p>(a) The FSF's Front-Cover Text is:
+
+   <p>A GNU Manual
+
+   <p>(b) The FSF's Back-Cover Text is:
+
+   <p>You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+Node:&nbsp;<a name="S%2f390%20and%20zSeries%20Options">S/390 and zSeries Options</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="CRIS-Options.html#CRIS%20Options">CRIS Options</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="IA-64-Options.html#IA-64%20Options">IA-64 Options</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Submodel-Options.html#Submodel%20Options">Submodel Options</a>
+<hr><br>
+</div>
+
+<h3 class="subsection">S/390 and zSeries Options</h4>
+
+<p>These are the <code>-m</code> options defined for the S/390 and zSeries architecture.
+
+     <dl>
+<dt><code>-mhard-float</code>
+     <dd><dt><code>-msoft-float</code>
+     <dd>Use (do not use) the hardware floating-point instructions and registers
+for floating-point operations.  When <code>-msoft-float</code> is specified,
+functions in <code>libgcc.a</code> will be used to perform floating-point
+operations.  When <code>-mhard-float</code> is specified, the compiler
+generates IEEE floating-point instructions.  This is the default.
+
+     <br><dt><code>-mbackchain</code>
+     <dd><dt><code>-mno-backchain</code>
+     <dd>Generate (or do not generate) code which maintains an explicit
+backchain within the stack frame that points to the caller's frame. 
+This may be needed to allow debugging using tools that do not understand
+DWARF-2 call frame information.  The default is not to generate the
+backchain.
+
+     <br><dt><code>-msmall-exec</code>
+     <dd><dt><code>-mno-small-exec</code>
+     <dd>Generate (or do not generate) code using the <code>bras</code> instruction
+to do subroutine calls. 
+This only works reliably if the total executable size does not
+exceed 64k.  The default is to use the <code>basr</code> instruction instead,
+which does not have this limitation.
+
+     <br><dt><code>-m64</code>
+     <dd><dt><code>-m31</code>
+     <dd>When <code>-m31</code> is specified, generate code compliant to the
+GNU/Linux for S/390 ABI.  When <code>-m64</code> is specified, generate
+code compliant to the GNU/Linux for zSeries ABI.  This allows GCC in
+particular to generate 64-bit instructions.  For the <code>s390</code>
+targets, the default is <code>-m31</code>, while the <code>s390x</code>
+targets default to <code>-m64</code>.
+
+     <br><dt><code>-mzarch</code>
+     <dd><dt><code>-mesa</code>
+     <dd>When <code>-mzarch</code> is specified, generate code using the
+instructions available on z/Architecture. 
+When <code>-mesa</code> is specified, generate code using the
+instructions available on ESA/390. Note that <code>-mesa</code> is
+not possible with <code>-m64</code>. 
+When generating code compliant to the GNU/Linux for S/390 ABI,
+the default is <code>-mesa</code>.  When generating code compliant
+to the GNU/Linux for zSeries ABI, the default is <code>-mzarch</code>.
+
+     <br><dt><code>-mmvcle</code>
+     <dd><dt><code>-mno-mvcle</code>
+     <dd>Generate (or do not generate) code using the <code>mvcle</code> instruction
+to perform block moves.  When <code>-mno-mvcle</code> is specified,
+use a <code>mvc</code> loop instead.  This is the default.
+
+     <br><dt><code>-mdebug</code>
+     <dd><dt><code>-mno-debug</code>
+     <dd>Print (or do not print) additional debug information when compiling. 
+The default is to not print debug information.
+
+     <br><dt><code>-march=</code><var>cpu-type</var><code></code>
+     <dd>Generate code that will run on <var>cpu-type</var>, which is the name of a system
+representing a certain processor type. Possible values for
+<var>cpu-type</var> are <code>g5</code>, <code>g6</code>, <code>z900</code>, and <code>z990</code>. 
+When generating code using the instructions available on z/Architecture,
+the default is <code>-march=z900</code>.  Otherwise, the default is
+<code>-march=g5</code>.
+
+     <br><dt><code>-mtune=</code><var>cpu-type</var><code></code>
+     <dd>Tune to <var>cpu-type</var> everything applicable about the generated code,
+except for the ABI and the set of available instructions. 
+The list of <var>cpu-type</var> values is the same as for <code>-march</code>. 
+The default is the value used for <code>-march</code>.
+
+     <br><dt><code>-mfused-madd</code>
+     <dd><dt><code>-mno-fused-madd</code>
+     <dd>Generate code that uses (does not use) the floating point multiply and
+accumulate instructions.  These instructions are generated by default if
+hardware floating point is used. 
+</dl>
+
+   </body></html>
+

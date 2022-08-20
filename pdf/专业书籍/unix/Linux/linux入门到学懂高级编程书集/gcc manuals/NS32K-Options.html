@@ -1,0 +1,166 @@
+<html lang="en">
+<head>
+<title>Using the GNU Compiler Collection (GCC)</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Using the GNU Compiler Collection (GCC)">
+<meta name="generator" content="makeinfo 4.6">
+<!--
+Copyright &copy; 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+   <p>Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "GNU General Public License" and "Funding
+Free Software", the Front-Cover texts being (a) (see below), and with
+the Back-Cover Texts being (b) (see below).  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+   <p>(a) The FSF's Front-Cover Text is:
+
+   <p>A GNU Manual
+
+   <p>(b) The FSF's Back-Cover Text is:
+
+   <p>You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+Node:&nbsp;<a name="NS32K%20Options">NS32K Options</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="AVR-Options.html#AVR%20Options">AVR Options</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="ARC-Options.html#ARC%20Options">ARC Options</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Submodel-Options.html#Submodel%20Options">Submodel Options</a>
+<hr><br>
+</div>
+
+<h3 class="subsection">NS32K Options</h4>
+
+<p>These are the <code>-m</code> options defined for the 32000 series.  The default
+values for these options depends on which style of 32000 was selected when
+the compiler was configured; the defaults for the most common choices are
+given below.
+
+     <dl>
+<dt><code>-m32032</code>
+     <dd><dt><code>-m32032</code>
+     <dd>Generate output for a 32032.  This is the default
+when the compiler is configured for 32032 and 32016 based systems.
+
+     <br><dt><code>-m32332</code>
+     <dd><dt><code>-m32332</code>
+     <dd>Generate output for a 32332.  This is the default
+when the compiler is configured for 32332-based systems.
+
+     <br><dt><code>-m32532</code>
+     <dd><dt><code>-m32532</code>
+     <dd>Generate output for a 32532.  This is the default
+when the compiler is configured for 32532-based systems.
+
+     <br><dt><code>-m32081</code>
+     <dd>Generate output containing 32081 instructions for floating point. 
+This is the default for all systems.
+
+     <br><dt><code>-m32381</code>
+     <dd>Generate output containing 32381 instructions for floating point.  This
+also implies <code>-m32081</code>.  The 32381 is only compatible with the 32332
+and 32532 cpus.  This is the default for the pc532-netbsd configuration.
+
+     <br><dt><code>-mmulti-add</code>
+     <dd>Try and generate multiply-add floating point instructions <code>polyF</code>
+and <code>dotF</code>.  This option is only available if the <code>-m32381</code>
+option is in effect.  Using these instructions requires changes to
+register allocation which generally has a negative impact on
+performance.  This option should only be enabled when compiling code
+particularly likely to make heavy use of multiply-add instructions.
+
+     <br><dt><code>-mnomulti-add</code>
+     <dd>Do not try and generate multiply-add floating point instructions
+<code>polyF</code> and <code>dotF</code>.  This is the default on all platforms.
+
+     <br><dt><code>-msoft-float</code>
+     <dd>Generate output containing library calls for floating point. 
+<strong>Warning:</strong> the requisite libraries may not be available.
+
+     <br><dt><code>-mieee-compare</code>
+     <dd><dt><code>-mno-ieee-compare</code>
+     <dd>Control whether or not the compiler uses IEEE floating point
+comparisons.  These handle correctly the case where the result of a
+comparison is unordered. 
+<strong>Warning:</strong> the requisite kernel support may not be available.
+
+     <br><dt><code>-mnobitfield</code>
+     <dd>Do not use the bit-field instructions.  On some machines it is faster to
+use shifting and masking operations.  This is the default for the pc532.
+
+     <br><dt><code>-mbitfield</code>
+     <dd>Do use the bit-field instructions.  This is the default for all platforms
+except the pc532.
+
+     <br><dt><code>-mrtd</code>
+     <dd>Use a different function-calling convention, in which functions
+that take a fixed number of arguments return pop their
+arguments on return with the <code>ret</code> instruction.
+
+     <p>This calling convention is incompatible with the one normally
+used on Unix, so you cannot use it if you need to call libraries
+compiled with the Unix compiler.
+
+     <p>Also, you must provide function prototypes for all functions that
+take variable numbers of arguments (including <code>printf</code>);
+otherwise incorrect code will be generated for calls to those
+functions.
+
+     <p>In addition, seriously incorrect code will result if you call a
+function with too many arguments.  (Normally, extra arguments are
+harmlessly ignored.)
+
+     <p>This option takes its name from the 680x0 <code>rtd</code> instruction.
+
+     <br><dt><code>-mregparam</code>
+     <dd>Use a different function-calling convention where the first two arguments
+are passed in registers.
+
+     <p>This calling convention is incompatible with the one normally
+used on Unix, so you cannot use it if you need to call libraries
+compiled with the Unix compiler.
+
+     <br><dt><code>-mnoregparam</code>
+     <dd>Do not pass any arguments in registers.  This is the default for all
+targets.
+
+     <br><dt><code>-msb</code>
+     <dd>It is OK to use the sb as an index register which is always loaded with
+zero.  This is the default for the pc532-netbsd target.
+
+     <br><dt><code>-mnosb</code>
+     <dd>The sb register is not available for use or has not been initialized to
+zero by the run time system.  This is the default for all targets except
+the pc532-netbsd.  It is also implied whenever <code>-mhimem</code> or
+<code>-fpic</code> is set.
+
+     <br><dt><code>-mhimem</code>
+     <dd>Many ns32000 series addressing modes use displacements of up to 512MB. 
+If an address is above 512MB then displacements from zero can not be used. 
+This option causes code to be generated which can be loaded above 512MB. 
+This may be useful for operating systems or ROM code.
+
+     <br><dt><code>-mnohimem</code>
+     <dd>Assume code will be loaded in the first 512MB of virtual address space. 
+This is the default for all platforms.
+
+   </dl>
+
+   </body></html>
+

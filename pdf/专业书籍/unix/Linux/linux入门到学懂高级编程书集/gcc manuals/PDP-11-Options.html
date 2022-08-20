@@ -1,0 +1,127 @@
+<html lang="en">
+<head>
+<title>Using the GNU Compiler Collection (GCC)</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Using the GNU Compiler Collection (GCC)">
+<meta name="generator" content="makeinfo 4.6">
+<!--
+Copyright &copy; 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+   <p>Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "GNU General Public License" and "Funding
+Free Software", the Front-Cover texts being (a) (see below), and with
+the Back-Cover Texts being (b) (see below).  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+   <p>(a) The FSF's Front-Cover Text is:
+
+   <p>A GNU Manual
+
+   <p>(b) The FSF's Back-Cover Text is:
+
+   <p>You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+Node:&nbsp;<a name="PDP-11%20Options">PDP-11 Options</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="Xstormy16-Options.html#Xstormy16%20Options">Xstormy16 Options</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="MMIX-Options.html#MMIX%20Options">MMIX Options</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Submodel-Options.html#Submodel%20Options">Submodel Options</a>
+<hr><br>
+</div>
+
+<h3 class="subsection">PDP-11 Options</h4>
+
+<p>These options are defined for the PDP-11:
+
+     <dl>
+<dt><code>-mfpu</code>
+     <dd>Use hardware FPP floating point.  This is the default.  (FIS floating
+point on the PDP-11/40 is not supported.)
+
+     <br><dt><code>-msoft-float</code>
+     <dd>Do not use hardware floating point.
+
+     <br><dt><code>-mac0</code>
+     <dd>Return floating-point results in ac0 (fr0 in Unix assembler syntax).
+
+     <br><dt><code>-mno-ac0</code>
+     <dd>Return floating-point results in memory.  This is the default.
+
+     <br><dt><code>-m40</code>
+     <dd>Generate code for a PDP-11/40.
+
+     <br><dt><code>-m45</code>
+     <dd>Generate code for a PDP-11/45.  This is the default.
+
+     <br><dt><code>-m10</code>
+     <dd>Generate code for a PDP-11/10.
+
+     <br><dt><code>-mbcopy-builtin</code>
+     <dd>Use inline <code>movstrhi</code> patterns for copying memory.  This is the
+default.
+
+     <br><dt><code>-mbcopy</code>
+     <dd>Do not use inline <code>movstrhi</code> patterns for copying memory.
+
+     <br><dt><code>-mint16</code>
+     <dd><dt><code>-mno-int32</code>
+     <dd>Use 16-bit <code>int</code>.  This is the default.
+
+     <br><dt><code>-mint32</code>
+     <dd><dt><code>-mno-int16</code>
+     <dd>Use 32-bit <code>int</code>.
+
+     <br><dt><code>-mfloat64</code>
+     <dd><dt><code>-mno-float32</code>
+     <dd>Use 64-bit <code>float</code>.  This is the default.
+
+     <br><dt><code>-mfloat32</code>
+     <dd><dt><code>-mno-float64</code>
+     <dd>Use 32-bit <code>float</code>.
+
+     <br><dt><code>-mabshi</code>
+     <dd>Use <code>abshi2</code> pattern.  This is the default.
+
+     <br><dt><code>-mno-abshi</code>
+     <dd>Do not use <code>abshi2</code> pattern.
+
+     <br><dt><code>-mbranch-expensive</code>
+     <dd>Pretend that branches are expensive.  This is for experimenting with
+code generation only.
+
+     <br><dt><code>-mbranch-cheap</code>
+     <dd>Do not pretend that branches are expensive.  This is the default.
+
+     <br><dt><code>-msplit</code>
+     <dd>Generate code for a system with split I&amp;D.
+
+     <br><dt><code>-mno-split</code>
+     <dd>Generate code for a system without split I&amp;D.  This is the default.
+
+     <br><dt><code>-munix-asm</code>
+     <dd>Use Unix assembler syntax.  This is the default when configured for
+<code>pdp11-*-bsd</code>.
+
+     <br><dt><code>-mdec-asm</code>
+     <dd>Use DEC assembler syntax.  This is the default when configured for any
+PDP-11 target other than <code>pdp11-*-bsd</code>. 
+</dl>
+
+   </body></html>
+

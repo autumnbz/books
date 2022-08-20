@@ -1,0 +1,75 @@
+<html lang="en">
+<head>
+<title>Using the GNU Compiler Collection (GCC)</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Using the GNU Compiler Collection (GCC)">
+<meta name="generator" content="makeinfo 4.6">
+<!--
+Copyright &copy; 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+   <p>Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "GNU General Public License" and "Funding
+Free Software", the Front-Cover texts being (a) (see below), and with
+the Back-Cover Texts being (b) (see below).  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+   <p>(a) The FSF's Front-Cover Text is:
+
+   <p>A GNU Manual
+
+   <p>(b) The FSF's Back-Cover Text is:
+
+   <p>You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+Node:&nbsp;<a name="Conditionals">Conditionals</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="Long-Long.html#Long%20Long">Long Long</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Typeof.html#Typeof">Typeof</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="C-Extensions.html#C%20Extensions">C Extensions</a>
+<hr><br>
+</div>
+
+<h3 class="section">Conditionals with Omitted Operands</h3>
+
+<p>The middle operand in a conditional expression may be omitted.  Then
+if the first operand is nonzero, its value is the value of the conditional
+expression.
+
+   <p>Therefore, the expression
+
+<pre class="smallexample">     x ? : y
+     </pre>
+
+<p>has the value of <code>x</code> if that is nonzero; otherwise, the value of
+<code>y</code>.
+
+   <p>This example is perfectly equivalent to
+
+<pre class="smallexample">     x ? x : y
+     </pre>
+
+<p>In this simple case, the ability to omit the middle operand is not
+especially useful.  When it becomes useful is when the first operand does,
+or may (if it is a macro argument), contain a side effect.  Then repeating
+the operand in the middle would perform the side effect twice.  Omitting
+the middle operand uses the value already computed without the undesirable
+effects of recomputing it.
+
+   </body></html>
+

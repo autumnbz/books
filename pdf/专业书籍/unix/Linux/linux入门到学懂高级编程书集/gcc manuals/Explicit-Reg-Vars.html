@@ -1,0 +1,80 @@
+<html lang="en">
+<head>
+<title>Using the GNU Compiler Collection (GCC)</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Using the GNU Compiler Collection (GCC)">
+<meta name="generator" content="makeinfo 4.6">
+<!--
+Copyright &copy; 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+   <p>Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "GNU General Public License" and "Funding
+Free Software", the Front-Cover texts being (a) (see below), and with
+the Back-Cover Texts being (b) (see below).  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+   <p>(a) The FSF's Front-Cover Text is:
+
+   <p>A GNU Manual
+
+   <p>(b) The FSF's Back-Cover Text is:
+
+   <p>You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+Node:&nbsp;<a name="Explicit%20Reg%20Vars">Explicit Reg Vars</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="Alternate-Keywords.html#Alternate%20Keywords">Alternate Keywords</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Asm-Labels.html#Asm%20Labels">Asm Labels</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="C-Extensions.html#C%20Extensions">C Extensions</a>
+<hr><br>
+</div>
+
+<h3 class="section">Variables in Specified Registers</h3>
+
+<p>GNU C allows you to put a few global variables into specified hardware
+registers.  You can also specify the register in which an ordinary
+register variable should be allocated.
+
+     <ul>
+<li>Global register variables reserve registers throughout the program. 
+This may be useful in programs such as programming language
+interpreters which have a couple of global variables that are accessed
+very often.
+
+     <li>Local register variables in specific registers do not reserve the
+registers.  The compiler's data flow analysis is capable of determining
+where the specified registers contain live values, and where they are
+available for other uses.  Stores into local register variables may be deleted
+when they appear to be dead according to dataflow analysis.  References
+to local register variables may be deleted or moved or simplified.
+
+     <p>These local variables are sometimes convenient for use with the extended
+<code>asm</code> feature (see <a href="Extended-Asm.html#Extended%20Asm">Extended Asm</a>), if you want to write one
+output of the assembler instruction directly into a particular register. 
+(This will work provided the register you specify fits the constraints
+specified for that operand in the <code>asm</code>.) 
+</ul>
+
+<ul class="menu">
+<li><a accesskey="1" href="Global-Reg-Vars.html#Global%20Reg%20Vars">Global Reg Vars</a>: 
+<li><a accesskey="2" href="Local-Reg-Vars.html#Local%20Reg%20Vars">Local Reg Vars</a>: 
+</ul>
+
+   </body></html>
+

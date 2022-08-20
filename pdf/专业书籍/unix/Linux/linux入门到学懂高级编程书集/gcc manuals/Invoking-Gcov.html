@@ -1,0 +1,338 @@
+<html lang="en">
+<head>
+<title>Using the GNU Compiler Collection (GCC)</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Using the GNU Compiler Collection (GCC)">
+<meta name="generator" content="makeinfo 4.6">
+<!--
+Copyright &copy; 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+   <p>Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "GNU General Public License" and "Funding
+Free Software", the Front-Cover texts being (a) (see below), and with
+the Back-Cover Texts being (b) (see below).  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+   <p>(a) The FSF's Front-Cover Text is:
+
+   <p>A GNU Manual
+
+   <p>(b) The FSF's Back-Cover Text is:
+
+   <p>You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+Node:&nbsp;<a name="Invoking%20Gcov">Invoking Gcov</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="Gcov-and-Optimization.html#Gcov%20and%20Optimization">Gcov and Optimization</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Gcov-Intro.html#Gcov%20Intro">Gcov Intro</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Gcov.html#Gcov">Gcov</a>
+<hr><br>
+</div>
+
+<h3 class="section">Invoking gcov</h3>
+
+<pre class="smallexample">     gcov [<var>options</var>] <var>sourcefile</var>
+     </pre>
+
+   <p><code>gcov</code> accepts the following options:
+
+     <dl>
+<dt><code>-h</code>
+     <dd><dt><code>--help</code>
+     <dd>Display help about using <code>gcov</code> (on the standard output), and
+exit without doing any further processing.
+
+     <br><dt><code>-v</code>
+     <dd><dt><code>--version</code>
+     <dd>Display the <code>gcov</code> version number (on the standard output),
+and exit without doing any further processing.
+
+     <br><dt><code>-a</code>
+     <dd><dt><code>--all-blocks</code>
+     <dd>Write individual execution counts for every basic block. Normally gcov
+outputs execution counts only for the main blocks of a line. With this
+option you can determine if blocks within a single line are not being
+executed.
+
+     <br><dt><code>-b</code>
+     <dd><dt><code>--branch-probabilities</code>
+     <dd>Write branch frequencies to the output file, and write branch summary
+info to the standard output.  This option allows you to see how often
+each branch in your program was taken. Unconditional branches will not
+be shown, unless the <code>-u</code> option is given.
+
+     <br><dt><code>-c</code>
+     <dd><dt><code>--branch-counts</code>
+     <dd>Write branch frequencies as the number of branches taken, rather than
+the percentage of branches taken.
+
+     <br><dt><code>-n</code>
+     <dd><dt><code>--no-output</code>
+     <dd>Do not create the <code>gcov</code> output file.
+
+     <br><dt><code>-l</code>
+     <dd><dt><code>--long-file-names</code>
+     <dd>Create long file names for included source files.  For example, if the
+header file <code>x.h</code> contains code, and was included in the file
+<code>a.c</code>, then running <code>gcov</code> on the file <code>a.c</code> will produce
+an output file called <code>a.c##x.h.gcov</code> instead of <code>x.h.gcov</code>. 
+This can be useful if <code>x.h</code> is included in multiple source
+files. If you uses the <code>-p</code> option, both the including and
+included file names will be complete path names.
+
+     <br><dt><code>-p</code>
+     <dd><dt><code>--preserve-paths</code>
+     <dd>Preserve complete path information in the names of generated
+<code>.gcov</code> files. Without this option, just the filename component is
+used. With this option, all directories are used, with '/' characters
+translated to '#' characters, '.' directory components removed and '..' 
+components renamed to '^'. This is useful if sourcefiles are in several
+different directories. It also affects the <code>-l</code> option.
+
+     <br><dt><code>-f</code>
+     <dd><dt><code>--function-summaries</code>
+     <dd>Output summaries for each function in addition to the file level summary.
+
+     <br><dt><code>-o </code><var>directory|file</var><code></code>
+     <dd><dt><code>--object-directory </code><var>directory</var><code></code>
+     <dd><dt><code>--object-file </code><var>file</var><code></code>
+     <dd>Specify either the directory containing the gcov data files, or the
+object path name. The <code>.gcno</code>, and
+<code>.gcda</code> data files are searched for using this option. If a directory
+is specified, the data files are in that directory and named after the
+source file name, without its extension. If a file is specified here,
+the data files are named after that file, without its extension. If this
+option is not supplied, it defaults to the current directory.
+
+     <br><dt><code>-u</code>
+     <dd><dt><code>--unconditional-branches</code>
+     <dd>When branch counts are given, include those of unconditional branches. 
+Unconditional branches are normally not interesting.
+
+   </dl>
+
+   <p><code>gcov</code> should be run with the current directory the same as that
+when you invoked the compiler. Otherwise it will not be able to locate
+the source files. <code>gcov</code> produces files called
+<code></code><var>mangledname</var><code>.gcov</code> in the current directory. These contain
+the coverage information of the source file they correspond to. 
+One <code>.gcov</code> file is produced for each source file containing code,
+which was compiled to produce the data files. The <var>mangledname</var> part
+of the output file name is usually simply the source file name, but can
+be something more complicated if the <code>-l</code> or <code>-p</code> options are
+given. Refer to those options for details.
+
+   <p>The <code>.gcov</code> files contain the ':' separated fields along with
+program source code. The format is
+
+<pre class="smallexample">     <var>execution_count</var>:<var>line_number</var>:<var>source line text</var>
+     </pre>
+
+   <p>Additional block information may succeed each line, when requested by
+command line option. The <var>execution_count</var> is <code>-</code> for lines
+containing no code and <code>#####</code> for lines which were never
+executed. Some lines of information at the start have <var>line_number</var>
+of zero.
+
+   <p>When printing percentages, 0% and 100% are only printed when the values
+are <em>exactly</em> 0% and 100% respectively. Other values which would
+conventionally be rounded to 0% or 100% are instead printed as the
+nearest non-boundary value.
+
+   <p>When using <code>gcov</code>, you must first compile your program with two
+special GCC options: <code>-fprofile-arcs -ftest-coverage</code>. 
+This tells the compiler to generate additional information needed by
+gcov (basically a flow graph of the program) and also includes
+additional code in the object files for generating the extra profiling
+information needed by gcov.  These additional files are placed in the
+directory where the object file is located.
+
+   <p>Running the program will cause profile output to be generated.  For each
+source file compiled with <code>-fprofile-arcs</code>, an accompanying
+<code>.gcda</code> file will be placed in the object file directory.
+
+   <p>Running <code>gcov</code> with your program's source file names as arguments
+will now produce a listing of the code along with frequency of execution
+for each line.  For example, if your program is called <code>tmp.c</code>, this
+is what you see when you use the basic <code>gcov</code> facility:
+
+<pre class="smallexample">     $ gcc -fprofile-arcs -ftest-coverage tmp.c
+     $ a.out
+     $ gcov tmp.c
+     90.00% of 10 source lines executed in file tmp.c
+     Creating tmp.c.gcov.
+     </pre>
+
+   <p>The file <code>tmp.c.gcov</code> contains output from <code>gcov</code>. 
+Here is a sample:
+
+<pre class="smallexample">             -:    0:Source:tmp.c
+             -:    0:Graph:tmp.gcno
+             -:    0:Data:tmp.gcda
+             -:    0:Runs:1
+             -:    0:Programs:1
+             -:    1:#include &lt;stdio.h&gt;
+             -:    2:
+             -:    3:int main (void)
+     function main called 1 returned 1 blocks executed 75%
+             1:    4:{
+             1:    5:  int i, total;
+             -:    6:
+             1:    7:  total = 0;
+             -:    8:
+            11:    9:  for (i = 0; i &lt; 10; i++)
+            10:   10:    total += i;
+             -:   11:
+             1:   12:  if (total != 45)
+         #####:   13:    printf ("Failure\n");
+             -:   14:  else
+             1:   15:    printf ("Success\n");
+             1:   16:  return 0;
+             -:   17:}
+     </pre>
+
+   <p>When you use the <code>-a</code> option, you will get individual block
+counts, and the output looks like this:
+
+<pre class="smallexample">             -:    0:Source:tmp.c
+             -:    0:Graph:tmp.gcno
+             -:    0:Data:tmp.gcda
+             -:    0:Runs:1
+             -:    0:Programs:1
+             -:    1:#include &lt;stdio.h&gt;
+             -:    2:
+             -:    3:int main (void)
+     function main called 1 returned 1 blocks executed 75%
+             1:    4:{
+             1:    4-block  0
+             1:    5:  int i, total;
+             -:    6:
+             1:    7:  total = 0;
+             -:    8:
+            11:    9:  for (i = 0; i &lt; 10; i++)
+            11:    9-block  0
+            10:   10:    total += i;
+            10:   10-block  0
+             -:   11:
+             1:   12:  if (total != 45)
+             1:   12-block  0
+         #####:   13:    printf ("Failure\n");
+         $$$$$:   13-block  0
+             -:   14:  else
+             1:   15:    printf ("Success\n");
+             1:   15-block  0
+             1:   16:  return 0;
+             1:   16-block  0
+             -:   17:}
+     </pre>
+
+   <p>In this mode, each basic block is only shown on one line - the last
+line of the block. A multi-line block will only contribute to the
+execution count of that last line, and other lines will not be shown
+to contain code, unless previous blocks end on those lines. 
+The total execution count of a line is shown and subsequent lines show
+the execution counts for individual blocks that end on that line. After each
+block, the branch and call counts of the block will be shown, if the
+<code>-b</code> option is given.
+
+   <p>Because of the way GCC instruments calls, a call count can be shown
+after a line with no individual blocks. 
+As you can see, line 13 contains a basic block that was not executed.
+
+   <p>When you use the <code>-b</code> option, your output looks like this:
+
+<pre class="smallexample">     $ gcov -b tmp.c
+     90.00% of 10 source lines executed in file tmp.c
+     80.00% of 5 branches executed in file tmp.c
+     80.00% of 5 branches taken at least once in file tmp.c
+     50.00% of 2 calls executed in file tmp.c
+     Creating tmp.c.gcov.
+     </pre>
+
+   <p>Here is a sample of a resulting <code>tmp.c.gcov</code> file:
+
+<pre class="smallexample">             -:    0:Source:tmp.c
+             -:    0:Graph:tmp.gcno
+             -:    0:Data:tmp.gcda
+             -:    0:Runs:1
+             -:    0:Programs:1
+             -:    1:#include &lt;stdio.h&gt;
+             -:    2:
+             -:    3:int main (void)
+     function main called 1 returned 1 blocks executed 75%
+             1:    4:{
+             1:    5:  int i, total;
+             -:    6:
+             1:    7:  total = 0;
+             -:    8:
+            11:    9:  for (i = 0; i &lt; 10; i++)
+     branch  0 taken 91% (fallthrough)
+     branch  1 taken 9%
+            10:   10:    total += i;
+             -:   11:
+             1:   12:  if (total != 45)
+     branch  0 taken 0% (fallthrough)
+     branch  1 taken 100%
+         #####:   13:    printf ("Failure\n");
+     call    0 never executed
+             -:   14:  else
+             1:   15:    printf ("Success\n");
+     call    0 called 1 returned 100%
+             1:   16:  return 0;
+             -:   17:}
+     </pre>
+
+   <p>For each basic block, a line is printed after the last line of the basic
+block describing the branch or call that ends the basic block.  There can
+be multiple branches and calls listed for a single source line if there
+are multiple basic blocks that end on that line.  In this case, the
+branches and calls are each given a number.  There is no simple way to map
+these branches and calls back to source constructs.  In general, though,
+the lowest numbered branch or call will correspond to the leftmost construct
+on the source line.
+
+   <p>For a branch, if it was executed at least once, then a percentage
+indicating the number of times the branch was taken divided by the
+number of times the branch was executed will be printed.  Otherwise, the
+message "never executed" is printed.
+
+   <p>For a call, if it was executed at least once, then a percentage
+indicating the number of times the call returned divided by the number
+of times the call was executed will be printed.  This will usually be
+100%, but may be less for functions call <code>exit</code> or <code>longjmp</code>,
+and thus may not return every time they are called.
+
+   <p>The execution counts are cumulative.  If the example program were
+executed again without removing the <code>.gcda</code> file, the count for the
+number of times each line in the source was executed would be added to
+the results of the previous run(s).  This is potentially useful in
+several ways.  For example, it could be used to accumulate data over a
+number of program runs as part of a test verification suite, or to
+provide more accurate long-term information over a large number of
+program runs.
+
+   <p>The data in the <code>.gcda</code> files is saved immediately before the program
+exits.  For each source file compiled with <code>-fprofile-arcs</code>, the
+profiling code first attempts to read in an existing <code>.gcda</code> file; if
+the file doesn't match the executable (differing number of basic block
+counts) it will ignore the contents of the file.  It then adds in the
+new execution counts and finally writes the data to the file.
+
+   </body></html>
+

@@ -1,0 +1,150 @@
+<html lang="en">
+<head>
+<title>Using the GNU Compiler Collection (GCC)</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Using the GNU Compiler Collection (GCC)">
+<meta name="generator" content="makeinfo 4.6">
+<!--
+Copyright &copy; 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+   <p>Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "GNU General Public License" and "Funding
+Free Software", the Front-Cover texts being (a) (see below), and with
+the Back-Cover Texts being (b) (see below).  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+   <p>(a) The FSF's Front-Cover Text is:
+
+   <p>A GNU Manual
+
+   <p>(b) The FSF's Back-Cover Text is:
+
+   <p>You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+Node:&nbsp;<a name="Directory%20Options">Directory Options</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="Spec-Files.html#Spec%20Files">Spec Files</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Link-Options.html#Link%20Options">Link Options</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Invoking-GCC.html#Invoking%20GCC">Invoking GCC</a>
+<hr><br>
+</div>
+
+<h3 class="section">Options for Directory Search</h3>
+
+<p>These options specify directories to search for header files, for
+libraries and for parts of the compiler:
+
+     <dl>
+<dt><code>-I</code><var>dir</var><code></code>
+     <dd>Add the directory <var>dir</var> to the head of the list of directories to be
+searched for header files.  This can be used to override a system header
+file, substituting your own version, since these directories are
+searched before the system header file directories.  However, you should
+not use this option to add directories that contain vendor-supplied
+system header files (use <code>-isystem</code> for that).  If you use more than
+one <code>-I</code> option, the directories are scanned in left-to-right
+order; the standard system directories come after.
+
+     <p>If a standard system include directory, or a directory specified with
+<code>-isystem</code>, is also specified with <code>-I</code>, the <code>-I</code>
+option will be ignored.  The directory will still be searched but as a
+system directory at its normal position in the system include chain. 
+This is to ensure that GCC's procedure to fix buggy system headers and
+the ordering for the include_next directive are not inadvertently changed. 
+If you really need to change the search order for system directories,
+use the <code>-nostdinc</code> and/or <code>-isystem</code> options.
+
+     <br><dt><code>-I-</code>
+     <dd>Any directories you specify with <code>-I</code> options before the <code>-I-</code>
+option are searched only for the case of <code>#include "</code><var>file</var><code>"</code>;
+they are not searched for <code>#include &lt;</code><var>file</var><code>&gt;</code>.
+
+     <p>If additional directories are specified with <code>-I</code> options after
+the <code>-I-</code>, these directories are searched for all <code>#include</code>
+directives.  (Ordinarily <em>all</em> <code>-I</code> directories are used
+this way.)
+
+     <p>In addition, the <code>-I-</code> option inhibits the use of the current
+directory (where the current input file came from) as the first search
+directory for <code>#include "</code><var>file</var><code>"</code>.  There is no way to
+override this effect of <code>-I-</code>.  With <code>-I.</code> you can specify
+searching the directory which was current when the compiler was
+invoked.  That is not exactly the same as what the preprocessor does
+by default, but it is often satisfactory.
+
+     <p><code>-I-</code> does not inhibit the use of the standard system directories
+for header files.  Thus, <code>-I-</code> and <code>-nostdinc</code> are
+independent.
+
+     <br><dt><code>-L</code><var>dir</var><code></code>
+     <dd>Add directory <var>dir</var> to the list of directories to be searched
+for <code>-l</code>.
+
+     <br><dt><code>-B</code><var>prefix</var><code></code>
+     <dd>This option specifies where to find the executables, libraries,
+include files, and data files of the compiler itself.
+
+     <p>The compiler driver program runs one or more of the subprograms
+<code>cpp</code>, <code>cc1</code>, <code>as</code> and <code>ld</code>.  It tries
+<var>prefix</var> as a prefix for each program it tries to run, both with and
+without <code></code><var>machine</var><code>/</code><var>version</var><code>/</code> (see <a href="Target-Options.html#Target%20Options">Target Options</a>).
+
+     <p>For each subprogram to be run, the compiler driver first tries the
+<code>-B</code> prefix, if any.  If that name is not found, or if <code>-B</code>
+was not specified, the driver tries two standard prefixes, which are
+<code>/usr/lib/gcc/</code> and <code>/usr/local/lib/gcc/</code>.  If neither of
+those results in a file name that is found, the unmodified program
+name is searched for using the directories specified in your
+<code>PATH</code> environment variable.
+
+     <p>The compiler will check to see if the path provided by the <code>-B</code>
+refers to a directory, and if necessary it will add a directory
+separator character at the end of the path.
+
+     <p><code>-B</code> prefixes that effectively specify directory names also apply
+to libraries in the linker, because the compiler translates these
+options into <code>-L</code> options for the linker.  They also apply to
+includes files in the preprocessor, because the compiler translates these
+options into <code>-isystem</code> options for the preprocessor.  In this case,
+the compiler appends <code>include</code> to the prefix.
+
+     <p>The run-time support file <code>libgcc.a</code> can also be searched for using
+the <code>-B</code> prefix, if needed.  If it is not found there, the two
+standard prefixes above are tried, and that is all.  The file is left
+out of the link if it is not found by those means.
+
+     <p>Another way to specify a prefix much like the <code>-B</code> prefix is to use
+the environment variable <code>GCC_EXEC_PREFIX</code>.  See <a href="Environment-Variables.html#Environment%20Variables">Environment Variables</a>.
+
+     <p>As a special kludge, if the path provided by <code>-B</code> is
+<code>[dir/]stage</code><var>N</var><code>/</code>, where <var>N</var> is a number in the range 0 to
+9, then it will be replaced by <code>[dir/]include</code>.  This is to help
+with boot-strapping the compiler.
+
+     <br><dt><code>-specs=</code><var>file</var><code></code>
+     <dd>Process <var>file</var> after the compiler reads in the standard <code>specs</code>
+file, in order to override the defaults that the <code>gcc</code> driver
+program uses when determining what switches to pass to <code>cc1</code>,
+<code>cc1plus</code>, <code>as</code>, <code>ld</code>, etc.  More than one
+<code>-specs=</code><var>file</var><code></code> can be specified on the command line, and they
+are processed in order, from left to right. 
+</dl>
+
+   </body></html>
+

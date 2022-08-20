@@ -1,0 +1,267 @@
+<html lang="en">
+<head>
+<title>Using the GNU Compiler Collection (GCC)</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Using the GNU Compiler Collection (GCC)">
+<meta name="generator" content="makeinfo 4.6">
+<!--
+Copyright &copy; 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+   <p>Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "GNU General Public License" and "Funding
+Free Software", the Front-Cover texts being (a) (see below), and with
+the Back-Cover Texts being (b) (see below).  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+   <p>(a) The FSF's Front-Cover Text is:
+
+   <p>A GNU Manual
+
+   <p>(b) The FSF's Back-Cover Text is:
+
+   <p>You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+Node:&nbsp;<a name="HPPA%20Options">HPPA Options</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="DEC-Alpha-Options.html#DEC%20Alpha%20Options">DEC Alpha Options</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="i386-and-x86-64-Options.html#i386%20and%20x86-64%20Options">i386 and x86-64 Options</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Submodel-Options.html#Submodel%20Options">Submodel Options</a>
+<hr><br>
+</div>
+
+<h3 class="subsection">HPPA Options</h4>
+
+<p>These <code>-m</code> options are defined for the HPPA family of computers:
+
+     <dl>
+<dt><code>-march=</code><var>architecture-type</var><code></code>
+     <dd>Generate code for the specified architecture.  The choices for
+<var>architecture-type</var> are <code>1.0</code> for PA 1.0, <code>1.1</code> for PA
+1.1, and <code>2.0</code> for PA 2.0 processors.  Refer to
+<code>/usr/lib/sched.models</code> on an HP-UX system to determine the proper
+architecture option for your machine.  Code compiled for lower numbered
+architectures will run on higher numbered architectures, but not the
+other way around.
+
+     <p>PA 2.0 support currently requires gas snapshot 19990413 or later.  The
+next release of binutils (current is 2.9.1) will probably contain PA 2.0
+support.
+
+     <br><dt><code>-mpa-risc-1-0</code>
+     <dd><dt><code>-mpa-risc-1-1</code>
+     <dd><dt><code>-mpa-risc-2-0</code>
+     <dd>Synonyms for <code>-march=1.0</code>, <code>-march=1.1</code>, and <code>-march=2.0</code> respectively.
+
+     <br><dt><code>-mbig-switch</code>
+     <dd>Generate code suitable for big switch tables.  Use this option only if
+the assembler/linker complain about out of range branches within a switch
+table.
+
+     <br><dt><code>-mjump-in-delay</code>
+     <dd>Fill delay slots of function calls with unconditional jump instructions
+by modifying the return pointer for the function call to be the target
+of the conditional jump.
+
+     <br><dt><code>-mdisable-fpregs</code>
+     <dd>Prevent floating point registers from being used in any manner.  This is
+necessary for compiling kernels which perform lazy context switching of
+floating point registers.  If you use this option and attempt to perform
+floating point operations, the compiler will abort.
+
+     <br><dt><code>-mdisable-indexing</code>
+     <dd>Prevent the compiler from using indexing address modes.  This avoids some
+rather obscure problems when compiling MIG generated code under MACH.
+
+     <br><dt><code>-mno-space-regs</code>
+     <dd>Generate code that assumes the target has no space registers.  This allows
+GCC to generate faster indirect calls and use unscaled index address modes.
+
+     <p>Such code is suitable for level 0 PA systems and kernels.
+
+     <br><dt><code>-mfast-indirect-calls</code>
+     <dd>Generate code that assumes calls never cross space boundaries.  This
+allows GCC to emit code which performs faster indirect calls.
+
+     <p>This option will not work in the presence of shared libraries or nested
+functions.
+
+     <br><dt><code>-mlong-load-store</code>
+     <dd>Generate 3-instruction load and store sequences as sometimes required by
+the HP-UX 10 linker.  This is equivalent to the <code>+k</code> option to
+the HP compilers.
+
+     <br><dt><code>-mportable-runtime</code>
+     <dd>Use the portable calling conventions proposed by HP for ELF systems.
+
+     <br><dt><code>-mgas</code>
+     <dd>Enable the use of assembler directives only GAS understands.
+
+     <br><dt><code>-mschedule=</code><var>cpu-type</var><code></code>
+     <dd>Schedule code according to the constraints for the machine type
+<var>cpu-type</var>.  The choices for <var>cpu-type</var> are <code>700</code>
+<code>7100</code>, <code>7100LC</code>, <code>7200</code>, <code>7300</code> and <code>8000</code>.  Refer
+to <code>/usr/lib/sched.models</code> on an HP-UX system to determine the
+proper scheduling option for your machine.  The default scheduling is
+<code>8000</code>.
+
+     <br><dt><code>-mlinker-opt</code>
+     <dd>Enable the optimization pass in the HP-UX linker.  Note this makes symbolic
+debugging impossible.  It also triggers a bug in the HP-UX 8 and HP-UX 9
+linkers in which they give bogus error messages when linking some programs.
+
+     <br><dt><code>-msoft-float</code>
+     <dd>Generate output containing library calls for floating point. 
+<strong>Warning:</strong> the requisite libraries are not available for all HPPA
+targets.  Normally the facilities of the machine's usual C compiler are
+used, but this cannot be done directly in cross-compilation.  You must make
+your own arrangements to provide suitable library functions for
+cross-compilation.  The embedded target <code>hppa1.1-*-pro</code>
+does provide software floating point support.
+
+     <p><code>-msoft-float</code> changes the calling convention in the output file;
+therefore, it is only useful if you compile <em>all</em> of a program with
+this option.  In particular, you need to compile <code>libgcc.a</code>, the
+library that comes with GCC, with <code>-msoft-float</code> in order for
+this to work.
+
+     <br><dt><code>-msio</code>
+     <dd>Generate the predefine, <code>_SIO</code>, for server IO.  The default is
+<code>-mwsio</code>.  This generates the predefines, <code>__hp9000s700</code>,
+<code>__hp9000s700__</code> and <code>_WSIO</code>, for workstation IO.  These
+options are available under HP-UX and HI-UX.
+
+     <br><dt><code>-mgnu-ld</code>
+     <dd>Use GNU ld specific options.  This passes <code>-shared</code> to ld when
+building a shared library.  It is the default when GCC is configured,
+explicitly or implicitly, with the GNU linker.  This option does not
+have any affect on which ld is called, it only changes what parameters
+are passed to that ld.  The ld that is called is determined by the
+<code>--with-ld</code> configure option, GCC's program search path, and
+finally by the user's <code>PATH</code>.  The linker used by GCC can be printed
+using <code>which `gcc -print-prog-name=ld`</code>.
+
+     <br><dt><code>-mhp-ld</code>
+     <dd>Use HP ld specific options.  This passes <code>-b</code> to ld when building
+a shared library and passes <code>+Accept TypeMismatch</code> to ld on all
+links.  It is the default when GCC is configured, explicitly or
+implicitly, with the HP linker.  This option does not have any affect on
+which ld is called, it only changes what parameters are passed to that
+ld.  The ld that is called is determined by the <code>--with-ld</code>
+configure option, GCC's program search path, and finally by the user's
+<code>PATH</code>.  The linker used by GCC can be printed using <code>which
+`gcc -print-prog-name=ld`</code>.
+
+     <br><dt><code>-mfdpic</code>
+     <dd>
+
+     <p>Select the FDPIC ABI, that uses function descriptors to represent
+pointers to functions.  Without any PIC/PIE-related options, it
+implies <code>-fPIE</code>.  With <code>-fpic</code> or <code>-fpie</code>, it
+assumes GOT entries and small data are within a 12-bit range from the
+GOT base address; with <code>-fPIC</code> or <code>-fPIE</code>, GOT offsets
+are computed with 32 bits.
+
+     <br><dt><code>-minline-plt</code>
+     <dd>
+
+     <p>Enable inlining of PLT entries in function calls to functions that are
+not known to bind locally.  It has no effect without <code>-mfdpic</code>. 
+It's enabled by default if optimizing for speed and compiling for
+shared libraries (i.e., <code>-fPIC</code> or <code>-fpic</code>), or when an
+optimization option such as <code>-O3</code> or above is present in the
+command line.
+
+     <br><dt><code>-mgprel-ro</code>
+     <dd>
+
+     <p>Enable the use of <code>GPREL</code> relocations in the FDPIC ABI for data
+that is known to be in read-only sections.  It's enabled by default,
+except for <code>-fpic</code> or <code>-fpie</code>: even though it may help
+make the global offset table smaller, it trades 1 instruction for 4. 
+With <code>-fPIC</code> or <code>-fPIE</code>, it trades 3 instructions for 4,
+one of which may be shared by multiple symbols, and it avoids the need
+for a GOT entry for the referenced symbol, so it's more likely to be a
+win.  If it is not, <code>-mno-gprel-ro</code> can be used to disable it.
+
+     <br><dt><code>-multilib-library-pic</code>
+     <dd>
+
+     <p>Link with the (library, not FD) pic libraries.  It's implied by
+<code>-mlibrary-pic</code>, as well as by <code>-fPIC</code> and
+<code>-fpic</code> without <code>-mfdpic</code>.  You should never have to use
+it explicitly.
+
+     <br><dt><code>-mlinked-fp</code>
+     <dd>
+
+     <p>Follow the EABI requirement of always creating a frame pointer whenever
+a stack frame is allocated.  This option is enabled by default and can
+be disabled with <code>-mno-linked-fp</code>.
+
+     <br><dt><code>-mlong-calls</code>
+     <dd>Generate code that uses long call sequences.  This ensures that a call
+is always able to reach linker generated stubs.  The default is to generate
+long calls only when the distance from the call site to the beginning
+of the function or translation unit, as the case may be, exceeds a
+predefined limit set by the branch type being used.  The limits for
+normal calls are 7,600,000 and 240,000 bytes, respectively for the
+PA 2.0 and PA 1.X architectures.  Sibcalls are always limited at
+240,000 bytes.
+
+     <p>Distances are measured from the beginning of functions when using the
+<code>-ffunction-sections</code> option, or when using the <code>-mgas</code>
+and <code>-mno-portable-runtime</code> options together under HP-UX with
+the SOM linker.
+
+     <p>It is normally not desirable to use this option as it will degrade
+performance.  However, it may be useful in large applications,
+particularly when partial linking is used to build the application.
+
+     <p>The types of long calls used depends on the capabilities of the
+assembler and linker, and the type of code being generated.  The
+impact on systems that support long absolute calls, and long pic
+symbol-difference or pc-relative calls should be relatively small. 
+However, an indirect call is used on 32-bit ELF systems in pic code
+and it is quite long.
+
+     <br><dt><code>-nolibdld</code>
+     <dd>Suppress the generation of link options to search libdld.sl when the
+<code>-static</code> option is specified on HP-UX 10 and later.
+
+     <br><dt><code>-static</code>
+     <dd>The HP-UX implementation of setlocale in libc has a dependency on
+libdld.sl.  There isn't an archive version of libdld.sl.  Thus,
+when the <code>-static</code> option is specified, special link options
+are needed to resolve this dependency.
+
+     <p>On HP-UX 10 and later, the GCC driver adds the necessary options to
+link with libdld.sl when the <code>-static</code> option is specified. 
+This causes the resulting binary to be dynamic.  On the 64-bit port,
+the linkers generate dynamic binaries by default in any case.  The
+<code>-nolibdld</code> option can be used to prevent the GCC driver from
+adding these link options.
+
+     <br><dt><code>-threads</code>
+     <dd>Add support for multithreading with the <dfn>dce thread</dfn> library
+under HP-UX.  This option sets flags for both the preprocessor and
+linker. 
+</dl>
+
+   </body></html>
+

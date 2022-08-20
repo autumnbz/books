@@ -1,0 +1,105 @@
+<html lang="en">
+<head>
+<title>Using the GNU Compiler Collection (GCC)</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Using the GNU Compiler Collection (GCC)">
+<meta name="generator" content="makeinfo 4.6">
+<!--
+Copyright &copy; 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+   <p>Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "GNU General Public License" and "Funding
+Free Software", the Front-Cover texts being (a) (see below), and with
+the Back-Cover Texts being (b) (see below).  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+   <p>(a) The FSF's Front-Cover Text is:
+
+   <p>A GNU Manual
+
+   <p>(b) The FSF's Back-Cover Text is:
+
+   <p>You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+Node:&nbsp;<a name="Gcov%20Intro">Gcov Intro</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="Invoking-Gcov.html#Invoking%20Gcov">Invoking Gcov</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Gcov.html#Gcov">Gcov</a>
+<hr><br>
+</div>
+
+<h3 class="section">Introduction to <code>gcov</code></h3>
+
+<p><code>gcov</code> is a test coverage program.  Use it in concert with GCC
+to analyze your programs to help create more efficient, faster running
+code and to discover untested parts of your program.  You can use
+<code>gcov</code> as a profiling tool to help discover where your
+optimization efforts will best affect your code.  You can also use
+<code>gcov</code> along with the other profiling tool, <code>gprof</code>, to
+assess which parts of your code use the greatest amount of computing
+time.
+
+   <p>Profiling tools help you analyze your code's performance.  Using a
+profiler such as <code>gcov</code> or <code>gprof</code>, you can find out some
+basic performance statistics, such as:
+
+     <ul>
+<li>how often each line of code executes
+
+     <li>what lines of code are actually executed
+
+     <li>how much computing time each section of code uses
+</ul>
+
+   <p>Once you know these things about how your code works when compiled, you
+can look at each module to see which modules should be optimized. 
+<code>gcov</code> helps you determine where to work on optimization.
+
+   <p>Software developers also use coverage testing in concert with
+testsuites, to make sure software is actually good enough for a release. 
+Testsuites can verify that a program works as expected; a coverage
+program tests to see how much of the program is exercised by the
+testsuite.  Developers can then determine what kinds of test cases need
+to be added to the testsuites to create both better testing and a better
+final product.
+
+   <p>You should compile your code without optimization if you plan to use
+<code>gcov</code> because the optimization, by combining some lines of code
+into one function, may not give you as much information as you need to
+look for `hot spots' where the code is using a great deal of computer
+time.  Likewise, because <code>gcov</code> accumulates statistics by line (at
+the lowest resolution), it works best with a programming style that
+places only one statement on each line.  If you use complicated macros
+that expand to loops or to other control structures, the statistics are
+less helpful--they only report on the line where the macro call
+appears.  If your complex macros behave like functions, you can replace
+them with inline functions to solve this problem.
+
+   <p><code>gcov</code> creates a logfile called <code></code><var>sourcefile</var><code>.gcov</code> which
+indicates how many times each line of a source file <code></code><var>sourcefile</var><code>.c</code>
+has executed.  You can use these logfiles along with <code>gprof</code> to aid
+in fine-tuning the performance of your programs.  <code>gprof</code> gives
+timing information you can use along with the information you get from
+<code>gcov</code>.
+
+   <p><code>gcov</code> works only on code compiled with GCC.  It is not
+compatible with any other profiling or test coverage mechanism.
+
+   </body></html>
+

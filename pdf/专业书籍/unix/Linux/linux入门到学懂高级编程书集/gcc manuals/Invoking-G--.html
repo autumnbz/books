@@ -1,0 +1,78 @@
+<html lang="en">
+<head>
+<title>Using the GNU Compiler Collection (GCC)</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Using the GNU Compiler Collection (GCC)">
+<meta name="generator" content="makeinfo 4.6">
+<!--
+Copyright &copy; 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+   <p>Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "GNU General Public License" and "Funding
+Free Software", the Front-Cover texts being (a) (see below), and with
+the Back-Cover Texts being (b) (see below).  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+   <p>(a) The FSF's Front-Cover Text is:
+
+   <p>A GNU Manual
+
+   <p>(b) The FSF's Back-Cover Text is:
+
+   <p>You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+Node:&nbsp;<a name="Invoking%20G++">Invoking G++</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="C-Dialect-Options.html#C%20Dialect%20Options">C Dialect Options</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Overall-Options.html#Overall%20Options">Overall Options</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Invoking-GCC.html#Invoking%20GCC">Invoking GCC</a>
+<hr><br>
+</div>
+
+<h3 class="section">Compiling C++ Programs</h3>
+
+<p>C++ source files conventionally use one of the suffixes <code>.C</code>,
+<code>.cc</code>, <code>.cpp</code>, <code>.CPP</code>, <code>.c++</code>, <code>.cp</code>, or
+<code>.cxx</code>; C++ header files often use <code>.hh</code> or <code>.H</code>; and
+preprocessed C++ files use the suffix <code>.ii</code>.  GCC recognizes
+files with these names and compiles them as C++ programs even if you
+call the compiler the same way as for compiling C programs (usually
+with the name <code>gcc</code>).
+
+   <p>However, C++ programs often require class libraries as well as a
+compiler that understands the C++ language--and under some
+circumstances, you might want to compile programs or header files from
+standard input, or otherwise without a suffix that flags them as C++
+programs.  You might also like to precompile a C header file with a
+<code>.h</code> extension to be used in C++ compilations.  <code>g++</code> is a
+program that calls GCC with the default language set to C++, and
+automatically specifies linking against the C++ library.  On many
+systems, <code>g++</code> is also installed with the name <code>c++</code>.
+
+   <p>When you compile C++ programs, you may specify many of the same
+command-line options that you use for compiling programs in any
+language; or command-line options meaningful for C and related
+languages; or options that are meaningful only for C++ programs. 
+See <a href="C-Dialect-Options.html#C%20Dialect%20Options">Options Controlling C Dialect</a>, for
+explanations of options for languages related to C. 
+See <a href="C---Dialect-Options.html#C++%20Dialect%20Options">Options Controlling C++ Dialect</a>, for
+explanations of options that are meaningful only for C++ programs.
+
+   </body></html>
+

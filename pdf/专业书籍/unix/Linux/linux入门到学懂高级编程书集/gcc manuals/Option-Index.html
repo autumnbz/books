@@ -1,0 +1,1165 @@
+<html lang="en">
+<head>
+<title>Using the GNU Compiler Collection (GCC)</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Using the GNU Compiler Collection (GCC)">
+<meta name="generator" content="makeinfo 4.6">
+<!--
+Copyright &copy; 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+   <p>Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "GNU General Public License" and "Funding
+Free Software", the Front-Cover texts being (a) (see below), and with
+the Back-Cover Texts being (b) (see below).  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+   <p>(a) The FSF's Front-Cover Text is:
+
+   <p>A GNU Manual
+
+   <p>(b) The FSF's Back-Cover Text is:
+
+   <p>You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+Node:&nbsp;<a name="Option%20Index">Option Index</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="Keyword-Index.html#Keyword%20Index">Keyword Index</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Contributors.html#Contributors">Contributors</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
+<hr><br>
+</div>
+
+<h2 class="unnumbered">Option Index</h2>
+
+<p>GCC's command line options are indexed here without any initial <code>-</code>
+or <code>--</code>.  Where an option has both positive and negative forms
+(such as <code>-f</code><var>option</var><code></code> and <code>-fno-</code><var>option</var><code></code>),
+relevant entries in the manual are indexed under the most appropriate
+form; it may sometimes be useful to look up both forms.
+
+<ul class="index-op" compact>
+<li><code>###</code>: <a href="Overall-Options.html#Overall%20Options">Overall Options</a>
+<li><code>-fno-nil-receivers</code>: <a href="Objective-C-Dialect-Options.html#Objective-C%20Dialect%20Options">Objective-C Dialect Options</a>
+<li><code>-fobjc-exceptions</code>: <a href="Objective-C-Dialect-Options.html#Objective-C%20Dialect%20Options">Objective-C Dialect Options</a>
+<li><code>-freplace-objc-classes</code>: <a href="Objective-C-Dialect-Options.html#Objective-C%20Dialect%20Options">Objective-C Dialect Options</a>
+<li><code>-fzero-link</code>: <a href="Objective-C-Dialect-Options.html#Objective-C%20Dialect%20Options">Objective-C Dialect Options</a>
+<li><code>-mdebug</code>: <a href="M32R-D-Options.html#M32R%2fD%20Options">M32R/D Options</a>
+<li><code>-mno-v8plus</code>: <a href="SPARC-Options.html#SPARC%20Options">SPARC Options</a>
+<li><code>-mno-vis</code>: <a href="SPARC-Options.html#SPARC%20Options">SPARC Options</a>
+<li><code>-mv8plus</code>: <a href="SPARC-Options.html#SPARC%20Options">SPARC Options</a>
+<li><code>-mvis</code>: <a href="SPARC-Options.html#SPARC%20Options">SPARC Options</a>
+<li><code>-print-objc-runtime-info</code>: <a href="Objective-C-Dialect-Options.html#Objective-C%20Dialect%20Options">Objective-C Dialect Options</a>
+<li><code>A</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>
+<li><code>all_load</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>allowable_client</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>ansi</code>: <a href="Non-bugs.html#Non-bugs">Non-bugs</a>, <a href="Other-Builtins.html#Other%20Builtins">Other Builtins</a>, <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>, <a href="C-Dialect-Options.html#C%20Dialect%20Options">C Dialect Options</a>, <a href="Standards.html#Standards">Standards</a>
+<li><code>arch_errors_fatal</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>arch_only</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>aux-info</code>: <a href="C-Dialect-Options.html#C%20Dialect%20Options">C Dialect Options</a>
+<li><code>b</code>: <a href="Target-Options.html#Target%20Options">Target Options</a>
+<li><code>B</code>: <a href="Directory-Options.html#Directory%20Options">Directory Options</a>
+<li><code>bcopy-builtin</code>: <a href="PDP-11-Options.html#PDP-11%20Options">PDP-11 Options</a>
+<li><code>bind_at_load</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>bundle</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>bundle_loader</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>c</code>: <a href="Link-Options.html#Link%20Options">Link Options</a>
+<li><code>C</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>
+<li><code>c</code>: <a href="Overall-Options.html#Overall%20Options">Overall Options</a>
+<li><code>client_name</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>combine</code>: <a href="Overall-Options.html#Overall%20Options">Overall Options</a>
+<li><code>compatibility_version</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>crossjumping</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>current_version</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>D</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>
+<li><code>d</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>da</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>dA</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>dB</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>db</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>dC</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>dc</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>dD</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>, <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>dd</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>dE</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>dependency-file</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>dF</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>df</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>dG</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>dg</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>dH</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>dh</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>dI</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>
+<li><code>di</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>dj</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>dk</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>dL</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>dl</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>dM</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>
+<li><code>dm</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>dM</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>dN</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>, <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>dn</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>do</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>dP</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>dp</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>dR</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>dr</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>dS</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>ds</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>dT</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>dt</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>dU</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>du</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>dumpmachine</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>dumpspecs</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>dumpversion</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>dv</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>dV</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>dw</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>dx</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>dy</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>dylib_file</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>dylinker_install_name</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>dynamic</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>dynamiclib</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>dZ</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>dz</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>E</code>: <a href="Link-Options.html#Link%20Options">Link Options</a>, <a href="Overall-Options.html#Overall%20Options">Overall Options</a>
+<li><code>EB</code>: <a href="ARC-Options.html#ARC%20Options">ARC Options</a>, <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>EL</code>: <a href="ARC-Options.html#ARC%20Options">ARC Options</a>, <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>exported_symbols_list</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>fabi-version</code>: <a href="C---Dialect-Options.html#C++%20Dialect%20Options">C++ Dialect Options</a>
+<li><code>falign-functions</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>falign-jumps</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>falign-labels</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>falign-loops</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fargument-alias</code>: <a href="Code-Gen-Options.html#Code%20Gen%20Options">Code Gen Options</a>
+<li><code>fargument-noalias</code>: <a href="Code-Gen-Options.html#Code%20Gen%20Options">Code Gen Options</a>
+<li><code>fargument-noalias-global</code>: <a href="Code-Gen-Options.html#Code%20Gen%20Options">Code Gen Options</a>
+<li><code>fbounds-check</code>: <a href="Code-Gen-Options.html#Code%20Gen%20Options">Code Gen Options</a>
+<li><code>fbranch-probabilities</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fbranch-target-load-optimize</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fbranch-target-load-optimize2</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fbtr-bb-exclusive</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fcall-saved</code>: <a href="Interoperation.html#Interoperation">Interoperation</a>, <a href="Code-Gen-Options.html#Code%20Gen%20Options">Code Gen Options</a>
+<li><code>fcall-used</code>: <a href="Code-Gen-Options.html#Code%20Gen%20Options">Code Gen Options</a>
+<li><code>fcaller-saves</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fcheck-new</code>: <a href="C---Dialect-Options.html#C++%20Dialect%20Options">C++ Dialect Options</a>
+<li><code>fcommon</code>: <a href="Variable-Attributes.html#Variable%20Attributes">Variable Attributes</a>
+<li><code>fcond-mismatch</code>: <a href="C-Dialect-Options.html#C%20Dialect%20Options">C Dialect Options</a>
+<li><code>fconserve-space</code>: <a href="C---Dialect-Options.html#C++%20Dialect%20Options">C++ Dialect Options</a>
+<li><code>fconstant-string-class</code>: <a href="Objective-C-Dialect-Options.html#Objective-C%20Dialect%20Options">Objective-C Dialect Options</a>
+<li><code>fcse-follow-jumps</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fcse-skip-blocks</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fdata-sections</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fdelayed-branch</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fdelete-null-pointer-checks</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fdiagnostics-show-location</code>: <a href="Language-Independent-Options.html#Language%20Independent%20Options">Language Independent Options</a>
+<li><code>fdollars-in-identifiers</code>: <a href="Interoperation.html#Interoperation">Interoperation</a>, <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>
+<li><code>fdump-class-hierarchy</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>fdump-translation-unit</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>fdump-tree</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>fdump-unnumbered</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>feliminate-dwarf2-dups</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>feliminate-unused-debug-symbols</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>feliminate-unused-debug-types</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>fexceptions</code>: <a href="Code-Gen-Options.html#Code%20Gen%20Options">Code Gen Options</a>
+<li><code>fexec-charset</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>
+<li><code>fexpensive-optimizations</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>ffast-math</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>ffinite-math-only</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>ffixed</code>: <a href="Code-Gen-Options.html#Code%20Gen%20Options">Code Gen Options</a>
+<li><code>ffloat-store</code>: <a href="Disappointments.html#Disappointments">Disappointments</a>, <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>ffor-scope</code>: <a href="C---Dialect-Options.html#C++%20Dialect%20Options">C++ Dialect Options</a>
+<li><code>fforce-addr</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fforce-mem</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>ffreestanding</code>: <a href="Function-Attributes.html#Function%20Attributes">Function Attributes</a>, <a href="C-Dialect-Options.html#C%20Dialect%20Options">C Dialect Options</a>, <a href="Standards.html#Standards">Standards</a>
+<li><code>ffunction-sections</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fgcse</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fgcse-las</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fgcse-lm</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fgcse-sm</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fgnu-runtime</code>: <a href="Objective-C-Dialect-Options.html#Objective-C%20Dialect%20Options">Objective-C Dialect Options</a>
+<li><code>fhosted</code>: <a href="C-Dialect-Options.html#C%20Dialect%20Options">C Dialect Options</a>
+<li><code>filelist</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>finhibit-size-directive</code>: <a href="Code-Gen-Options.html#Code%20Gen%20Options">Code Gen Options</a>
+<li><code>finline-functions</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>finline-limit</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>finput-charset</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>
+<li><code>finstrument-functions</code>: <a href="Function-Attributes.html#Function%20Attributes">Function Attributes</a>, <a href="Code-Gen-Options.html#Code%20Gen%20Options">Code Gen Options</a>
+<li><code>fkeep-inline-functions</code>: <a href="Inline.html#Inline">Inline</a>, <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fkeep-static-consts</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>flat_namespace</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>fleading-underscore</code>: <a href="Code-Gen-Options.html#Code%20Gen%20Options">Code Gen Options</a>
+<li><code>floop-optimize</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fmem-report</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>fmessage-length</code>: <a href="Language-Independent-Options.html#Language%20Independent%20Options">Language Independent Options</a>
+<li><code>fmove-all-movables</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fms-extensions</code>: <a href="C---Dialect-Options.html#C++%20Dialect%20Options">C++ Dialect Options</a>, <a href="C-Dialect-Options.html#C%20Dialect%20Options">C Dialect Options</a>
+<li><code>fnew-ra</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fnext-runtime</code>: <a href="Objective-C-Dialect-Options.html#Objective-C%20Dialect%20Options">Objective-C Dialect Options</a>
+<li><code>fno-access-control</code>: <a href="C---Dialect-Options.html#C++%20Dialect%20Options">C++ Dialect Options</a>
+<li><code>fno-asm</code>: <a href="C-Dialect-Options.html#C%20Dialect%20Options">C Dialect Options</a>
+<li><code>fno-branch-count-reg</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fno-builtin</code>: <a href="Other-Builtins.html#Other%20Builtins">Other Builtins</a>, <a href="C-Dialect-Options.html#C%20Dialect%20Options">C Dialect Options</a>
+<li><code>fno-common</code>: <a href="Variable-Attributes.html#Variable%20Attributes">Variable Attributes</a>, <a href="Code-Gen-Options.html#Code%20Gen%20Options">Code Gen Options</a>
+<li><code>fno-const-strings</code>: <a href="C---Dialect-Options.html#C++%20Dialect%20Options">C++ Dialect Options</a>
+<li><code>fno-cprop-registers</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fno-default-inline</code>: <a href="Inline.html#Inline">Inline</a>, <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>, <a href="C---Dialect-Options.html#C++%20Dialect%20Options">C++ Dialect Options</a>
+<li><code>fno-defer-pop</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fno-elide-constructors</code>: <a href="C---Dialect-Options.html#C++%20Dialect%20Options">C++ Dialect Options</a>
+<li><code>fno-enforce-eh-specs</code>: <a href="C---Dialect-Options.html#C++%20Dialect%20Options">C++ Dialect Options</a>
+<li><code>fno-for-scope</code>: <a href="C---Dialect-Options.html#C++%20Dialect%20Options">C++ Dialect Options</a>
+<li><code>fno-function-cse</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fno-gnu-keywords</code>: <a href="C---Dialect-Options.html#C++%20Dialect%20Options">C++ Dialect Options</a>
+<li><code>fno-guess-branch-probability</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fno-ident</code>: <a href="Code-Gen-Options.html#Code%20Gen%20Options">Code Gen Options</a>
+<li><code>fno-implement-inlines</code>: <a href="C---Interface.html#C++%20Interface">C++ Interface</a>, <a href="C---Dialect-Options.html#C++%20Dialect%20Options">C++ Dialect Options</a>
+<li><code>fno-implicit-inline-templates</code>: <a href="C---Dialect-Options.html#C++%20Dialect%20Options">C++ Dialect Options</a>
+<li><code>fno-implicit-templates</code>: <a href="Template-Instantiation.html#Template%20Instantiation">Template Instantiation</a>, <a href="C---Dialect-Options.html#C++%20Dialect%20Options">C++ Dialect Options</a>
+<li><code>fno-inline</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fno-math-errno</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fno-nonansi-builtins</code>: <a href="C---Dialect-Options.html#C++%20Dialect%20Options">C++ Dialect Options</a>
+<li><code>fno-operator-names</code>: <a href="C---Dialect-Options.html#C++%20Dialect%20Options">C++ Dialect Options</a>
+<li><code>fno-optional-diags</code>: <a href="C---Dialect-Options.html#C++%20Dialect%20Options">C++ Dialect Options</a>
+<li><code>fno-peephole</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fno-peephole2</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fno-rtti</code>: <a href="C---Dialect-Options.html#C++%20Dialect%20Options">C++ Dialect Options</a>
+<li><code>fno-sched-interblock</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fno-sched-spec</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fno-show-column</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>
+<li><code>fno-signed-bitfields</code>: <a href="C-Dialect-Options.html#C%20Dialect%20Options">C Dialect Options</a>
+<li><code>fno-stack-limit</code>: <a href="Code-Gen-Options.html#Code%20Gen%20Options">Code Gen Options</a>
+<li><code>fno-trapping-math</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fno-unsigned-bitfields</code>: <a href="C-Dialect-Options.html#C%20Dialect%20Options">C Dialect Options</a>
+<li><code>fno-weak</code>: <a href="C---Dialect-Options.html#C++%20Dialect%20Options">C++ Dialect Options</a>
+<li><code>fno-working-directory</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>
+<li><code>fno-zero-initialized-in-bss</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fnon-call-exceptions</code>: <a href="Code-Gen-Options.html#Code%20Gen%20Options">Code Gen Options</a>
+<li><code>fold-unroll-all-loops</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fold-unroll-loops</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fomit-frame-pointer</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>foptimize-register-move</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>foptimize-sibling-calls</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>force_cpusubtype_ALL</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>force_flat_namespace</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>fpack-struct</code>: <a href="Code-Gen-Options.html#Code%20Gen%20Options">Code Gen Options</a>
+<li><code>fpcc-struct-return</code>: <a href="Incompatibilities.html#Incompatibilities">Incompatibilities</a>, <a href="Code-Gen-Options.html#Code%20Gen%20Options">Code Gen Options</a>
+<li><code>fpch-deps</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>
+<li><code>fpeel-loops</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fpermissive</code>: <a href="C---Dialect-Options.html#C++%20Dialect%20Options">C++ Dialect Options</a>
+<li><code>fPIC</code>: <a href="Code-Gen-Options.html#Code%20Gen%20Options">Code Gen Options</a>
+<li><code>fpic</code>: <a href="Code-Gen-Options.html#Code%20Gen%20Options">Code Gen Options</a>
+<li><code>fPIE</code>: <a href="Code-Gen-Options.html#Code%20Gen%20Options">Code Gen Options</a>
+<li><code>fpie</code>: <a href="Code-Gen-Options.html#Code%20Gen%20Options">Code Gen Options</a>
+<li><code>fprefetch-loop-arrays</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fpreprocessed</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>
+<li><code>fprofile-arcs</code>: <a href="Other-Builtins.html#Other%20Builtins">Other Builtins</a>, <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>fprofile-generate</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fprofile-use</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fprofile-values</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>frandom-string</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>freduce-all-givs</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>freg-struct-return</code>: <a href="Code-Gen-Options.html#Code%20Gen%20Options">Code Gen Options</a>
+<li><code>fregmove</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>frename-registers</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>freorder-blocks</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>freorder-blocks-and-partition</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>freorder-functions</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>frepo</code>: <a href="Template-Instantiation.html#Template%20Instantiation">Template Instantiation</a>, <a href="C---Dialect-Options.html#C++%20Dialect%20Options">C++ Dialect Options</a>
+<li><code>frerun-cse-after-loop</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>frerun-loop-opt</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>frounding-math</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fsched-spec-load</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fsched-spec-load-dangerous</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fsched-stalled-insns</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fsched-stalled-insns-dep</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fsched-verbose</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>fsched2-use-superblocks</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fsched2-use-traces</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fschedule-insns</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fschedule-insns2</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fshared-data</code>: <a href="Code-Gen-Options.html#Code%20Gen%20Options">Code Gen Options</a>
+<li><code>fshort-double</code>: <a href="Code-Gen-Options.html#Code%20Gen%20Options">Code Gen Options</a>
+<li><code>fshort-enums</code>: <a href="Non-bugs.html#Non-bugs">Non-bugs</a>, <a href="Type-Attributes.html#Type%20Attributes">Type Attributes</a>, <a href="Code-Gen-Options.html#Code%20Gen%20Options">Code Gen Options</a>
+<li><code>fshort-wchar</code>: <a href="Code-Gen-Options.html#Code%20Gen%20Options">Code Gen Options</a>
+<li><code>fsignaling-nans</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fsigned-bitfields</code>: <a href="Non-bugs.html#Non-bugs">Non-bugs</a>, <a href="C-Dialect-Options.html#C%20Dialect%20Options">C Dialect Options</a>
+<li><code>fsigned-char</code>: <a href="C-Dialect-Options.html#C%20Dialect%20Options">C Dialect Options</a>
+<li><code>fsingle-precision-constant</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fstack-check</code>: <a href="Code-Gen-Options.html#Code%20Gen%20Options">Code Gen Options</a>
+<li><code>fstack-limit-register</code>: <a href="Code-Gen-Options.html#Code%20Gen%20Options">Code Gen Options</a>
+<li><code>fstack-limit-symbol</code>: <a href="Code-Gen-Options.html#Code%20Gen%20Options">Code Gen Options</a>
+<li><code>fstats</code>: <a href="C---Dialect-Options.html#C++%20Dialect%20Options">C++ Dialect Options</a>
+<li><code>fstrength-reduce</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fstrict-aliasing</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fsyntax-only</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>ftabstop</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>
+<li><code>ftemplate-depth</code>: <a href="C---Dialect-Options.html#C++%20Dialect%20Options">C++ Dialect Options</a>
+<li><code>ftest-coverage</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>fthread-jumps</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>ftime-report</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>ftracer</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>ftrapv</code>: <a href="Code-Gen-Options.html#Code%20Gen%20Options">Code Gen Options</a>
+<li><code>funit-at-a-time</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>funroll-all-loops</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>funroll-loops</code>: <a href="Non-bugs.html#Non-bugs">Non-bugs</a>, <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>funsafe-math-optimizations</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>funsigned-bitfields</code>: <a href="Non-bugs.html#Non-bugs">Non-bugs</a>, <a href="C-Dialect-Options.html#C%20Dialect%20Options">C Dialect Options</a>
+<li><code>funsigned-char</code>: <a href="C-Dialect-Options.html#C%20Dialect%20Options">C Dialect Options</a>
+<li><code>funswitch-loops</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>funwind-tables</code>: <a href="Code-Gen-Options.html#Code%20Gen%20Options">Code Gen Options</a>
+<li><code>fuse-cxa-atexit</code>: <a href="C---Dialect-Options.html#C++%20Dialect%20Options">C++ Dialect Options</a>
+<li><code>fvar-tracking</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>fverbose-asm</code>: <a href="Code-Gen-Options.html#Code%20Gen%20Options">Code Gen Options</a>
+<li><code>fvpt</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fweb</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>fwide-exec-charset</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>
+<li><code>fworking-directory</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>
+<li><code>fwrapv</code>: <a href="Code-Gen-Options.html#Code%20Gen%20Options">Code Gen Options</a>
+<li><code>G</code>: <a href="System-V-Options.html#System%20V%20Options">System V Options</a>, <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>, <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>, <a href="M32R-D-Options.html#M32R%2fD%20Options">M32R/D Options</a>
+<li><code>g</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>gcoff</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>gdwarf-2</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>gen-decls</code>: <a href="Objective-C-Dialect-Options.html#Objective-C%20Dialect%20Options">Objective-C Dialect Options</a>
+<li><code>ggdb</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>gnu-ld</code>: <a href="HPPA-Options.html#HPPA%20Options">HPPA Options</a>
+<li><code>gstabs</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>gstabs+</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>gvms</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>gxcoff</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>gxcoff+</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>H</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>
+<li><code>headerpad_max_install_names</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>help</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>, <a href="Overall-Options.html#Overall%20Options">Overall Options</a>
+<li><code>hp-ld</code>: <a href="HPPA-Options.html#HPPA%20Options">HPPA Options</a>
+<li><code>I</code>: <a href="Directory-Options.html#Directory%20Options">Directory Options</a>, <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>
+<li><code>I-</code>: <a href="Directory-Options.html#Directory%20Options">Directory Options</a>, <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>
+<li><code>idirafter</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>
+<li><code>if-conversion</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>if-conversion2</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>imacros</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>
+<li><code>image_base</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>include</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>
+<li><code>init</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>install_name</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>iprefix</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>
+<li><code>isystem</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>
+<li><code>iwithprefix</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>
+<li><code>iwithprefixbefore</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>
+<li><code>keep_private_externs</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>L</code>: <a href="Directory-Options.html#Directory%20Options">Directory Options</a>
+<li><code>l</code>: <a href="Link-Options.html#Link%20Options">Link Options</a>
+<li><code>lobjc</code>: <a href="Link-Options.html#Link%20Options">Link Options</a>
+<li><code>M</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>
+<li><code>m1</code>: <a href="SH-Options.html#SH%20Options">SH Options</a>
+<li><code>m10</code>: <a href="PDP-11-Options.html#PDP-11%20Options">PDP-11 Options</a>
+<li><code>m128bit-long-double</code>: <a href="i386-and-x86-64-Options.html#i386%20and%20x86-64%20Options">i386 and x86-64 Options</a>
+<li><code>m16-bit</code>: <a href="CRIS-Options.html#CRIS%20Options">CRIS Options</a>
+<li><code>m2</code>: <a href="SH-Options.html#SH%20Options">SH Options</a>
+<li><code>m210</code>: <a href="MCore-Options.html#MCore%20Options">MCore Options</a>
+<li><code>m3</code>: <a href="SH-Options.html#SH%20Options">SH Options</a>
+<li><code>m31</code>: <a href="S-390-and-zSeries-Options.html#S%2f390%20and%20zSeries%20Options">S/390 and zSeries Options</a>
+<li><code>m32</code>: <a href="i386-and-x86-64-Options.html#i386%20and%20x86-64%20Options">i386 and x86-64 Options</a>, <a href="SPARC-Options.html#SPARC%20Options">SPARC Options</a>
+<li><code>m32-bit</code>: <a href="CRIS-Options.html#CRIS%20Options">CRIS Options</a>
+<li><code>m32032</code>: <a href="NS32K-Options.html#NS32K%20Options">NS32K Options</a>
+<li><code>m32081</code>: <a href="NS32K-Options.html#NS32K%20Options">NS32K Options</a>
+<li><code>m32332</code>: <a href="NS32K-Options.html#NS32K%20Options">NS32K Options</a>
+<li><code>m32381</code>: <a href="NS32K-Options.html#NS32K%20Options">NS32K Options</a>
+<li><code>m32532</code>: <a href="NS32K-Options.html#NS32K%20Options">NS32K Options</a>
+<li><code>m32r</code>: <a href="M32R-D-Options.html#M32R%2fD%20Options">M32R/D Options</a>
+<li><code>m32r2</code>: <a href="M32R-D-Options.html#M32R%2fD%20Options">M32R/D Options</a>
+<li><code>m32rx</code>: <a href="M32R-D-Options.html#M32R%2fD%20Options">M32R/D Options</a>
+<li><code>m340</code>: <a href="MCore-Options.html#MCore%20Options">MCore Options</a>
+<li><code>m386</code>: <a href="i386-and-x86-64-Options.html#i386%20and%20x86-64%20Options">i386 and x86-64 Options</a>
+<li><code>m3dnow</code>: <a href="i386-and-x86-64-Options.html#i386%20and%20x86-64%20Options">i386 and x86-64 Options</a>
+<li><code>m3e</code>: <a href="SH-Options.html#SH%20Options">SH Options</a>
+<li><code>m4</code>: <a href="SH-Options.html#SH%20Options">SH Options</a>
+<li><code>m4-nofpu</code>: <a href="SH-Options.html#SH%20Options">SH Options</a>
+<li><code>m4-single</code>: <a href="SH-Options.html#SH%20Options">SH Options</a>
+<li><code>m4-single-only</code>: <a href="SH-Options.html#SH%20Options">SH Options</a>
+<li><code>m40</code>: <a href="PDP-11-Options.html#PDP-11%20Options">PDP-11 Options</a>
+<li><code>m45</code>: <a href="PDP-11-Options.html#PDP-11%20Options">PDP-11 Options</a>
+<li><code>m486</code>: <a href="i386-and-x86-64-Options.html#i386%20and%20x86-64%20Options">i386 and x86-64 Options</a>
+<li><code>m4byte-functions</code>: <a href="MCore-Options.html#MCore%20Options">MCore Options</a>
+<li><code>m5200</code>: <a href="M680x0-Options.html#M680x0%20Options">M680x0 Options</a>
+<li><code>m64</code>: <a href="S-390-and-zSeries-Options.html#S%2f390%20and%20zSeries%20Options">S/390 and zSeries Options</a>, <a href="i386-and-x86-64-Options.html#i386%20and%20x86-64%20Options">i386 and x86-64 Options</a>, <a href="SPARC-Options.html#SPARC%20Options">SPARC Options</a>
+<li><code>m68000</code>: <a href="M680x0-Options.html#M680x0%20Options">M680x0 Options</a>
+<li><code>m68020</code>: <a href="M680x0-Options.html#M680x0%20Options">M680x0 Options</a>
+<li><code>m68020-40</code>: <a href="M680x0-Options.html#M680x0%20Options">M680x0 Options</a>
+<li><code>m68020-60</code>: <a href="M680x0-Options.html#M680x0%20Options">M680x0 Options</a>
+<li><code>m68030</code>: <a href="M680x0-Options.html#M680x0%20Options">M680x0 Options</a>
+<li><code>m68040</code>: <a href="M680x0-Options.html#M680x0%20Options">M680x0 Options</a>
+<li><code>m68060</code>: <a href="M680x0-Options.html#M680x0%20Options">M680x0 Options</a>
+<li><code>m6811</code>: <a href="M68hc1x-Options.html#M68hc1x%20Options">M68hc1x Options</a>
+<li><code>m6812</code>: <a href="M68hc1x-Options.html#M68hc1x%20Options">M68hc1x Options</a>
+<li><code>m68881</code>: <a href="M680x0-Options.html#M680x0%20Options">M680x0 Options</a>
+<li><code>m68hc11</code>: <a href="M68hc1x-Options.html#M68hc1x%20Options">M68hc1x Options</a>
+<li><code>m68hc12</code>: <a href="M68hc1x-Options.html#M68hc1x%20Options">M68hc1x Options</a>
+<li><code>m68hcs12</code>: <a href="M68hc1x-Options.html#M68hc1x%20Options">M68hc1x Options</a>
+<li><code>m68S12</code>: <a href="M68hc1x-Options.html#M68hc1x%20Options">M68hc1x Options</a>
+<li><code>m8-bit</code>: <a href="CRIS-Options.html#CRIS%20Options">CRIS Options</a>
+<li><code>m96bit-long-double</code>: <a href="i386-and-x86-64-Options.html#i386%20and%20x86-64%20Options">i386 and x86-64 Options</a>
+<li><code>mabi</code>: <a href="ARM-Options.html#ARM%20Options">ARM Options</a>
+<li><code>mabi-mmixware</code>: <a href="MMIX-Options.html#MMIX%20Options">MMIX Options</a>
+<li><code>mabi=32</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>mabi=64</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>mabi=altivec</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mabi=eabi</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>mabi=gnu</code>: <a href="MMIX-Options.html#MMIX%20Options">MMIX Options</a>
+<li><code>mabi=n32</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>mabi=no-altivec</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mabi=no-spe</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mabi=o64</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>mabi=spe</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mabicalls</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>mabort-on-noreturn</code>: <a href="ARM-Options.html#ARM%20Options">ARM Options</a>
+<li><code>mabshi</code>: <a href="PDP-11-Options.html#PDP-11%20Options">PDP-11 Options</a>
+<li><code>mac0</code>: <a href="PDP-11-Options.html#PDP-11%20Options">PDP-11 Options</a>
+<li><code>macc-4</code>: <a href="FRV-Options.html#FRV%20Options">FRV Options</a>
+<li><code>macc-8</code>: <a href="FRV-Options.html#FRV%20Options">FRV Options</a>
+<li><code>maccumulate-outgoing-args</code>: <a href="i386-and-x86-64-Options.html#i386%20and%20x86-64%20Options">i386 and x86-64 Options</a>
+<li><code>mads</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>maix-struct-return</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>maix32</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>maix64</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>malign-300</code>: <a href="H8-300-Options.html#H8%2f300%20Options">H8/300 Options</a>
+<li><code>malign-double</code>: <a href="i386-and-x86-64-Options.html#i386%20and%20x86-64%20Options">i386 and x86-64 Options</a>
+<li><code>malign-int</code>: <a href="M680x0-Options.html#M680x0%20Options">M680x0 Options</a>
+<li><code>malign-loops</code>: <a href="M32R-D-Options.html#M32R%2fD%20Options">M32R/D Options</a>
+<li><code>malign-natural</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>malign-power</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>malignment-traps</code>: <a href="ARM-Options.html#ARM%20Options">ARM Options</a>
+<li><code>malloc-cc</code>: <a href="FRV-Options.html#FRV%20Options">FRV Options</a>
+<li><code>malpha-as</code>: <a href="DEC-Alpha-Options.html#DEC%20Alpha%20Options">DEC Alpha Options</a>
+<li><code>maltivec</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mam33</code>: <a href="MN10300-Options.html#MN10300%20Options">MN10300 Options</a>
+<li><code>maout</code>: <a href="CRIS-Options.html#CRIS%20Options">CRIS Options</a>
+<li><code>mapcs</code>: <a href="ARM-Options.html#ARM%20Options">ARM Options</a>
+<li><code>mapcs-26</code>: <a href="ARM-Options.html#ARM%20Options">ARM Options</a>
+<li><code>mapcs-32</code>: <a href="ARM-Options.html#ARM%20Options">ARM Options</a>
+<li><code>mapcs-frame</code>: <a href="ARM-Options.html#ARM%20Options">ARM Options</a>
+<li><code>mapp-regs</code>: <a href="V850-Options.html#V850%20Options">V850 Options</a>, <a href="SPARC-Options.html#SPARC%20Options">SPARC Options</a>
+<li><code>march</code>: <a href="CRIS-Options.html#CRIS%20Options">CRIS Options</a>, <a href="S-390-and-zSeries-Options.html#S%2f390%20and%20zSeries%20Options">S/390 and zSeries Options</a>, <a href="HPPA-Options.html#HPPA%20Options">HPPA Options</a>, <a href="i386-and-x86-64-Options.html#i386%20and%20x86-64%20Options">i386 and x86-64 Options</a>, <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>, <a href="ARM-Options.html#ARM%20Options">ARM Options</a>
+<li><code>masm=</code><var>dialect</var><code></code>: <a href="i386-and-x86-64-Options.html#i386%20and%20x86-64%20Options">i386 and x86-64 Options</a>
+<li><code>mauto-incdec</code>: <a href="M68hc1x-Options.html#M68hc1x%20Options">M68hc1x Options</a>
+<li><code>mauto-pic</code>: <a href="IA-64-Options.html#IA-64%20Options">IA-64 Options</a>
+<li><code>mb</code>: <a href="SH-Options.html#SH%20Options">SH Options</a>
+<li><code>mb-step</code>: <a href="IA-64-Options.html#IA-64%20Options">IA-64 Options</a>
+<li><code>mbackchain</code>: <a href="S-390-and-zSeries-Options.html#S%2f390%20and%20zSeries%20Options">S/390 and zSeries Options</a>
+<li><code>mbase-addresses</code>: <a href="MMIX-Options.html#MMIX%20Options">MMIX Options</a>
+<li><code>mbcopy</code>: <a href="PDP-11-Options.html#PDP-11%20Options">PDP-11 Options</a>
+<li><code>mbig</code>: <a href="TMS320C3x-C4x-Options.html#TMS320C3x%2fC4x%20Options">TMS320C3x/C4x Options</a>, <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mbig-endian</code>: <a href="IA-64-Options.html#IA-64%20Options">IA-64 Options</a>, <a href="MCore-Options.html#MCore%20Options">MCore Options</a>, <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>, <a href="ARM-Options.html#ARM%20Options">ARM Options</a>
+<li><code>mbig-memory</code>: <a href="TMS320C3x-C4x-Options.html#TMS320C3x%2fC4x%20Options">TMS320C3x/C4x Options</a>
+<li><code>mbig-switch</code>: <a href="V850-Options.html#V850%20Options">V850 Options</a>, <a href="HPPA-Options.html#HPPA%20Options">HPPA Options</a>
+<li><code>mbigtable</code>: <a href="SH-Options.html#SH%20Options">SH Options</a>
+<li><code>mbit-align</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mbitfield</code>: <a href="NS32K-Options.html#NS32K%20Options">NS32K Options</a>, <a href="M680x0-Options.html#M680x0%20Options">M680x0 Options</a>
+<li><code>mbk</code>: <a href="TMS320C3x-C4x-Options.html#TMS320C3x%2fC4x%20Options">TMS320C3x/C4x Options</a>
+<li><code>mbranch-cheap</code>: <a href="PDP-11-Options.html#PDP-11%20Options">PDP-11 Options</a>
+<li><code>mbranch-cost=</code><var>number</var><code></code>: <a href="M32R-D-Options.html#M32R%2fD%20Options">M32R/D Options</a>
+<li><code>mbranch-expensive</code>: <a href="PDP-11-Options.html#PDP-11%20Options">PDP-11 Options</a>
+<li><code>mbranch-likely</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>mbranch-predict</code>: <a href="MMIX-Options.html#MMIX%20Options">MMIX Options</a>
+<li><code>mbuild-constants</code>: <a href="DEC-Alpha-Options.html#DEC%20Alpha%20Options">DEC Alpha Options</a>
+<li><code>mbwx</code>: <a href="DEC-Alpha-Options.html#DEC%20Alpha%20Options">DEC Alpha Options</a>
+<li><code>mc68000</code>: <a href="M680x0-Options.html#M680x0%20Options">M680x0 Options</a>
+<li><code>mc68020</code>: <a href="M680x0-Options.html#M680x0%20Options">M680x0 Options</a>
+<li><code>mcall-gnu</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mcall-linux</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mcall-netbsd</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mcall-prologues</code>: <a href="AVR-Options.html#AVR%20Options">AVR Options</a>
+<li><code>mcall-solaris</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mcall-sysv</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mcall-sysv-eabi</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mcall-sysv-noeabi</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mcallee-super-interworking</code>: <a href="ARM-Options.html#ARM%20Options">ARM Options</a>
+<li><code>mcaller-super-interworking</code>: <a href="ARM-Options.html#ARM%20Options">ARM Options</a>
+<li><code>mcallgraph-data</code>: <a href="MCore-Options.html#MCore%20Options">MCore Options</a>
+<li><code>mcc-init</code>: <a href="CRIS-Options.html#CRIS%20Options">CRIS Options</a>
+<li><code>mcheck-zero-division</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>mcirrus-fix-invalid-insns</code>: <a href="ARM-Options.html#ARM%20Options">ARM Options</a>
+<li><code>mcix</code>: <a href="DEC-Alpha-Options.html#DEC%20Alpha%20Options">DEC Alpha Options</a>
+<li><code>mcmodel=embmedany</code>: <a href="SPARC-Options.html#SPARC%20Options">SPARC Options</a>
+<li><code>mcmodel=kernel</code>: <a href="i386-and-x86-64-Options.html#i386%20and%20x86-64%20Options">i386 and x86-64 Options</a>
+<li><code>mcmodel=large</code>: <a href="i386-and-x86-64-Options.html#i386%20and%20x86-64%20Options">i386 and x86-64 Options</a>
+<li><code>mcmodel=medany</code>: <a href="SPARC-Options.html#SPARC%20Options">SPARC Options</a>
+<li><code>mcmodel=medium</code>: <a href="i386-and-x86-64-Options.html#i386%20and%20x86-64%20Options">i386 and x86-64 Options</a>
+<li><code>mcmodel=medlow</code>: <a href="SPARC-Options.html#SPARC%20Options">SPARC Options</a>
+<li><code>mcmodel=medmid</code>: <a href="SPARC-Options.html#SPARC%20Options">SPARC Options</a>
+<li><code>mcmodel=small</code>: <a href="i386-and-x86-64-Options.html#i386%20and%20x86-64%20Options">i386 and x86-64 Options</a>
+<li><code>mcond-exec</code>: <a href="FRV-Options.html#FRV%20Options">FRV Options</a>
+<li><code>mcond-move</code>: <a href="FRV-Options.html#FRV%20Options">FRV Options</a>
+<li><code>mconst-align</code>: <a href="CRIS-Options.html#CRIS%20Options">CRIS Options</a>
+<li><code>mconst16</code>: <a href="Xtensa-Options.html#Xtensa%20Options">Xtensa Options</a>
+<li><code>mconstant-gp</code>: <a href="IA-64-Options.html#IA-64%20Options">IA-64 Options</a>
+<li><code>mcpu</code>: <a href="FRV-Options.html#FRV%20Options">FRV Options</a>, <a href="CRIS-Options.html#CRIS%20Options">CRIS Options</a>, <a href="ARC-Options.html#ARC%20Options">ARC Options</a>, <a href="TMS320C3x-C4x-Options.html#TMS320C3x%2fC4x%20Options">TMS320C3x/C4x Options</a>, <a href="DEC-Alpha-Options.html#DEC%20Alpha%20Options">DEC Alpha Options</a>, <a href="i386-and-x86-64-Options.html#i386%20and%20x86-64%20Options">i386 and x86-64 Options</a>, <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>, <a href="ARM-Options.html#ARM%20Options">ARM Options</a>, <a href="SPARC-Options.html#SPARC%20Options">SPARC Options</a>
+<li><code>mcpu32</code>: <a href="M680x0-Options.html#M680x0%20Options">M680x0 Options</a>
+<li><code>MD</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>
+<li><code>mdalign</code>: <a href="SH-Options.html#SH%20Options">SH Options</a>
+<li><code>mdata</code>: <a href="ARC-Options.html#ARC%20Options">ARC Options</a>
+<li><code>mdata-align</code>: <a href="CRIS-Options.html#CRIS%20Options">CRIS Options</a>
+<li><code>mdb</code>: <a href="TMS320C3x-C4x-Options.html#TMS320C3x%2fC4x%20Options">TMS320C3x/C4x Options</a>
+<li><code>mdebug</code>: <a href="S-390-and-zSeries-Options.html#S%2f390%20and%20zSeries%20Options">S/390 and zSeries Options</a>
+<li><code>mdec-asm</code>: <a href="PDP-11-Options.html#PDP-11%20Options">PDP-11 Options</a>
+<li><code>mdisable-callt</code>: <a href="V850-Options.html#V850%20Options">V850 Options</a>
+<li><code>mdisable-fpregs</code>: <a href="HPPA-Options.html#HPPA%20Options">HPPA Options</a>
+<li><code>mdisable-indexing</code>: <a href="HPPA-Options.html#HPPA%20Options">HPPA Options</a>
+<li><code>mdiv</code>: <a href="MCore-Options.html#MCore%20Options">MCore Options</a>
+<li><code>mdouble</code>: <a href="FRV-Options.html#FRV%20Options">FRV Options</a>
+<li><code>mdouble-float</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>mdp-isr-reload</code>: <a href="TMS320C3x-C4x-Options.html#TMS320C3x%2fC4x%20Options">TMS320C3x/C4x Options</a>
+<li><code>mdwarf2-asm</code>: <a href="IA-64-Options.html#IA-64%20Options">IA-64 Options</a>
+<li><code>mdword</code>: <a href="FRV-Options.html#FRV%20Options">FRV Options</a>
+<li><code>mdynamic-no-pic</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>meabi</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mearly-stop-bits</code>: <a href="IA-64-Options.html#IA-64%20Options">IA-64 Options</a>
+<li><code>melf</code>: <a href="MMIX-Options.html#MMIX%20Options">MMIX Options</a>, <a href="CRIS-Options.html#CRIS%20Options">CRIS Options</a>
+<li><code>melinux</code>: <a href="CRIS-Options.html#CRIS%20Options">CRIS Options</a>
+<li><code>melinux-stacksize</code>: <a href="CRIS-Options.html#CRIS%20Options">CRIS Options</a>
+<li><code>memb</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>membedded-data</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>mep</code>: <a href="V850-Options.html#V850%20Options">V850 Options</a>
+<li><code>mepsilon</code>: <a href="MMIX-Options.html#MMIX%20Options">MMIX Options</a>
+<li><code>mesa</code>: <a href="S-390-and-zSeries-Options.html#S%2f390%20and%20zSeries%20Options">S/390 and zSeries Options</a>
+<li><code>metrax100</code>: <a href="CRIS-Options.html#CRIS%20Options">CRIS Options</a>
+<li><code>metrax4</code>: <a href="CRIS-Options.html#CRIS%20Options">CRIS Options</a>
+<li><code>mexplicit-relocs</code>: <a href="DEC-Alpha-Options.html#DEC%20Alpha%20Options">DEC Alpha Options</a>, <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>MF</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>
+<li><code>mfast-fix</code>: <a href="TMS320C3x-C4x-Options.html#TMS320C3x%2fC4x%20Options">TMS320C3x/C4x Options</a>
+<li><code>mfast-indirect-calls</code>: <a href="HPPA-Options.html#HPPA%20Options">HPPA Options</a>
+<li><code>mfaster-structs</code>: <a href="SPARC-Options.html#SPARC%20Options">SPARC Options</a>
+<li><code>mfdpic</code>: <a href="HPPA-Options.html#HPPA%20Options">HPPA Options</a>
+<li><code>mfix</code>: <a href="DEC-Alpha-Options.html#DEC%20Alpha%20Options">DEC Alpha Options</a>
+<li><code>mfix-r4000</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>mfix-r4400</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>mfix-sb1</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>mfix-vr4120</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>mfixed-cc</code>: <a href="FRV-Options.html#FRV%20Options">FRV Options</a>
+<li><code>mfixed-range</code>: <a href="IA-64-Options.html#IA-64%20Options">IA-64 Options</a>
+<li><code>mfloat-abi</code>: <a href="ARM-Options.html#ARM%20Options">ARM Options</a>
+<li><code>mfloat-gprs</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mfloat-ieee</code>: <a href="DEC-Alpha-Options.html#DEC%20Alpha%20Options">DEC Alpha Options</a>
+<li><code>mfloat-vax</code>: <a href="DEC-Alpha-Options.html#DEC%20Alpha%20Options">DEC Alpha Options</a>
+<li><code>mfloat32</code>: <a href="PDP-11-Options.html#PDP-11%20Options">PDP-11 Options</a>
+<li><code>mfloat64</code>: <a href="PDP-11-Options.html#PDP-11%20Options">PDP-11 Options</a>
+<li><code>mflush-func</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>mflush-func=</code><var>name</var><code></code>: <a href="M32R-D-Options.html#M32R%2fD%20Options">M32R/D Options</a>
+<li><code>mflush-trap=</code><var>number</var><code></code>: <a href="M32R-D-Options.html#M32R%2fD%20Options">M32R/D Options</a>
+<li><code>mfmovd</code>: <a href="SH-Options.html#SH%20Options">SH Options</a>
+<li><code>mfp</code>: <a href="ARM-Options.html#ARM%20Options">ARM Options</a>
+<li><code>mfp-exceptions</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>mfp-reg</code>: <a href="DEC-Alpha-Options.html#DEC%20Alpha%20Options">DEC Alpha Options</a>
+<li><code>mfp-rounding-mode</code>: <a href="DEC-Alpha-Options.html#DEC%20Alpha%20Options">DEC Alpha Options</a>
+<li><code>mfp-trap-mode</code>: <a href="DEC-Alpha-Options.html#DEC%20Alpha%20Options">DEC Alpha Options</a>
+<li><code>mfp32</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>mfp64</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>mfpe</code>: <a href="ARM-Options.html#ARM%20Options">ARM Options</a>
+<li><code>mfpr-32</code>: <a href="FRV-Options.html#FRV%20Options">FRV Options</a>
+<li><code>mfpr-64</code>: <a href="FRV-Options.html#FRV%20Options">FRV Options</a>
+<li><code>mfpu</code>: <a href="PDP-11-Options.html#PDP-11%20Options">PDP-11 Options</a>, <a href="ARM-Options.html#ARM%20Options">ARM Options</a>, <a href="SPARC-Options.html#SPARC%20Options">SPARC Options</a>
+<li><code>mfull-toc</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mfused-madd</code>: <a href="Xtensa-Options.html#Xtensa%20Options">Xtensa Options</a>, <a href="S-390-and-zSeries-Options.html#S%2f390%20and%20zSeries%20Options">S/390 and zSeries Options</a>, <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>, <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mg</code>: <a href="VAX-Options.html#VAX%20Options">VAX Options</a>
+<li><code>MG</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>
+<li><code>mgas</code>: <a href="DEC-Alpha-Options.html#DEC%20Alpha%20Options">DEC Alpha Options</a>, <a href="HPPA-Options.html#HPPA%20Options">HPPA Options</a>
+<li><code>mgnu</code>: <a href="VAX-Options.html#VAX%20Options">VAX Options</a>
+<li><code>mgnu-as</code>: <a href="IA-64-Options.html#IA-64%20Options">IA-64 Options</a>
+<li><code>mgnu-ld</code>: <a href="IA-64-Options.html#IA-64%20Options">IA-64 Options</a>
+<li><code>mgotplt</code>: <a href="CRIS-Options.html#CRIS%20Options">CRIS Options</a>
+<li><code>mgp32</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>mgp64</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>mgpr-32</code>: <a href="FRV-Options.html#FRV%20Options">FRV Options</a>
+<li><code>mgpr-64</code>: <a href="FRV-Options.html#FRV%20Options">FRV Options</a>
+<li><code>mgprel-ro</code>: <a href="HPPA-Options.html#HPPA%20Options">HPPA Options</a>
+<li><code>mh</code>: <a href="H8-300-Options.html#H8%2f300%20Options">H8/300 Options</a>
+<li><code>mhard-float</code>: <a href="FRV-Options.html#FRV%20Options">FRV Options</a>, <a href="S-390-and-zSeries-Options.html#S%2f390%20and%20zSeries%20Options">S/390 and zSeries Options</a>, <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>, <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>, <a href="ARM-Options.html#ARM%20Options">ARM Options</a>, <a href="SPARC-Options.html#SPARC%20Options">SPARC Options</a>
+<li><code>mhard-quad-float</code>: <a href="SPARC-Options.html#SPARC%20Options">SPARC Options</a>
+<li><code>mhardlit</code>: <a href="MCore-Options.html#MCore%20Options">MCore Options</a>
+<li><code>mhimem</code>: <a href="NS32K-Options.html#NS32K%20Options">NS32K Options</a>
+<li><code>mhitachi</code>: <a href="SH-Options.html#SH%20Options">SH Options</a>
+<li><code>mieee</code>: <a href="SH-Options.html#SH%20Options">SH Options</a>, <a href="DEC-Alpha-Options.html#DEC%20Alpha%20Options">DEC Alpha Options</a>
+<li><code>mieee-compare</code>: <a href="NS32K-Options.html#NS32K%20Options">NS32K Options</a>
+<li><code>mieee-conformant</code>: <a href="DEC-Alpha-Options.html#DEC%20Alpha%20Options">DEC Alpha Options</a>
+<li><code>mieee-fp</code>: <a href="i386-and-x86-64-Options.html#i386%20and%20x86-64%20Options">i386 and x86-64 Options</a>
+<li><code>mieee-with-inexact</code>: <a href="DEC-Alpha-Options.html#DEC%20Alpha%20Options">DEC Alpha Options</a>
+<li><code>mimpure-text</code>: <a href="SPARC-Options.html#SPARC%20Options">SPARC Options</a>
+<li><code>minit-stack</code>: <a href="AVR-Options.html#AVR%20Options">AVR Options</a>
+<li><code>minline-all-stringops</code>: <a href="i386-and-x86-64-Options.html#i386%20and%20x86-64%20Options">i386 and x86-64 Options</a>
+<li><code>minline-float-divide-max-throughput</code>: <a href="IA-64-Options.html#IA-64%20Options">IA-64 Options</a>
+<li><code>minline-float-divide-min-latency</code>: <a href="IA-64-Options.html#IA-64%20Options">IA-64 Options</a>
+<li><code>minline-int-divide-max-throughput</code>: <a href="IA-64-Options.html#IA-64%20Options">IA-64 Options</a>
+<li><code>minline-int-divide-min-latency</code>: <a href="IA-64-Options.html#IA-64%20Options">IA-64 Options</a>
+<li><code>minline-plt</code>: <a href="HPPA-Options.html#HPPA%20Options">HPPA Options</a>
+<li><code>minmax</code>: <a href="M68hc1x-Options.html#M68hc1x%20Options">M68hc1x Options</a>
+<li><code>minsert-sched-nops</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mint16</code>: <a href="PDP-11-Options.html#PDP-11%20Options">PDP-11 Options</a>
+<li><code>mint32</code>: <a href="PDP-11-Options.html#PDP-11%20Options">PDP-11 Options</a>, <a href="H8-300-Options.html#H8%2f300%20Options">H8/300 Options</a>
+<li><code>mint64</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>mips1</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>mips16</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>mips2</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>mips3</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>mips32</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>mips32r2</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>mips4</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>mips64</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>misel</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>misize</code>: <a href="SH-Options.html#SH%20Options">SH Options</a>
+<li><code>missue-rate=</code><var>number</var><code></code>: <a href="M32R-D-Options.html#M32R%2fD%20Options">M32R/D Options</a>
+<li><code>mjump-in-delay</code>: <a href="HPPA-Options.html#HPPA%20Options">HPPA Options</a>
+<li><code>mknuthdiv</code>: <a href="MMIX-Options.html#MMIX%20Options">MMIX Options</a>
+<li><code>ml</code>: <a href="SH-Options.html#SH%20Options">SH Options</a>
+<li><code>mlarge-data</code>: <a href="DEC-Alpha-Options.html#DEC%20Alpha%20Options">DEC Alpha Options</a>
+<li><code>mlarge-text</code>: <a href="DEC-Alpha-Options.html#DEC%20Alpha%20Options">DEC Alpha Options</a>
+<li><code>mlibfuncs</code>: <a href="MMIX-Options.html#MMIX%20Options">MMIX Options</a>
+<li><code>mlibrary-pic</code>: <a href="FRV-Options.html#FRV%20Options">FRV Options</a>
+<li><code>mlinked-fp</code>: <a href="HPPA-Options.html#HPPA%20Options">HPPA Options</a>
+<li><code>mlinker-opt</code>: <a href="HPPA-Options.html#HPPA%20Options">HPPA Options</a>
+<li><code>mlinux</code>: <a href="CRIS-Options.html#CRIS%20Options">CRIS Options</a>
+<li><code>mlittle</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mlittle-endian</code>: <a href="IA-64-Options.html#IA-64%20Options">IA-64 Options</a>, <a href="MCore-Options.html#MCore%20Options">MCore Options</a>, <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>, <a href="ARM-Options.html#ARM%20Options">ARM Options</a>, <a href="SPARC-Options.html#SPARC%20Options">SPARC Options</a>
+<li><code>mlong-calls</code>: <a href="V850-Options.html#V850%20Options">V850 Options</a>, <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>, <a href="ARM-Options.html#ARM%20Options">ARM Options</a>, <a href="M68hc1x-Options.html#M68hc1x%20Options">M68hc1x Options</a>
+<li><code>mlong-load-store</code>: <a href="HPPA-Options.html#HPPA%20Options">HPPA Options</a>
+<li><code>mlong32</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>mlong64</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>mlongcall</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mlongcalls</code>: <a href="Xtensa-Options.html#Xtensa%20Options">Xtensa Options</a>
+<li><code>mloop-unsigned</code>: <a href="TMS320C3x-C4x-Options.html#TMS320C3x%2fC4x%20Options">TMS320C3x/C4x Options</a>
+<li><code>MM</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>
+<li><code>mmad</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>mmangle-cpu</code>: <a href="ARC-Options.html#ARC%20Options">ARC Options</a>
+<li><code>mmax</code>: <a href="DEC-Alpha-Options.html#DEC%20Alpha%20Options">DEC Alpha Options</a>
+<li><code>mmax-stack-frame</code>: <a href="CRIS-Options.html#CRIS%20Options">CRIS Options</a>
+<li><code>mmcu</code>: <a href="AVR-Options.html#AVR%20Options">AVR Options</a>
+<li><code>MMD</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>
+<li><code>mmedia</code>: <a href="FRV-Options.html#FRV%20Options">FRV Options</a>
+<li><code>mmemcpy</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>mmemory-latency</code>: <a href="DEC-Alpha-Options.html#DEC%20Alpha%20Options">DEC Alpha Options</a>
+<li><code>mmemparm</code>: <a href="TMS320C3x-C4x-Options.html#TMS320C3x%2fC4x%20Options">TMS320C3x/C4x Options</a>
+<li><code>mminimal-toc</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mmmx</code>: <a href="i386-and-x86-64-Options.html#i386%20and%20x86-64%20Options">i386 and x86-64 Options</a>
+<li><code>mmodel=large</code>: <a href="M32R-D-Options.html#M32R%2fD%20Options">M32R/D Options</a>
+<li><code>mmodel=medium</code>: <a href="M32R-D-Options.html#M32R%2fD%20Options">M32R/D Options</a>
+<li><code>mmodel=small</code>: <a href="M32R-D-Options.html#M32R%2fD%20Options">M32R/D Options</a>
+<li><code>mmpyi</code>: <a href="TMS320C3x-C4x-Options.html#TMS320C3x%2fC4x%20Options">TMS320C3x/C4x Options</a>
+<li><code>mmul-bug-workaround</code>: <a href="CRIS-Options.html#CRIS%20Options">CRIS Options</a>
+<li><code>mmuladd</code>: <a href="FRV-Options.html#FRV%20Options">FRV Options</a>
+<li><code>mmult-bug</code>: <a href="MN10300-Options.html#MN10300%20Options">MN10300 Options</a>
+<li><code>mmulti-add</code>: <a href="NS32K-Options.html#NS32K%20Options">NS32K Options</a>
+<li><code>mmulti-cond-exec</code>: <a href="FRV-Options.html#FRV%20Options">FRV Options</a>
+<li><code>mmultiple</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mmvcle</code>: <a href="S-390-and-zSeries-Options.html#S%2f390%20and%20zSeries%20Options">S/390 and zSeries Options</a>
+<li><code>mmvme</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mn</code>: <a href="H8-300-Options.html#H8%2f300%20Options">H8/300 Options</a>
+<li><code>mnested-cond-exec</code>: <a href="FRV-Options.html#FRV%20Options">FRV Options</a>
+<li><code>mnew-mnemonics</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mno-3dnow</code>: <a href="i386-and-x86-64-Options.html#i386%20and%20x86-64%20Options">i386 and x86-64 Options</a>
+<li><code>mno-4byte-functions</code>: <a href="MCore-Options.html#MCore%20Options">MCore Options</a>
+<li><code>mno-abicalls</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>mno-abshi</code>: <a href="PDP-11-Options.html#PDP-11%20Options">PDP-11 Options</a>
+<li><code>mno-ac0</code>: <a href="PDP-11-Options.html#PDP-11%20Options">PDP-11 Options</a>
+<li><code>mno-align-double</code>: <a href="i386-and-x86-64-Options.html#i386%20and%20x86-64%20Options">i386 and x86-64 Options</a>
+<li><code>mno-align-int</code>: <a href="M680x0-Options.html#M680x0%20Options">M680x0 Options</a>
+<li><code>mno-align-loops</code>: <a href="M32R-D-Options.html#M32R%2fD%20Options">M32R/D Options</a>
+<li><code>mno-align-stringops</code>: <a href="i386-and-x86-64-Options.html#i386%20and%20x86-64%20Options">i386 and x86-64 Options</a>
+<li><code>mno-alignment-traps</code>: <a href="ARM-Options.html#ARM%20Options">ARM Options</a>
+<li><code>mno-altivec</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mno-am33</code>: <a href="MN10300-Options.html#MN10300%20Options">MN10300 Options</a>
+<li><code>mno-app-regs</code>: <a href="V850-Options.html#V850%20Options">V850 Options</a>, <a href="SPARC-Options.html#SPARC%20Options">SPARC Options</a>
+<li><code>mno-backchain</code>: <a href="S-390-and-zSeries-Options.html#S%2f390%20and%20zSeries%20Options">S/390 and zSeries Options</a>
+<li><code>mno-base-addresses</code>: <a href="MMIX-Options.html#MMIX%20Options">MMIX Options</a>
+<li><code>mno-bit-align</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mno-bk</code>: <a href="TMS320C3x-C4x-Options.html#TMS320C3x%2fC4x%20Options">TMS320C3x/C4x Options</a>
+<li><code>mno-branch-likely</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>mno-branch-predict</code>: <a href="MMIX-Options.html#MMIX%20Options">MMIX Options</a>
+<li><code>mno-bwx</code>: <a href="DEC-Alpha-Options.html#DEC%20Alpha%20Options">DEC Alpha Options</a>
+<li><code>mno-callgraph-data</code>: <a href="MCore-Options.html#MCore%20Options">MCore Options</a>
+<li><code>mno-check-zero-division</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>mno-cirrus-fix-invalid-insns</code>: <a href="ARM-Options.html#ARM%20Options">ARM Options</a>
+<li><code>mno-cix</code>: <a href="DEC-Alpha-Options.html#DEC%20Alpha%20Options">DEC Alpha Options</a>
+<li><code>mno-cond-exec</code>: <a href="FRV-Options.html#FRV%20Options">FRV Options</a>
+<li><code>mno-cond-move</code>: <a href="FRV-Options.html#FRV%20Options">FRV Options</a>
+<li><code>mno-const-align</code>: <a href="CRIS-Options.html#CRIS%20Options">CRIS Options</a>
+<li><code>mno-const16</code>: <a href="Xtensa-Options.html#Xtensa%20Options">Xtensa Options</a>
+<li><code>mno-crt0</code>: <a href="MN10300-Options.html#MN10300%20Options">MN10300 Options</a>
+<li><code>mno-data-align</code>: <a href="CRIS-Options.html#CRIS%20Options">CRIS Options</a>
+<li><code>mno-db</code>: <a href="TMS320C3x-C4x-Options.html#TMS320C3x%2fC4x%20Options">TMS320C3x/C4x Options</a>
+<li><code>mno-debug</code>: <a href="S-390-and-zSeries-Options.html#S%2f390%20and%20zSeries%20Options">S/390 and zSeries Options</a>
+<li><code>mno-div</code>: <a href="MCore-Options.html#MCore%20Options">MCore Options</a>
+<li><code>mno-double</code>: <a href="FRV-Options.html#FRV%20Options">FRV Options</a>
+<li><code>mno-dwarf2-asm</code>: <a href="IA-64-Options.html#IA-64%20Options">IA-64 Options</a>
+<li><code>mno-dword</code>: <a href="FRV-Options.html#FRV%20Options">FRV Options</a>
+<li><code>mno-eabi</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mno-early-stop-bits</code>: <a href="IA-64-Options.html#IA-64%20Options">IA-64 Options</a>
+<li><code>mno-eflags</code>: <a href="FRV-Options.html#FRV%20Options">FRV Options</a>
+<li><code>mno-embedded-data</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>mno-ep</code>: <a href="V850-Options.html#V850%20Options">V850 Options</a>
+<li><code>mno-epsilon</code>: <a href="MMIX-Options.html#MMIX%20Options">MMIX Options</a>
+<li><code>mno-explicit-relocs</code>: <a href="DEC-Alpha-Options.html#DEC%20Alpha%20Options">DEC Alpha Options</a>, <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>mno-fancy-math-387</code>: <a href="i386-and-x86-64-Options.html#i386%20and%20x86-64%20Options">i386 and x86-64 Options</a>
+<li><code>mno-fast-fix</code>: <a href="TMS320C3x-C4x-Options.html#TMS320C3x%2fC4x%20Options">TMS320C3x/C4x Options</a>
+<li><code>mno-faster-structs</code>: <a href="SPARC-Options.html#SPARC%20Options">SPARC Options</a>
+<li><code>mno-fix</code>: <a href="DEC-Alpha-Options.html#DEC%20Alpha%20Options">DEC Alpha Options</a>
+<li><code>mno-fix-r4000</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>mno-fix-r4400</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>mno-float32</code>: <a href="PDP-11-Options.html#PDP-11%20Options">PDP-11 Options</a>
+<li><code>mno-float64</code>: <a href="PDP-11-Options.html#PDP-11%20Options">PDP-11 Options</a>
+<li><code>mno-flush-func</code>: <a href="M32R-D-Options.html#M32R%2fD%20Options">M32R/D Options</a>
+<li><code>mno-flush-trap</code>: <a href="M32R-D-Options.html#M32R%2fD%20Options">M32R/D Options</a>
+<li><code>mno-fp-in-toc</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mno-fp-regs</code>: <a href="DEC-Alpha-Options.html#DEC%20Alpha%20Options">DEC Alpha Options</a>
+<li><code>mno-fp-ret-in-387</code>: <a href="i386-and-x86-64-Options.html#i386%20and%20x86-64%20Options">i386 and x86-64 Options</a>
+<li><code>mno-fpu</code>: <a href="SPARC-Options.html#SPARC%20Options">SPARC Options</a>
+<li><code>mno-fused-madd</code>: <a href="Xtensa-Options.html#Xtensa%20Options">Xtensa Options</a>, <a href="S-390-and-zSeries-Options.html#S%2f390%20and%20zSeries%20Options">S/390 and zSeries Options</a>, <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>, <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mno-gnu-as</code>: <a href="IA-64-Options.html#IA-64%20Options">IA-64 Options</a>
+<li><code>mno-gnu-ld</code>: <a href="IA-64-Options.html#IA-64%20Options">IA-64 Options</a>
+<li><code>mno-gotplt</code>: <a href="CRIS-Options.html#CRIS%20Options">CRIS Options</a>
+<li><code>mno-hardlit</code>: <a href="MCore-Options.html#MCore%20Options">MCore Options</a>
+<li><code>mno-ieee-compare</code>: <a href="NS32K-Options.html#NS32K%20Options">NS32K Options</a>
+<li><code>mno-ieee-fp</code>: <a href="i386-and-x86-64-Options.html#i386%20and%20x86-64%20Options">i386 and x86-64 Options</a>
+<li><code>mno-int16</code>: <a href="PDP-11-Options.html#PDP-11%20Options">PDP-11 Options</a>
+<li><code>mno-int32</code>: <a href="PDP-11-Options.html#PDP-11%20Options">PDP-11 Options</a>
+<li><code>mno-interrupts</code>: <a href="AVR-Options.html#AVR%20Options">AVR Options</a>
+<li><code>mno-knuthdiv</code>: <a href="MMIX-Options.html#MMIX%20Options">MMIX Options</a>
+<li><code>mno-libfuncs</code>: <a href="MMIX-Options.html#MMIX%20Options">MMIX Options</a>
+<li><code>mno-long-calls</code>: <a href="V850-Options.html#V850%20Options">V850 Options</a>, <a href="HPPA-Options.html#HPPA%20Options">HPPA Options</a>, <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>, <a href="ARM-Options.html#ARM%20Options">ARM Options</a>, <a href="M68hc1x-Options.html#M68hc1x%20Options">M68hc1x Options</a>
+<li><code>mno-longcall</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mno-longcalls</code>: <a href="Xtensa-Options.html#Xtensa%20Options">Xtensa Options</a>
+<li><code>mno-loop-unsigned</code>: <a href="TMS320C3x-C4x-Options.html#TMS320C3x%2fC4x%20Options">TMS320C3x/C4x Options</a>
+<li><code>mno-mad</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>mno-max</code>: <a href="DEC-Alpha-Options.html#DEC%20Alpha%20Options">DEC Alpha Options</a>
+<li><code>mno-media</code>: <a href="FRV-Options.html#FRV%20Options">FRV Options</a>
+<li><code>mno-memcpy</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>mno-mips16</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>mno-mmx</code>: <a href="i386-and-x86-64-Options.html#i386%20and%20x86-64%20Options">i386 and x86-64 Options</a>
+<li><code>mno-mpyi</code>: <a href="TMS320C3x-C4x-Options.html#TMS320C3x%2fC4x%20Options">TMS320C3x/C4x Options</a>
+<li><code>mno-mul-bug-workaround</code>: <a href="CRIS-Options.html#CRIS%20Options">CRIS Options</a>
+<li><code>mno-muladd</code>: <a href="FRV-Options.html#FRV%20Options">FRV Options</a>
+<li><code>mno-mult-bug</code>: <a href="MN10300-Options.html#MN10300%20Options">MN10300 Options</a>
+<li><code>mno-multi-cond-exec</code>: <a href="FRV-Options.html#FRV%20Options">FRV Options</a>
+<li><code>mno-multiple</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mno-mvcle</code>: <a href="S-390-and-zSeries-Options.html#S%2f390%20and%20zSeries%20Options">S/390 and zSeries Options</a>
+<li><code>mno-nested-cond-exec</code>: <a href="FRV-Options.html#FRV%20Options">FRV Options</a>
+<li><code>mno-pack</code>: <a href="FRV-Options.html#FRV%20Options">FRV Options</a>
+<li><code>mno-parallel-insns</code>: <a href="TMS320C3x-C4x-Options.html#TMS320C3x%2fC4x%20Options">TMS320C3x/C4x Options</a>
+<li><code>mno-parallel-mpy</code>: <a href="TMS320C3x-C4x-Options.html#TMS320C3x%2fC4x%20Options">TMS320C3x/C4x Options</a>
+<li><code>mno-pic</code>: <a href="IA-64-Options.html#IA-64%20Options">IA-64 Options</a>
+<li><code>mno-power</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mno-power2</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mno-powerpc</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mno-powerpc-gfxopt</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mno-powerpc-gpopt</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mno-powerpc64</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mno-prolog-function</code>: <a href="V850-Options.html#V850%20Options">V850 Options</a>
+<li><code>mno-prologue-epilogue</code>: <a href="CRIS-Options.html#CRIS%20Options">CRIS Options</a>
+<li><code>mno-prototype</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mno-push-args</code>: <a href="i386-and-x86-64-Options.html#i386%20and%20x86-64%20Options">i386 and x86-64 Options</a>
+<li><code>mno-register-names</code>: <a href="IA-64-Options.html#IA-64%20Options">IA-64 Options</a>
+<li><code>mno-regnames</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mno-relax-immediate</code>: <a href="MCore-Options.html#MCore%20Options">MCore Options</a>
+<li><code>mno-relocatable</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mno-relocatable-lib</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mno-rnames</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>mno-rptb</code>: <a href="TMS320C3x-C4x-Options.html#TMS320C3x%2fC4x%20Options">TMS320C3x/C4x Options</a>
+<li><code>mno-rpts</code>: <a href="TMS320C3x-C4x-Options.html#TMS320C3x%2fC4x%20Options">TMS320C3x/C4x Options</a>
+<li><code>mno-scc</code>: <a href="FRV-Options.html#FRV%20Options">FRV Options</a>
+<li><code>mno-sched-prolog</code>: <a href="ARM-Options.html#ARM%20Options">ARM Options</a>
+<li><code>mno-sdata</code>: <a href="IA-64-Options.html#IA-64%20Options">IA-64 Options</a>, <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mno-short-load-bytes</code>: <a href="ARM-Options.html#ARM%20Options">ARM Options</a>
+<li><code>mno-short-load-words</code>: <a href="ARM-Options.html#ARM%20Options">ARM Options</a>
+<li><code>mno-side-effects</code>: <a href="CRIS-Options.html#CRIS%20Options">CRIS Options</a>
+<li><code>mno-single-exit</code>: <a href="MMIX-Options.html#MMIX%20Options">MMIX Options</a>
+<li><code>mno-slow-bytes</code>: <a href="MCore-Options.html#MCore%20Options">MCore Options</a>
+<li><code>mno-small-exec</code>: <a href="S-390-and-zSeries-Options.html#S%2f390%20and%20zSeries%20Options">S/390 and zSeries Options</a>
+<li><code>mno-soft-float</code>: <a href="DEC-Alpha-Options.html#DEC%20Alpha%20Options">DEC Alpha Options</a>
+<li><code>mno-space-regs</code>: <a href="HPPA-Options.html#HPPA%20Options">HPPA Options</a>
+<li><code>mno-split</code>: <a href="PDP-11-Options.html#PDP-11%20Options">PDP-11 Options</a>
+<li><code>mno-split-addresses</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>mno-sse</code>: <a href="i386-and-x86-64-Options.html#i386%20and%20x86-64%20Options">i386 and x86-64 Options</a>
+<li><code>mno-stack-align</code>: <a href="CRIS-Options.html#CRIS%20Options">CRIS Options</a>
+<li><code>mno-stack-bias</code>: <a href="SPARC-Options.html#SPARC%20Options">SPARC Options</a>
+<li><code>mno-strict-align</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>, <a href="M680x0-Options.html#M680x0%20Options">M680x0 Options</a>
+<li><code>mno-string</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mno-sum-in-toc</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mno-svr3-shlib</code>: <a href="i386-and-x86-64-Options.html#i386%20and%20x86-64%20Options">i386 and x86-64 Options</a>
+<li><code>mno-tablejump</code>: <a href="AVR-Options.html#AVR%20Options">AVR Options</a>
+<li><code>mno-target-align</code>: <a href="Xtensa-Options.html#Xtensa%20Options">Xtensa Options</a>
+<li><code>mno-text-section-literals</code>: <a href="Xtensa-Options.html#Xtensa%20Options">Xtensa Options</a>
+<li><code>mno-toc</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mno-toplevel-symbols</code>: <a href="MMIX-Options.html#MMIX%20Options">MMIX Options</a>
+<li><code>mno-unaligned-doubles</code>: <a href="SPARC-Options.html#SPARC%20Options">SPARC Options</a>
+<li><code>mno-uninit-const-in-rodata</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>mno-update</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mno-vliw-branch</code>: <a href="FRV-Options.html#FRV%20Options">FRV Options</a>
+<li><code>mno-volatile-asm-stop</code>: <a href="IA-64-Options.html#IA-64%20Options">IA-64 Options</a>
+<li><code>mno-wide-bitfields</code>: <a href="MCore-Options.html#MCore%20Options">MCore Options</a>
+<li><code>mno-xgot</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>mno-xl-call</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mno-zero-extend</code>: <a href="MMIX-Options.html#MMIX%20Options">MMIX Options</a>
+<li><code>mnobitfield</code>: <a href="NS32K-Options.html#NS32K%20Options">NS32K Options</a>, <a href="M680x0-Options.html#M680x0%20Options">M680x0 Options</a>
+<li><code>mnohimem</code>: <a href="NS32K-Options.html#NS32K%20Options">NS32K Options</a>
+<li><code>mnomacsave</code>: <a href="SH-Options.html#SH%20Options">SH Options</a>
+<li><code>mnominmax</code>: <a href="M68hc1x-Options.html#M68hc1x%20Options">M68hc1x Options</a>
+<li><code>mnomulti-add</code>: <a href="NS32K-Options.html#NS32K%20Options">NS32K Options</a>
+<li><code>mnop-fun-dllimport</code>: <a href="ARM-Options.html#ARM%20Options">ARM Options</a>
+<li><code>mnoregparam</code>: <a href="NS32K-Options.html#NS32K%20Options">NS32K Options</a>
+<li><code>mnosb</code>: <a href="NS32K-Options.html#NS32K%20Options">NS32K Options</a>
+<li><code>mold-mnemonics</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>momit-leaf-frame-pointer</code>: <a href="i386-and-x86-64-Options.html#i386%20and%20x86-64%20Options">i386 and x86-64 Options</a>
+<li><code>MP</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>
+<li><code>mpa-risc-1-0</code>: <a href="HPPA-Options.html#HPPA%20Options">HPPA Options</a>
+<li><code>mpa-risc-1-1</code>: <a href="HPPA-Options.html#HPPA%20Options">HPPA Options</a>
+<li><code>mpa-risc-2-0</code>: <a href="HPPA-Options.html#HPPA%20Options">HPPA Options</a>
+<li><code>mpack</code>: <a href="FRV-Options.html#FRV%20Options">FRV Options</a>
+<li><code>mpadstruct</code>: <a href="SH-Options.html#SH%20Options">SH Options</a>
+<li><code>mparallel-insns</code>: <a href="TMS320C3x-C4x-Options.html#TMS320C3x%2fC4x%20Options">TMS320C3x/C4x Options</a>
+<li><code>mparallel-mpy</code>: <a href="TMS320C3x-C4x-Options.html#TMS320C3x%2fC4x%20Options">TMS320C3x/C4x Options</a>
+<li><code>mparanoid</code>: <a href="TMS320C3x-C4x-Options.html#TMS320C3x%2fC4x%20Options">TMS320C3x/C4x Options</a>
+<li><code>mpcrel</code>: <a href="M680x0-Options.html#M680x0%20Options">M680x0 Options</a>
+<li><code>mpdebug</code>: <a href="CRIS-Options.html#CRIS%20Options">CRIS Options</a>
+<li><code>mpe</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mpentium</code>: <a href="i386-and-x86-64-Options.html#i386%20and%20x86-64%20Options">i386 and x86-64 Options</a>
+<li><code>mpentiumpro</code>: <a href="i386-and-x86-64-Options.html#i386%20and%20x86-64%20Options">i386 and x86-64 Options</a>
+<li><code>mpic-register</code>: <a href="ARM-Options.html#ARM%20Options">ARM Options</a>
+<li><code>mpoke-function-name</code>: <a href="ARM-Options.html#ARM%20Options">ARM Options</a>
+<li><code>mportable-runtime</code>: <a href="HPPA-Options.html#HPPA%20Options">HPPA Options</a>
+<li><code>mpower</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mpower2</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mpowerpc</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mpowerpc-gfxopt</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mpowerpc-gpopt</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mpowerpc64</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mprefergot</code>: <a href="SH-Options.html#SH%20Options">SH Options</a>
+<li><code>mpreferred-stack-boundary</code>: <a href="i386-and-x86-64-Options.html#i386%20and%20x86-64%20Options">i386 and x86-64 Options</a>
+<li><code>mprioritize-restricted-insns</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mprolog-function</code>: <a href="V850-Options.html#V850%20Options">V850 Options</a>
+<li><code>mprologue-epilogue</code>: <a href="CRIS-Options.html#CRIS%20Options">CRIS Options</a>
+<li><code>mprototype</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mpush-args</code>: <a href="i386-and-x86-64-Options.html#i386%20and%20x86-64%20Options">i386 and x86-64 Options</a>
+<li><code>MQ</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>
+<li><code>mregister-names</code>: <a href="IA-64-Options.html#IA-64%20Options">IA-64 Options</a>
+<li><code>mregnames</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mregparam</code>: <a href="NS32K-Options.html#NS32K%20Options">NS32K Options</a>
+<li><code>mregparm</code>: <a href="TMS320C3x-C4x-Options.html#TMS320C3x%2fC4x%20Options">TMS320C3x/C4x Options</a>, <a href="i386-and-x86-64-Options.html#i386%20and%20x86-64%20Options">i386 and x86-64 Options</a>
+<li><code>mrelax</code>: <a href="SH-Options.html#SH%20Options">SH Options</a>, <a href="H8-300-Options.html#H8%2f300%20Options">H8/300 Options</a>, <a href="MN10300-Options.html#MN10300%20Options">MN10300 Options</a>
+<li><code>mrelax-immediate</code>: <a href="MCore-Options.html#MCore%20Options">MCore Options</a>
+<li><code>mrelocatable</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mrelocatable-lib</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mrnames</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>mrodata</code>: <a href="ARC-Options.html#ARC%20Options">ARC Options</a>
+<li><code>mrptb</code>: <a href="TMS320C3x-C4x-Options.html#TMS320C3x%2fC4x%20Options">TMS320C3x/C4x Options</a>
+<li><code>mrpts</code>: <a href="TMS320C3x-C4x-Options.html#TMS320C3x%2fC4x%20Options">TMS320C3x/C4x Options</a>
+<li><code>mrtd</code>: <a href="Function-Attributes.html#Function%20Attributes">Function Attributes</a>, <a href="NS32K-Options.html#NS32K%20Options">NS32K Options</a>, <a href="i386-and-x86-64-Options.html#i386%20and%20x86-64%20Options">i386 and x86-64 Options</a>, <a href="M680x0-Options.html#M680x0%20Options">M680x0 Options</a>
+<li><code>ms</code>: <a href="H8-300-Options.html#H8%2f300%20Options">H8/300 Options</a>
+<li><code>ms2600</code>: <a href="H8-300-Options.html#H8%2f300%20Options">H8/300 Options</a>
+<li><code>msb</code>: <a href="NS32K-Options.html#NS32K%20Options">NS32K Options</a>
+<li><code>mscc</code>: <a href="FRV-Options.html#FRV%20Options">FRV Options</a>
+<li><code>msched-costly-dep</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mschedule</code>: <a href="HPPA-Options.html#HPPA%20Options">HPPA Options</a>
+<li><code>msda</code>: <a href="V850-Options.html#V850%20Options">V850 Options</a>
+<li><code>msdata</code>: <a href="IA-64-Options.html#IA-64%20Options">IA-64 Options</a>, <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>msdata-data</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>msdata=default</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>msdata=eabi</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>msdata=none</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>, <a href="M32R-D-Options.html#M32R%2fD%20Options">M32R/D Options</a>
+<li><code>msdata=sdata</code>: <a href="M32R-D-Options.html#M32R%2fD%20Options">M32R/D Options</a>
+<li><code>msdata=sysv</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>msdata=use</code>: <a href="M32R-D-Options.html#M32R%2fD%20Options">M32R/D Options</a>
+<li><code>mshort</code>: <a href="M68hc1x-Options.html#M68hc1x%20Options">M68hc1x Options</a>, <a href="M680x0-Options.html#M680x0%20Options">M680x0 Options</a>
+<li><code>mshort-load-bytes</code>: <a href="ARM-Options.html#ARM%20Options">ARM Options</a>
+<li><code>mshort-load-words</code>: <a href="ARM-Options.html#ARM%20Options">ARM Options</a>
+<li><code>msim</code>: <a href="Xstormy16-Options.html#Xstormy16%20Options">Xstormy16 Options</a>, <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>msingle-exit</code>: <a href="MMIX-Options.html#MMIX%20Options">MMIX Options</a>
+<li><code>msingle-float</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>msingle-pic-base</code>: <a href="ARM-Options.html#ARM%20Options">ARM Options</a>
+<li><code>msio</code>: <a href="HPPA-Options.html#HPPA%20Options">HPPA Options</a>
+<li><code>msize</code>: <a href="AVR-Options.html#AVR%20Options">AVR Options</a>
+<li><code>mslow-bytes</code>: <a href="MCore-Options.html#MCore%20Options">MCore Options</a>
+<li><code>msmall</code>: <a href="TMS320C3x-C4x-Options.html#TMS320C3x%2fC4x%20Options">TMS320C3x/C4x Options</a>
+<li><code>msmall-data</code>: <a href="DEC-Alpha-Options.html#DEC%20Alpha%20Options">DEC Alpha Options</a>
+<li><code>msmall-exec</code>: <a href="S-390-and-zSeries-Options.html#S%2f390%20and%20zSeries%20Options">S/390 and zSeries Options</a>
+<li><code>msmall-memory</code>: <a href="TMS320C3x-C4x-Options.html#TMS320C3x%2fC4x%20Options">TMS320C3x/C4x Options</a>
+<li><code>msmall-text</code>: <a href="DEC-Alpha-Options.html#DEC%20Alpha%20Options">DEC Alpha Options</a>
+<li><code>msoft-float</code>: <a href="FRV-Options.html#FRV%20Options">FRV Options</a>, <a href="PDP-11-Options.html#PDP-11%20Options">PDP-11 Options</a>, <a href="S-390-and-zSeries-Options.html#S%2f390%20and%20zSeries%20Options">S/390 and zSeries Options</a>, <a href="NS32K-Options.html#NS32K%20Options">NS32K Options</a>, <a href="DEC-Alpha-Options.html#DEC%20Alpha%20Options">DEC Alpha Options</a>, <a href="HPPA-Options.html#HPPA%20Options">HPPA Options</a>, <a href="i386-and-x86-64-Options.html#i386%20and%20x86-64%20Options">i386 and x86-64 Options</a>, <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>, <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>, <a href="ARM-Options.html#ARM%20Options">ARM Options</a>, <a href="SPARC-Options.html#SPARC%20Options">SPARC Options</a>, <a href="M680x0-Options.html#M680x0%20Options">M680x0 Options</a>
+<li><code>msoft-quad-float</code>: <a href="SPARC-Options.html#SPARC%20Options">SPARC Options</a>
+<li><code>msoft-reg-count</code>: <a href="M68hc1x-Options.html#M68hc1x%20Options">M68hc1x Options</a>
+<li><code>mspace</code>: <a href="V850-Options.html#V850%20Options">V850 Options</a>, <a href="SH-Options.html#SH%20Options">SH Options</a>
+<li><code>mspe</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>msplit</code>: <a href="PDP-11-Options.html#PDP-11%20Options">PDP-11 Options</a>
+<li><code>msplit-addresses</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>msse</code>: <a href="i386-and-x86-64-Options.html#i386%20and%20x86-64%20Options">i386 and x86-64 Options</a>
+<li><code>mstack-align</code>: <a href="CRIS-Options.html#CRIS%20Options">CRIS Options</a>
+<li><code>mstack-bias</code>: <a href="SPARC-Options.html#SPARC%20Options">SPARC Options</a>
+<li><code>mstrict-align</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>, <a href="M680x0-Options.html#M680x0%20Options">M680x0 Options</a>
+<li><code>mstring</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mstructure-size-boundary</code>: <a href="ARM-Options.html#ARM%20Options">ARM Options</a>
+<li><code>msvr3-shlib</code>: <a href="i386-and-x86-64-Options.html#i386%20and%20x86-64%20Options">i386 and x86-64 Options</a>
+<li><code>msvr4-struct-return</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>MT</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>
+<li><code>mtarget-align</code>: <a href="Xtensa-Options.html#Xtensa%20Options">Xtensa Options</a>
+<li><code>mtda</code>: <a href="V850-Options.html#V850%20Options">V850 Options</a>
+<li><code>mtext</code>: <a href="ARC-Options.html#ARC%20Options">ARC Options</a>
+<li><code>mtext-section-literals</code>: <a href="Xtensa-Options.html#Xtensa%20Options">Xtensa Options</a>
+<li><code>mthreads</code>: <a href="i386-and-x86-64-Options.html#i386%20and%20x86-64%20Options">i386 and x86-64 Options</a>
+<li><code>mthumb</code>: <a href="ARM-Options.html#ARM%20Options">ARM Options</a>
+<li><code>mthumb-interwork</code>: <a href="ARM-Options.html#ARM%20Options">ARM Options</a>
+<li><code>mti</code>: <a href="TMS320C3x-C4x-Options.html#TMS320C3x%2fC4x%20Options">TMS320C3x/C4x Options</a>
+<li><code>mtiny-stack</code>: <a href="AVR-Options.html#AVR%20Options">AVR Options</a>
+<li><code>mtls-direct-seg-refs</code>: <a href="i386-and-x86-64-Options.html#i386%20and%20x86-64%20Options">i386 and x86-64 Options</a>
+<li><code>mtoc</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mtomcat-stats</code>: <a href="FRV-Options.html#FRV%20Options">FRV Options</a>
+<li><code>mtoplevel-symbols</code>: <a href="MMIX-Options.html#MMIX%20Options">MMIX Options</a>
+<li><code>mtpcs-frame</code>: <a href="ARM-Options.html#ARM%20Options">ARM Options</a>
+<li><code>mtpcs-leaf-frame</code>: <a href="ARM-Options.html#ARM%20Options">ARM Options</a>
+<li><code>mtrap-precision</code>: <a href="DEC-Alpha-Options.html#DEC%20Alpha%20Options">DEC Alpha Options</a>
+<li><code>mtune</code>: <a href="CRIS-Options.html#CRIS%20Options">CRIS Options</a>, <a href="S-390-and-zSeries-Options.html#S%2f390%20and%20zSeries%20Options">S/390 and zSeries Options</a>, <a href="DEC-Alpha-Options.html#DEC%20Alpha%20Options">DEC Alpha Options</a>, <a href="i386-and-x86-64-Options.html#i386%20and%20x86-64%20Options">i386 and x86-64 Options</a>, <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>, <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>, <a href="ARM-Options.html#ARM%20Options">ARM Options</a>, <a href="SPARC-Options.html#SPARC%20Options">SPARC Options</a>
+<li><code>multi_module</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>multilib-library-pic</code>: <a href="HPPA-Options.html#HPPA%20Options">HPPA Options</a>
+<li><code>multiply_defined</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>multiply_defined_unused</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>munaligned-doubles</code>: <a href="SPARC-Options.html#SPARC%20Options">SPARC Options</a>
+<li><code>muninit-const-in-rodata</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>munix</code>: <a href="VAX-Options.html#VAX%20Options">VAX Options</a>
+<li><code>munix-asm</code>: <a href="PDP-11-Options.html#PDP-11%20Options">PDP-11 Options</a>
+<li><code>mupdate</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>musermode</code>: <a href="SH-Options.html#SH%20Options">SH Options</a>
+<li><code>mv850</code>: <a href="V850-Options.html#V850%20Options">V850 Options</a>
+<li><code>mv850e</code>: <a href="V850-Options.html#V850%20Options">V850 Options</a>
+<li><code>mv850e1</code>: <a href="V850-Options.html#V850%20Options">V850 Options</a>
+<li><code>mvliw-branch</code>: <a href="FRV-Options.html#FRV%20Options">FRV Options</a>
+<li><code>mvms-return-codes</code>: <a href="DEC-Alpha-VMS-Options.html#DEC%20Alpha%2fVMS%20Options">DEC Alpha/VMS Options</a>
+<li><code>mvolatile-asm-stop</code>: <a href="IA-64-Options.html#IA-64%20Options">IA-64 Options</a>
+<li><code>mvxworks</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mwide-bitfields</code>: <a href="MCore-Options.html#MCore%20Options">MCore Options</a>
+<li><code>mwindiss</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mwords-little-endian</code>: <a href="ARM-Options.html#ARM%20Options">ARM Options</a>
+<li><code>mxgot</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>mxl-call</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>myellowknife</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>mzarch</code>: <a href="S-390-and-zSeries-Options.html#S%2f390%20and%20zSeries%20Options">S/390 and zSeries Options</a>
+<li><code>mzda</code>: <a href="V850-Options.html#V850%20Options">V850 Options</a>
+<li><code>mzero-extend</code>: <a href="MMIX-Options.html#MMIX%20Options">MMIX Options</a>
+<li><code>no-integrated-cpp</code>: <a href="C-Dialect-Options.html#C%20Dialect%20Options">C Dialect Options</a>
+<li><code>no-red-zone</code>: <a href="i386-and-x86-64-Options.html#i386%20and%20x86-64%20Options">i386 and x86-64 Options</a>
+<li><code>noall_load</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>nocpp</code>: <a href="MIPS-Options.html#MIPS%20Options">MIPS Options</a>
+<li><code>nodefaultlibs</code>: <a href="Link-Options.html#Link%20Options">Link Options</a>
+<li><code>nofixprebinding</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>nolibdld</code>: <a href="HPPA-Options.html#HPPA%20Options">HPPA Options</a>
+<li><code>nomultidefs</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>noprebind</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>noseglinkedit</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>nostartfiles</code>: <a href="Link-Options.html#Link%20Options">Link Options</a>
+<li><code>nostdinc</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>
+<li><code>nostdinc++</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>, <a href="C---Dialect-Options.html#C++%20Dialect%20Options">C++ Dialect Options</a>
+<li><code>nostdlib</code>: <a href="Link-Options.html#Link%20Options">Link Options</a>
+<li><code>o</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>
+<li><code>O</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>o</code>: <a href="Overall-Options.html#Overall%20Options">Overall Options</a>
+<li><code>O0</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>O1</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>O2</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>O3</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>Os</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>P</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>
+<li><code>p</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>pagezero_size</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>param</code>: <a href="Optimize-Options.html#Optimize%20Options">Optimize Options</a>
+<li><code>pass-exit-codes</code>: <a href="Overall-Options.html#Overall%20Options">Overall Options</a>
+<li><code>pedantic</code>: <a href="Warnings-and-Errors.html#Warnings%20and%20Errors">Warnings and Errors</a>, <a href="Alternate-Keywords.html#Alternate%20Keywords">Alternate Keywords</a>, <a href="C-Extensions.html#C%20Extensions">C Extensions</a>, <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>, <a href="Warning-Options.html#Warning%20Options">Warning Options</a>, <a href="Standards.html#Standards">Standards</a>
+<li><code>pedantic-errors</code>: <a href="Warnings-and-Errors.html#Warnings%20and%20Errors">Warnings and Errors</a>, <a href="Non-bugs.html#Non-bugs">Non-bugs</a>, <a href="Actual-Bugs.html#Actual%20Bugs">Actual Bugs</a>, <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>, <a href="Warning-Options.html#Warning%20Options">Warning Options</a>, <a href="Standards.html#Standards">Standards</a>
+<li><code>pg</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>pie</code>: <a href="Link-Options.html#Link%20Options">Link Options</a>
+<li><code>pipe</code>: <a href="Overall-Options.html#Overall%20Options">Overall Options</a>
+<li><code>prebind</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>prebind_all_twolevel_modules</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>preprocessor</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>
+<li><code>print-file-name</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>print-libgcc-file-name</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>print-multi-directory</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>print-multi-lib</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>print-prog-name</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>print-search-dirs</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>private_bundle</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>pthread</code>: <a href="RS-6000-and-PowerPC-Options.html#RS%2f6000%20and%20PowerPC%20Options">RS/6000 and PowerPC Options</a>
+<li><code>Q</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>Qn</code>: <a href="System-V-Options.html#System%20V%20Options">System V Options</a>
+<li><code>Qy</code>: <a href="System-V-Options.html#System%20V%20Options">System V Options</a>
+<li><code>read_only_relocs</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>remap</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>
+<li><code>s</code>: <a href="Link-Options.html#Link%20Options">Link Options</a>
+<li><code>S</code>: <a href="Link-Options.html#Link%20Options">Link Options</a>, <a href="Overall-Options.html#Overall%20Options">Overall Options</a>
+<li><code>save-temps</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>sectalign</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>sectcreate</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>sectobjectsymbols</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>sectorder</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>seg1addr</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>seg_addr_table</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>seg_addr_table_filename</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>seglinkedit</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>segprot</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>segs_read_only_addr</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>segs_read_write_addr</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>shared</code>: <a href="Link-Options.html#Link%20Options">Link Options</a>
+<li><code>shared-libgcc</code>: <a href="Link-Options.html#Link%20Options">Link Options</a>
+<li><code>sim</code>: <a href="CRIS-Options.html#CRIS%20Options">CRIS Options</a>
+<li><code>sim2</code>: <a href="CRIS-Options.html#CRIS%20Options">CRIS Options</a>
+<li><code>single_module</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>specs</code>: <a href="Directory-Options.html#Directory%20Options">Directory Options</a>
+<li><code>static</code>: <a href="HPPA-Options.html#HPPA%20Options">HPPA Options</a>, <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>, <a href="Link-Options.html#Link%20Options">Link Options</a>
+<li><code>static-libgcc</code>: <a href="Link-Options.html#Link%20Options">Link Options</a>
+<li><code>std</code>: <a href="Non-bugs.html#Non-bugs">Non-bugs</a>, <a href="Other-Builtins.html#Other%20Builtins">Other Builtins</a>, <a href="C-Dialect-Options.html#C%20Dialect%20Options">C Dialect Options</a>, <a href="Standards.html#Standards">Standards</a>
+<li><code>std=</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>
+<li><code>sub_library</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>sub_umbrella</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>symbolic</code>: <a href="Link-Options.html#Link%20Options">Link Options</a>
+<li><code>target-help</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>, <a href="Overall-Options.html#Overall%20Options">Overall Options</a>
+<li><code>threads</code>: <a href="HPPA-Options.html#HPPA%20Options">HPPA Options</a>
+<li><code>time</code>: <a href="Debugging-Options.html#Debugging%20Options">Debugging Options</a>
+<li><code>traditional</code>: <a href="Incompatibilities.html#Incompatibilities">Incompatibilities</a>, <a href="C-Dialect-Options.html#C%20Dialect%20Options">C Dialect Options</a>
+<li><code>traditional-cpp</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>, <a href="C-Dialect-Options.html#C%20Dialect%20Options">C Dialect Options</a>
+<li><code>trigraphs</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>, <a href="C-Dialect-Options.html#C%20Dialect%20Options">C Dialect Options</a>
+<li><code>twolevel_namespace</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>u</code>: <a href="Link-Options.html#Link%20Options">Link Options</a>
+<li><code>U</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>
+<li><code>umbrella</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>undef</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>
+<li><code>undefined</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>unexported_symbols_list</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>V</code>: <a href="Target-Options.html#Target%20Options">Target Options</a>
+<li><code>v</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>, <a href="Overall-Options.html#Overall%20Options">Overall Options</a>
+<li><code>version</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>, <a href="Overall-Options.html#Overall%20Options">Overall Options</a>
+<li><code>W</code>: <a href="Incompatibilities.html#Incompatibilities">Incompatibilities</a>
+<li><code>w</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>
+<li><code>W</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>w</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wa</code>: <a href="Assembler-Options.html#Assembler%20Options">Assembler Options</a>
+<li><code>Wabi</code>: <a href="C---Dialect-Options.html#C++%20Dialect%20Options">C++ Dialect Options</a>
+<li><code>Waggregate-return</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wall</code>: <a href="Standard-Libraries.html#Standard%20Libraries">Standard Libraries</a>, <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>, <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wbad-function-cast</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wcast-align</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wcast-qual</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wchar-subscripts</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wcomment</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>, <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wcomments</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>
+<li><code>Wconversion</code>: <a href="Protoize-Caveats.html#Protoize%20Caveats">Protoize Caveats</a>, <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wctor-dtor-privacy</code>: <a href="C---Dialect-Options.html#C++%20Dialect%20Options">C++ Dialect Options</a>
+<li><code>Wdeclaration-after-statement</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wdisabled-optimization</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wdiv-by-zero</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>weak_reference_mismatches</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>Weffc++</code>: <a href="C---Dialect-Options.html#C++%20Dialect%20Options">C++ Dialect Options</a>
+<li><code>Wendif-labels</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>, <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Werror</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>, <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Werror-implicit-function-declaration</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wextra</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wfloat-equal</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wformat</code>: <a href="Function-Attributes.html#Function%20Attributes">Function Attributes</a>, <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wformat-nonliteral</code>: <a href="Function-Attributes.html#Function%20Attributes">Function Attributes</a>, <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wformat-security</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wformat-y2k</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wformat=2</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>whatsloaded</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>whyload</code>: <a href="Darwin-Options.html#Darwin%20Options">Darwin Options</a>
+<li><code>Wimplicit</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wimplicit-function-declaration</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wimplicit-int</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wimport</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>
+<li><code>Winit-self</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Winline</code>: <a href="Inline.html#Inline">Inline</a>, <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Winvalid-pch</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wl</code>: <a href="Link-Options.html#Link%20Options">Link Options</a>
+<li><code>Wlarger-than</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wlong-long</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wmain</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wmissing-braces</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wmissing-declarations</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wmissing-format-attribute</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wmissing-noreturn</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wmissing-prototypes</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wmultichar</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wnested-externs</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wno-deprecated</code>: <a href="C---Dialect-Options.html#C++%20Dialect%20Options">C++ Dialect Options</a>
+<li><code>Wno-deprecated-declarations</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wno-div-by-zero</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wno-format-extra-args</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wno-format-zero-length</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wno-import</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wno-invalid-offsetof</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wno-long-long</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wno-multichar</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wno-non-template-friend</code>: <a href="C---Dialect-Options.html#C++%20Dialect%20Options">C++ Dialect Options</a>
+<li><code>Wno-pmf-conversions</code>: <a href="Bound-member-functions.html#Bound%20member%20functions">Bound member functions</a>, <a href="C---Dialect-Options.html#C++%20Dialect%20Options">C++ Dialect Options</a>
+<li><code>Wno-protocol</code>: <a href="Objective-C-Dialect-Options.html#Objective-C%20Dialect%20Options">Objective-C Dialect Options</a>
+<li><code>Wno-variadic-macros</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wnon-virtual-dtor</code>: <a href="C---Dialect-Options.html#C++%20Dialect%20Options">C++ Dialect Options</a>
+<li><code>Wnonnull</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wold-style-cast</code>: <a href="C---Dialect-Options.html#C++%20Dialect%20Options">C++ Dialect Options</a>
+<li><code>Wold-style-definition</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Woverloaded-virtual</code>: <a href="C---Dialect-Options.html#C++%20Dialect%20Options">C++ Dialect Options</a>
+<li><code>Wp</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>
+<li><code>Wpacked</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wpadded</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wparentheses</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wpointer-arith</code>: <a href="Pointer-Arith.html#Pointer%20Arith">Pointer Arith</a>, <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wredundant-decls</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wreorder</code>: <a href="C---Dialect-Options.html#C++%20Dialect%20Options">C++ Dialect Options</a>
+<li><code>Wreturn-type</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wselector</code>: <a href="Objective-C-Dialect-Options.html#Objective-C%20Dialect%20Options">Objective-C Dialect Options</a>
+<li><code>Wsequence-point</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wshadow</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wsign-compare</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wsign-promo</code>: <a href="C---Dialect-Options.html#C++%20Dialect%20Options">C++ Dialect Options</a>
+<li><code>Wstrict-aliasing</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wstrict-aliasing=2</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wstrict-prototypes</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wswitch</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wswitch-enum</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wswitch-switch</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wsynth</code>: <a href="C---Dialect-Options.html#C++%20Dialect%20Options">C++ Dialect Options</a>
+<li><code>Wsystem-headers</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>, <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wtraditional</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>, <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wtrigraphs</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>, <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wundeclared-selector</code>: <a href="Objective-C-Dialect-Options.html#Objective-C%20Dialect%20Options">Objective-C Dialect Options</a>
+<li><code>Wundef</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>, <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wuninitialized</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wunknown-pragmas</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wunreachable-code</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wunused</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wunused-function</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wunused-label</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wunused-macros</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>
+<li><code>Wunused-parameter</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wunused-value</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wunused-variable</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wvariadic-macros</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>Wwrite-strings</code>: <a href="Warning-Options.html#Warning%20Options">Warning Options</a>
+<li><code>x</code>: <a href="Preprocessor-Options.html#Preprocessor%20Options">Preprocessor Options</a>, <a href="Overall-Options.html#Overall%20Options">Overall Options</a>
+<li><code>Xassembler</code>: <a href="Assembler-Options.html#Assembler%20Options">Assembler Options</a>
+<li><code>Xlinker</code>: <a href="Link-Options.html#Link%20Options">Link Options</a>
+<li><code>Ym</code>: <a href="System-V-Options.html#System%20V%20Options">System V Options</a>
+<li><code>YP</code>: <a href="System-V-Options.html#System%20V%20Options">System V Options</a>
+   </ul>
+
+   </body></html>
+

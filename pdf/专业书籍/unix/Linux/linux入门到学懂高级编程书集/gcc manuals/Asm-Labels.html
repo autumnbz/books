@@ -1,0 +1,89 @@
+<html lang="en">
+<head>
+<title>Using the GNU Compiler Collection (GCC)</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Using the GNU Compiler Collection (GCC)">
+<meta name="generator" content="makeinfo 4.6">
+<!--
+Copyright &copy; 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997, 1998,
+1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+
+   <p>Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "GNU General Public License" and "Funding
+Free Software", the Front-Cover texts being (a) (see below), and with
+the Back-Cover Texts being (b) (see below).  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+   <p>(a) The FSF's Front-Cover Text is:
+
+   <p>A GNU Manual
+
+   <p>(b) The FSF's Back-Cover Text is:
+
+   <p>You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development.-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+Node:&nbsp;<a name="Asm%20Labels">Asm Labels</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="Explicit-Reg-Vars.html#Explicit%20Reg%20Vars">Explicit Reg Vars</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Constraints.html#Constraints">Constraints</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="C-Extensions.html#C%20Extensions">C Extensions</a>
+<hr><br>
+</div>
+
+<h3 class="section">Controlling Names Used in Assembler Code</h3>
+
+<p>You can specify the name to be used in the assembler code for a C
+function or variable by writing the <code>asm</code> (or <code>__asm__</code>)
+keyword after the declarator as follows:
+
+<pre class="smallexample">     int foo asm ("myfoo") = 2;
+     </pre>
+
+<p>This specifies that the name to be used for the variable <code>foo</code> in
+the assembler code should be <code>myfoo</code> rather than the usual
+<code>_foo</code>.
+
+   <p>On systems where an underscore is normally prepended to the name of a C
+function or variable, this feature allows you to define names for the
+linker that do not start with an underscore.
+
+   <p>It does not make sense to use this feature with a non-static local
+variable since such variables do not have assembler names.  If you are
+trying to put the variable in a particular register, see <a href="Explicit-Reg-Vars.html#Explicit%20Reg%20Vars">Explicit Reg Vars</a>.  GCC presently accepts such code with a warning, but will
+probably be changed to issue an error, rather than a warning, in the
+future.
+
+   <p>You cannot use <code>asm</code> in this way in a function <em>definition</em>; but
+you can get the same effect by writing a declaration for the function
+before its definition and putting <code>asm</code> there, like this:
+
+<pre class="smallexample">     extern func () asm ("FUNC");
+     
+     func (x, y)
+          int x, y;
+     /* <small class="dots">...</small> */
+     </pre>
+
+   <p>It is up to you to make sure that the assembler names you choose do not
+conflict with any other assembler symbols.  Also, you must not use a
+register name; that would produce completely invalid assembler code.  GCC
+does not as yet have the ability to store static variables in registers. 
+Perhaps that will be added.
+
+   </body></html>
+
