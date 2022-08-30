@@ -1,5 +1,5 @@
 # 关注的人、博客、git、知乎等等
-* [kimichen123] (https://blog.csdn.net/kimichen123)
+* [kimichen123](https://blog.csdn.net/kimichen123)
 * [数据库-知乎-陈宗志-360](https://www.zhihu.com/people/chenzongzhi)
 * [数据库-git-陈宗志-360](http://baotiao.github.io/)
 * [数据库-知乎-鸣嵩-阿里云](https://www.zhihu.com/people/wei_cao)
